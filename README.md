@@ -128,7 +128,7 @@ tools/
   sit.txt       las 12 situaciones (frases, registro, notas, diálogos)
   piper_audio.py  audio HD con Piper (lo usa el workflow)
   build_apk.sh  arma el APK sin Android Studio (paquetes de Ubuntu: aapt, apksigner, zipalign, dalvik-exchange, libandroid-23-java)
-  test_v2.mjs   prueba de punta a punta con Playwright (GitHub, LanguageTool y Gemini simulados)
+  test_v2.mjs   prueba de punta a punta con Playwright (GitHub y LanguageTool simulados); test_voice.mjs: voz, fotos y palabras quitadas
 android/        (opcional, ya no se distribuye) envoltorio WebView del APK
 ```
 
