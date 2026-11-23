@@ -2,14 +2,14 @@
 
 App para aprender polaco cada día. Tiene una caja de aprendizaje (sistema Leitner), 17 unidades del curso, 12 situaciones con la familia de la novia, diálogos con juego de roles y 6 juegos. Funciona sin internet. La sincronización entre dispositivos es opcional.
 
-Una sola base de código (`web/`) sirve para todo:
+Es una **web app** y se actualiza sola: cada push a `main` se publica en GitHub Pages, y todos los dispositivos reciben la versión nueva la próxima vez que la abren.
 
-| Dispositivo | Cómo se usa |
+| Dispositivo | Cómo se instala |
 |---|---|
-| Android (teléfono, tablet, **Samsung DeX**) | APK nativo: `web/download/PolskiBox.apk` (también en la web: `/download/PolskiBox.apk`) |
-| iPad / iPhone | Web instalable: Safari → Compartir → **Añadir a pantalla de inicio** |
-| Windows / Mac | Web instalable: Edge o Chrome → menú ⋯ → **Aplicaciones → Instalar Polski Box** |
-| Profesora | `teacher.html`: agrega palabras y la app las revisa |
+| Android (teléfono, tablet, **Samsung DeX**) | Chrome → menú ⋮ → **Instalar app**, o el botón *Instalar* en Progreso |
+| iPad / iPhone | Safari → Compartir → **Añadir a pantalla de inicio** |
+| Windows / Mac | Edge o Chrome → **Instalar Polski Box** (icono en la barra de direcciones) |
+| Profesora | `teacher.html`: agrega palabras y graba su voz |
 
 Web: **https://marvincg.github.io/Polski-Box/**, disponible después de la configuración de abajo.
 
@@ -129,13 +129,13 @@ tools/
   piper_audio.py  audio HD con Piper (lo usa el workflow)
   build_apk.sh  arma el APK sin Android Studio (paquetes de Ubuntu: aapt, apksigner, zipalign, dalvik-exchange, libandroid-23-java)
   test_v2.mjs   prueba de punta a punta con Playwright (GitHub, LanguageTool y Gemini simulados)
-android/        envoltorio WebView: voz nativa, almacenamiento, compartir y HTTP para sincronizar
+android/        (opcional, ya no se distribuye) envoltorio WebView del APK
 ```
 
 ```bash
 cd tools && npm i @twemoji/svg && python3 prep.py   # regenerar datos (añade --no-audio para saltar el audio)
 cd web && python3 -m http.server 8765               # probar en http://localhost:8765
-tools/build_apk.sh ruta/al/polskibox.keystore       # APK firmado → web/download/PolskiBox.apk
+tools/build_apk.sh ruta/al/polskibox.keystore       # opcional: APK firmado → out/PolskiBox.apk
 ```
 
-**El keystore no está en el repositorio.** Guárdalo en un lugar seguro. Las actualizaciones del APK deben firmarse con la misma clave para instalarse encima de la versión anterior sin perder el progreso.
+El keystore del APK no está en el repositorio.

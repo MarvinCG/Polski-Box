@@ -26,5 +26,5 @@ zipalign -f -p 4 $OUT/unaligned.apk $OUT/aligned.apk
 if [ ! -f "$KS" ]; then echo "keystore $KS not found"; exit 1; fi
 apksigner sign --ks "$KS" --ks-pass pass:${KS_PASS:-polskibox} --key-pass pass:${KS_PASS:-polskibox} --out $OUT/PolskiBox.apk $OUT/aligned.apk
 apksigner verify $OUT/PolskiBox.apk && zipalign -c -p 4 $OUT/PolskiBox.apk && echo "OK $VN ($VC)"
-mkdir -p web/download && cp $OUT/PolskiBox.apk web/download/PolskiBox.apk
-ls -la web/download/PolskiBox.apk
+echo "APK: $OUT/PolskiBox.apk"
+

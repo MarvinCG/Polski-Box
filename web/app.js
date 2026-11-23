@@ -58,6 +58,7 @@ en: {
  ago_now: 'just now', ago_m: '{n} min ago', ago_h: '{n} h ago', ago_d: '{n} d ago',
  tchTitle: 'New from your teacher', tchSub: '{n} new words or phrases waiting for you', tchGo: 'Learn them now', tchBadge: 'NEW', tchUnit: 'From your teacher',
  keys: 'Keyboard: 1–4 answer · Enter next · Space listen · Esc back',
+ inst: 'Install the app', instSub: 'Polski Box is a web app: install it once and it updates by itself. Works offline.', instBtn: 'Install Polski Box', instIOS: 'On iPad / iPhone: tap Share ⬆️ in Safari, then “Add to Home Screen”.', instOther: 'In Chrome or Edge: open the menu ⋮ and choose “Install app” (or “Add to Home screen”).',
  tvOn: 'Use my teacher’s voice', tvSub: '{n} recordings by your teacher. Where she recorded a word you hear her; 🤖 plays the generated voice.', tvGen: 'Generated voice'
 },
 es: {
@@ -104,6 +105,7 @@ es: {
  ago_now: 'ahora mismo', ago_m: 'hace {n} min', ago_h: 'hace {n} h', ago_d: 'hace {n} d',
  tchTitle: 'Nuevo de tu profesora', tchSub: '{n} palabras o frases nuevas te esperan', tchGo: 'Aprenderlas ahora', tchBadge: 'NUEVA', tchUnit: 'De tu profesora',
  keys: 'Teclado: 1–4 responder · Enter siguiente · Espacio escuchar · Esc volver',
+ inst: 'Instalar la app', instSub: 'Polski Box es una web app: la instalas una vez y se actualiza sola. Funciona sin internet.', instBtn: 'Instalar Polski Box', instIOS: 'En iPad / iPhone: en Safari toca Compartir ⬆️ y luego «Añadir a pantalla de inicio».', instOther: 'En Chrome o Edge: abre el menú ⋮ y elige «Instalar app» (o «Agregar a la pantalla principal»).',
  tvOn: 'Usar la voz de mi profesora', tvSub: '{n} grabaciones de tu profesora. Donde ella grabó una palabra, la escuchas a ella; 🤖 reproduce la voz generada.', tvGen: 'Voz generada'
 }};
 const t = (k, v) => { let s = (T[S.cfg.ui] || T.en)[k]; if (s == null) s = T.en[k] || k; if (v) for (const x in v) s = s.replace('{' + x + '}', v[x]); return s; };
@@ -383,10 +385,21 @@ function vMe() {
    <div class="srow"><div class="l">${t('auto')}</div><button class="sw ${cfg.auto ? 'on' : ''}" data-a="tog" data-k="auto" aria-label="${t('auto')}"></button></div>
    <div class="srow"><div class="l">${t('slowDef')}</div><button class="sw ${cfg.slow ? 'on' : ''}" data-a="tog" data-k="slow" aria-label="${t('slowDef')}"></button></div>
    <div class="srow"><div class="l">${t('strict')}<small>${t('strictSub')}</small></div><button class="sw ${cfg.strict ? 'on' : ''}" data-a="tog" data-k="strict" aria-label="${t('strict')}"></button></div></div>
+  ${installCard()}
   ${syncCard()}
   <div class="card"><h2>${t('backup')}</h2><div class="btns two"><button class="btn s sm" data-a="export">${t('export')}</button><button class="btn s sm" data-a="import">${t('import')}</button></div>
    <button class="btn bad sm mt" data-a="reset">${t('reset')}</button></div>
   <div class="card"><h2>${t('about')}</h2><p class="small" style="margin:0">${t('aboutTxt', { n: WA.length, u: U.filter(u => !u.sit && !u.tch).length, s: U.filter(u => u.sit).length })}</p></div>`;
+}
+/* install as an app (Android/Windows: browser prompt; iPad/iPhone: Share > Add to Home Screen) */
+let instEv = null;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); instEv = e; if (V.tab === 'me' && !M) render(); });
+const standalone = () => (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+function installCard() {
+  if (NA() || standalone() || location.protocol !== 'https:') return '';
+  const how = isIOS() ? t('instIOS') : instEv ? '' : t('instOther');
+  return `<div class="card"><h2>📲 ${t('inst')}</h2><p class="small" style="margin:0 0 10px">${t('instSub')}</p>${instEv ? `<button class="btn sm" data-a="install">${t('instBtn')}</button>` : `<div class="fb warn small">${how}</div>`}</div>`;
 }
 function syncCard() {
   if (!window.PBSync) return '';
@@ -691,6 +704,7 @@ const A = {
   rpnext: () => { if (!M) return; M.j++; M.shown = false; M.hint = false; if (M.j >= U[M.u].ctx.length) M.phase = 'sum'; renderSession(); },
   rpagain: () => { if (M) startRP(M.u); },
   sitopen: d => { stopDialogue(); V.tab = 'sit'; V.unit = Number(d.u); V.sheet = null; render(); const m = $('#main'); if (m) m.scrollTop = 0; },
+  install: async () => { if (!instEv) return; instEv.prompt(); try { await instEv.userChoice; } catch (e) {} instEv = null; render(); },
   syncsetup: () => { V.sheet = { k: 'sync' }; render(); },
   syncgo: async () => {
     const code = PBSync.readCode(($('#scode') || {}).value);
@@ -701,7 +715,7 @@ const A = {
   },
   syncnow: () => { PBSync.run('manual'); render(); },
   synccode: () => copyText(PBSync.makeCode(PBSync.conf())),
-  synctch: () => copyText(SITE + 'teacher.html#' + PBSync.makeCode(PBSync.conf(), { n: 'teacher' })),
+  synctch: () => copyText((location.protocol === 'https:' ? location.href.replace(/[#?].*$/, '').replace(/[^/]*$/, '') : SITE) + 'teacher.html#' + PBSync.makeCode(PBSync.conf(), { n: 'teacher' })),
   syncout: () => { PBSync.disconnect(); render(); },
   enext: () => { if (!M) return; M.i++; if (M.i >= M.q.length) { M.phase = 'sum'; } renderSession(); }
 };
