@@ -18,7 +18,12 @@ const L = {
     list: 'Añadidas', none: 'Aún no has añadido nada.', stNew: 'Nueva — todavía no la empezó', stBox: 'Caja {n} de 5', stM: 'Dominada ✓', del: 'Quitar', delQ: '¿Quitar?', removed: 'Quitada.',
     settings: 'Ajustes', name: 'Tu nombre', aiKey: 'Clave de Google Gemini (opcional, gratis)', aiModel: 'Modelo', save: 'Guardar', saved: 'Guardado.', aiHow: 'Créala en aistudio.google.com/apikey. En el nivel gratuito Google puede usar los textos para mejorar sus modelos.',
     out: 'Desconectar', err: 'Error: {e}', e_token: 'El token no es válido.', e_forbidden: 'Sin permiso para escribir en el repositorio.', e_repo: 'No se encontró el repositorio.', e_offline: 'Sin conexión.',
-    ltCredit: 'Revisión ortográfica y gramatical por', by: 'por {n}'
+    ltCredit: 'Revisión ortográfica y gramatical por', by: 'por {n}',
+    tAdd: '➕ Añadir palabras', tVoice: '🎙️ Mi voz', vTitle: 'Graba tu voz', vSub: 'Aaron escuchará tu voz en lugar de la voz generada. Lee cada palabra o frase con naturalidad, a un ritmo un poco más lento de lo normal.',
+    kMine: 'Tus palabras', kSit: 'Situaciones', kDlg: 'Diálogos', kCourse: 'Curso', onlyMissing: 'Solo sin grabar', search: 'Buscar…', done: '{n} de {t} grabadas',
+    rec: 'Grabar', stop: 'Detener', recording: 'Grabando… toca Detener al terminar', processing: 'Procesando…', genVoice: 'Voz generada', herVoice: 'Tu grabación', saveNext: 'Guardar y siguiente', redo: 'Repetir', skip: 'Saltar ›',
+    vSaved: 'Guardada ✓', vDel: 'Borrar grabación', vDelQ: '¿Borrar tu grabación?', vNone: 'No hay nada en esta lista.', noMic: 'Este navegador no puede grabar. Usa Chrome, Edge o Safari actualizados, con permiso de micrófono.', micDenied: 'Sin permiso para el micrófono. Actívalo en el navegador y vuelve a intentarlo.', silence: 'No se oyó nada. Acércate al micrófono y vuelve a grabar.',
+    recorded: 'grabada', speaker: '{w}:', kbd: 'Teclado: Espacio grabar/detener · Enter guardar y siguiente · → saltar · P escuchar', recNew: '🎙️ Grabar tu voz para «{p}»', allDone: '¡Todo grabado en esta lista! 🎉'
   },
   en: {
     ttl: 'Teacher', hello: 'Add words for Aaron', helloSub: 'Type a Polish word or phrase. I check it, add an emoji and the pronunciation, and it shows up in his app as new on the next sync.',
@@ -31,7 +36,12 @@ const L = {
     list: 'Added', none: 'Nothing added yet.', stNew: 'New — not started yet', stBox: 'Box {n} of 5', stM: 'Mastered ✓', del: 'Remove', delQ: 'Remove?', removed: 'Removed.',
     settings: 'Settings', name: 'Your name', aiKey: 'Google Gemini key (optional, free)', aiModel: 'Model', save: 'Save', saved: 'Saved.', aiHow: 'Create it at aistudio.google.com/apikey. On the free tier Google may use the texts to improve its models.',
     out: 'Disconnect', err: 'Error: {e}', e_token: 'The token is not valid.', e_forbidden: 'No permission to write to the repository.', e_repo: 'Repository not found.', e_offline: 'No connection.',
-    ltCredit: 'Spelling and grammar check by', by: 'by {n}'
+    ltCredit: 'Spelling and grammar check by', by: 'by {n}',
+    tAdd: '➕ Add words', tVoice: '🎙️ My voice', vTitle: 'Record your voice', vSub: 'Aaron will hear your voice instead of the generated one. Read each word or phrase naturally, a little slower than usual.',
+    kMine: 'Your words', kSit: 'Situations', kDlg: 'Dialogues', kCourse: 'Course', onlyMissing: 'Only not recorded', search: 'Search…', done: '{n} of {t} recorded',
+    rec: 'Record', stop: 'Stop', recording: 'Recording… tap Stop when you finish', processing: 'Processing…', genVoice: 'Generated voice', herVoice: 'Your recording', saveNext: 'Save & next', redo: 'Again', skip: 'Skip ›',
+    vSaved: 'Saved ✓', vDel: 'Delete recording', vDelQ: 'Delete your recording?', vNone: 'Nothing in this list.', noMic: 'This browser cannot record. Use an up-to-date Chrome, Edge or Safari and allow the microphone.', micDenied: 'No microphone permission. Allow it in the browser and try again.', silence: 'Nothing was heard. Get closer to the microphone and record again.',
+    recorded: 'recorded', speaker: '{w}:', kbd: 'Keyboard: Space record/stop · Enter save & next · → skip · P listen', recNew: '🎙️ Record your voice for “{p}”', allDone: 'Everything in this list is recorded! 🎉'
   }
 };
 let lang = (() => { try { return localStorage.getItem('pbt.lang') || 'es'; } catch (e) { return 'es'; } })();
@@ -61,6 +71,28 @@ async function putFile(path, data, sha, msg) {
   let r; try { r = await fetch(`${API}/repos/${C.r}/contents/${path}`, { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, hdr()), body: JSON.stringify(body) }); } catch (e) { throw new Error('offline'); }
   if (!r.ok) throw ghErr(r);
 }
+async function getSha(path) {
+  const r = await fetch(`${API}/repos/${C.r}/contents/${path}?t=${Date.now()}`, { headers: hdr(), cache: 'no-store' }).catch(() => { throw new Error('offline'); });
+  if (r.status === 404) return null; if (!r.ok) throw ghErr(r); return (await r.json()).sha;
+}
+async function getRaw(path) {   // base64 content of a binary file
+  const r = await fetch(`${API}/repos/${C.r}/contents/${path}?t=${Date.now()}`, { headers: hdr(), cache: 'no-store' }).catch(() => { throw new Error('offline'); });
+  if (!r.ok) throw ghErr(r); return (await r.json()).content.replace(/\s/g, '');
+}
+async function putRaw(path, b64, sha, msg) {
+  for (let k = 0; k < 2; k++) {
+    const body = { message: msg, content: b64 }; if (sha) body.sha = sha;
+    const r = await fetch(`${API}/repos/${C.r}/contents/${path}`, { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, hdr()), body: JSON.stringify(body) }).catch(() => { throw new Error('offline'); });
+    if (r.ok) return (await r.json()).content.sha;
+    if ((r.status === 409 || r.status === 422) && k === 0) { sha = await getSha(path); continue; }
+    throw ghErr(r);
+  }
+}
+async function delFile(path, sha, msg) {
+  sha = sha || await getSha(path); if (!sha) return;
+  const r = await fetch(`${API}/repos/${C.r}/contents/${path}`, { method: 'DELETE', headers: Object.assign({ 'Content-Type': 'application/json' }, hdr()), body: JSON.stringify({ message: msg, sha }) }).catch(() => { throw new Error('offline'); });
+  if (!r.ok && r.status !== 404) throw ghErr(r);
+}
 /** read-modify-write with retries, so the student's sync and the teacher never overwrite each other */
 async function update(path, fn, msg, empty) {
   for (let k = 0; k < 4; k++) {
@@ -72,11 +104,11 @@ async function update(path, fn, msg, empty) {
 
 /* ---------------- data */
 const BUILT = (window.WORDS || []);
-let WL = [], CARDS = {}, CFG = {}, myName = (() => { try { return localStorage.getItem('pbt.name') || ''; } catch (e) { return ''; } })();
+let WL = [], CARDS = {}, CFG = {}, VI = {}, myName = (() => { try { return localStorage.getItem('pbt.name') || ''; } catch (e) { return ''; } })();
 const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l').replace(/[^\p{L}\p{N} ]/gu, ' ').replace(/\s+/g, ' ').trim();
 async function loadAll() {
-  const [w, p, c] = await Promise.all([getFile('words.json'), getFile('progress.json').catch(() => ({ data: null })), getFile('config.json').catch(() => ({ data: null }))]);
-  WL = (w.data && w.data.words) || []; CARDS = (p.data && p.data.cards) || {}; CFG = c.data || {};
+  const [w, p, c, v] = await Promise.all([getFile('words.json'), getFile('progress.json').catch(() => ({ data: null })), getFile('config.json').catch(() => ({ data: null })), getFile('voice.json').catch(() => ({ data: null }))]);
+  WL = (w.data && w.data.words) || []; CARDS = (p.data && p.data.cards) || {}; CFG = c.data || {}; VI = (v.data && v.data.items) || {};
 }
 const toEmoji = p => { try { return String.fromCodePoint(...p.split('-').map(h => parseInt(h, 16))); } catch (e) { return ''; } };
 const EMAP = (() => {   // gloss words of the built-in vocabulary -> emoji, to suggest pictures without AI
@@ -143,8 +175,9 @@ function render() {
       <label for="code">${t('code')}</label><input class="field" id="code" placeholder="PBX1.…" autocomplete="off"><button class="btn mt" data-a="connect">${t('connectBtn')}</button><div id="cerr"></div></div>`;
     return;
   }
+  if (TAB === 'voice') { tw.innerHTML = tabsHTML() + voiceHTML(); return; }
   const regSeg = [['', t('regN')], ['F', t('regF')], ['I', t('regI')]].map(([v, l]) => `<button class="${F.r === v ? 'on' : ''}" data-a="reg" data-v="${v}">${l}</button>`).join('');
-  tw.innerHTML = `<div class="tgrid"><div>
+  tw.innerHTML = tabsHTML() + (lastAdded != null && WL[lastAdded] && window.PBRec && PBRec.supported() ? `<button class="btn s mt" style="margin-bottom:14px" data-a="recnew">${esc(t('recNew', { p: WL[lastAdded].pl }))}</button>` : '') + `<div class="tgrid"><div>
     <div class="card"><h2>${t('hello')}</h2><p class="gl" style="margin:0">${t('helloSub')}</p>
       <label for="f_pl">${t('pl')}</label><input class="field pl-in" id="f_pl" lang="pl" value="${esc(F.pl)}" autocomplete="off" spellcheck="true" placeholder="np. Świetnie Pani gotuje.">
       <div class="keys mt">${'ą ć ę ł ń ó ś ź ż'.split(' ').map(c => `<button data-a="key" data-c="${c}">${c}</button>`).join('')}</div>
@@ -206,6 +239,100 @@ function resHTML(dup) {
   return `<div class="card">${h}</div>`;
 }
 
+/* ---------------- voice recording tab */
+let TAB = 'add', lastAdded = null;
+const VF = { kind: 'mine', missing: true, q: '' };
+let VCUR = null, PREV = null, VSTATE = 'idle', VMSG = '', vDelQ = false;
+const AUD = {};   // key -> object URL of downloaded recordings
+const UN = window.UNITS || [];
+const glOf = x => lang === 'en' ? (x.en || x.es) : (x.es || x.en);
+function vItems(kind) {
+  if (kind === 'mine') return WL.map((w, k) => w.del ? null : { key: 't' + k, pl: w.pl, gl: glOf(w), ipa: w.ipa || (window.PolishIPA ? PolishIPA(w.pl) : '') }).filter(Boolean);
+  if (kind === 'dlg') { const o = []; UN.forEach(u => (u.ctx || []).forEach(l => o.push({ key: l.a, pl: l.pl, gl: glOf(l), who: lang === 'en' ? l.we : l.w, unit: lang === 'en' ? u.en : u.es }))); return o; }
+  return BUILT.filter(w => !!(UN[w.u] && UN[w.u].sit) === (kind === 'sit')).map(w => ({ key: w.a, pl: w.pl, gl: glOf(w), ipa: w.ipa, unit: UN[w.u] ? (lang === 'en' ? UN[w.u].en : UN[w.u].es) : '' }));
+}
+function vList() {
+  const q = norm(VF.q);
+  return vItems(VF.kind).filter(x => (!VF.missing || !VI[x.key] || (VCUR && x.key === VCUR.key)) && (!q || norm(x.pl + ' ' + x.gl).includes(q)));
+}
+function tabsHTML() { return `<div class="seg tabs" style="margin-bottom:14px;max-width:420px"><button class="${TAB === 'add' ? 'on' : ''}" data-a="tab" data-v="add">${t('tAdd')}</button><button class="${TAB === 'voice' ? 'on' : ''}" data-a="tab" data-v="voice">${t('tVoice')}</button></div>`; }
+function voiceHTML() {
+  if (!(window.PBRec && PBRec.supported())) return `<div class="card"><h2>${t('vTitle')}</h2><div class="fb bad">${t('noMic')}</div></div>`;
+  const all = vItems(VF.kind), list = vList(), nDone = all.filter(x => VI[x.key]).length;
+  if (!VCUR || !all.find(x => x.key === VCUR.key)) VCUR = list[0] || null;
+  const segK = [['mine', t('kMine')], ['sit', t('kSit')], ['dlg', t('kDlg')], ['course', t('kCourse')]].map(([v, l]) => `<button class="${VF.kind === v ? 'on' : ''}" data-a="vkind" data-v="${v}">${l}</button>`).join('');
+  let rec = '';
+  if (!VCUR) rec = `<div class="card"><div class="empty">${all.length ? t('allDone') : t('vNone')}</div></div>`;
+  else {
+    const c = VCUR, has = !!VI[c.key], rn = VSTATE === 'rec';
+    rec = `<div class="card recc"><div class="small">${c.unit ? esc(c.unit) + ' · ' : ''}${t('done', { n: nDone, t: all.length })}</div>
+      ${c.who ? `<div class="small" style="font-weight:700;margin-top:8px">${esc(t('speaker', { w: c.who }))}</div>` : ''}
+      <div class="pl" style="font-size:clamp(24px,4vw,34px);margin-top:8px">${esc(c.pl)}</div>${c.ipa ? `<div class="ipa">/${esc(c.ipa)}/</div>` : ''}<div class="gl mt">${esc(c.gl)}</div>
+      <div class="lvl mt"><i id="lvl"></i></div>
+      <div class="rbtns mt">
+        <button class="btn ${rn ? 'bad' : ''} recb" data-a="vrec" ${VSTATE === 'proc' ? 'disabled' : ''}>${rn ? '⏹ ' + t('stop') : '🎙️ ' + t('rec')}</button>
+        <button class="btn s sm" data-a="vgen" ${rn ? 'disabled' : ''}>🔊 ${t('genVoice')}</button>
+        ${PREV || has ? `<button class="btn s sm" data-a="vhers" ${rn ? 'disabled' : ''}>▶ ${t('herVoice')}${has && !PREV ? ' ✓' : ''}</button>` : ''}
+      </div>
+      ${VMSG ? `<div class="small mt" style="font-weight:700">${esc(VMSG)}</div>` : ''}
+      ${PREV ? `<div class="btns two mt"><button class="btn" data-a="vsave" id="vsave">✓ ${t('saveNext')}</button><button class="btn g" data-a="vredo">↻ ${t('redo')}</button></div>` : ''}
+      <div class="btns two mt"><button class="btn g sm" data-a="vskip">${t('skip')}</button>${has && !PREV ? `<button class="btn g sm" data-a="vdel">${vDelQ ? t('vDelQ') : '🗑 ' + t('vDel')}</button>` : '<span></span>'}</div>
+      <div class="small mt kbh">${t('kbd')}</div></div>`;
+  }
+  const rows = list.slice(0, 300).map(x => `<button class="wrow ${VCUR && x.key === VCUR.key ? 'sel' : ''}" data-a="vsel" data-k="${esc(x.key)}"><div class="t"><b>${esc(x.pl)}</b><span class="gl">${esc(x.gl)}</span></div>${VI[x.key] ? `<span class="tag m">✓ ${t('recorded')}</span>` : ''}</button>`).join('');
+  return `<div class="tgrid"><div><div class="card"><h2>${t('vTitle')}</h2><p class="gl" style="margin:0">${t('vSub')}</p></div>${rec}</div>
+    <div><div class="card"><div class="seg" style="flex-wrap:wrap">${segK}</div>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:10px"><input class="field" id="vq" placeholder="${esc(t('search'))}" value="${esc(VF.q)}" autocomplete="off" style="flex:1"><label style="margin:0;display:flex;gap:6px;align-items:center;white-space:nowrap"><input type="checkbox" id="vmiss" ${VF.missing ? 'checked' : ''}> ${t('onlyMissing')}</label></div>
+      <div class="vlist mt">${rows || `<div class="empty">${t('vNone')}</div>`}</div></div></div></div>`;
+}
+function vrender() { if (TAB === 'voice') { const y = window.scrollY; render(); window.scrollTo(0, y); } }
+function vnext() {
+  const list = vList(), i = list.findIndex(x => VCUR && x.key === VCUR.key);
+  const nx = list.filter((x, j) => j > i && !VI[x.key])[0] || list.filter(x => !VI[x.key] && (!VCUR || x.key !== VCUR.key))[0] || list[i + 1] || null;
+  VCUR = nx; PREV = null; VMSG = ''; vDelQ = false; VSTATE = 'idle';
+}
+function playUrl(u) { try { const a = new Audio(u); a.play().catch(() => {}); } catch (e) {} }
+const VACT = {
+  tab(d) { readForm(); TAB = d.v; render(); },
+  recnew() { TAB = 'voice'; VF.kind = 'mine'; VCUR = vItems('mine').find(x => x.key === 't' + lastAdded) || null; lastAdded = null; PREV = null; render(); },
+  vkind(d) { VF.kind = d.v; VCUR = null; PREV = null; VMSG = ''; render(); },
+  vsel(d) { if (VSTATE === 'rec') return; VCUR = vItems(VF.kind).find(x => x.key === d.k) || null; PREV = null; VMSG = ''; vDelQ = false; vrender(); },
+  async vrec() {
+    if (VSTATE === 'rec') {
+      VSTATE = 'proc'; VMSG = t('processing'); vrender();
+      try { const blob = await PBRec.stop(); PREV = await PBRec.toMp3(blob); VMSG = ''; VSTATE = 'idle'; vrender(); playUrl(PREV.url); }
+      catch (e) { VSTATE = 'idle'; PREV = null; VMSG = e.message === 'silence' ? t('silence') : String(e.message || e); vrender(); }
+      return;
+    }
+    if (VSTATE !== 'idle') return;
+    try {
+      PREV = null; VMSG = t('recording'); VSTATE = 'rec'; vrender();
+      await PBRec.start(lv => { const e = document.getElementById('lvl'); if (e) e.style.width = Math.min(100, Math.round(lv * 140)) + '%'; }, () => { if (VSTATE === 'rec') VACT.vrec(); });
+    } catch (e) { VSTATE = 'idle'; VMSG = /denied|allowed|permission/i.test(e.name + e.message) ? t('micDenied') : t('noMic'); vrender(); }
+  },
+  vredo() { PREV = null; VMSG = ''; VACT.vrec(); },
+  vgen() { if (!VCUR || !window.speechSynthesis) return; const vs = speechSynthesis.getVoices().filter(v => /^pl/i.test(v.lang)).sort((a, b) => (/natural|neural|online|enhanced|premium|google/i.test(b.name) ? 1 : 0) - (/natural|neural|online|enhanced|premium|google/i.test(a.name) ? 1 : 0)); const u = new SpeechSynthesisUtterance(VCUR.pl.replace(/\([^)]*\)/g, ' ')); u.lang = 'pl-PL'; if (vs[0]) u.voice = vs[0]; u.rate = 0.92; speechSynthesis.cancel(); speechSynthesis.speak(u); },
+  async vhers() {
+    if (!VCUR) return; if (PREV) return playUrl(PREV.url);
+    const k = VCUR.key; if (AUD[k]) return playUrl(AUD[k]);
+    try { const b64 = await getRaw('voice/' + k + '.mp3'); AUD[k] = 'data:audio/mpeg;base64,' + b64; playUrl(AUD[k]); } catch (e) { toast(errT(e)); }
+  },
+  async vsave() {
+    if (!PREV || !VCUR) return; const k = VCUR.key, P0 = PREV; const b = document.getElementById('vsave'); if (b) { b.disabled = true; b.textContent = t('adding'); }
+    try {
+      const sha = await putRaw('voice/' + k + '.mp3', P0.b64, VI[k] && VI[k].sha, `voice: ${VCUR.pl}`);
+      const d = await update('voice.json', x => { x.items = x.items || {}; x.items[k] = { at: Date.now(), sha, s: P0.secs, by: myName || undefined }; }, `voice index: ${k}`, { v: 1, items: {} });
+      VI = d.items; AUD[k] = 'data:audio/mpeg;base64,' + P0.b64; toast(t('vSaved')); vnext(); vrender();
+    } catch (e) { toast(errT(e)); if (b) { b.disabled = false; b.textContent = '✓ ' + t('saveNext'); } }
+  },
+  vskip() { if (VSTATE === 'rec') return; vnext(); vrender(); },
+  async vdel() {
+    if (!VCUR) return; if (!vDelQ) { vDelQ = true; return vrender(); }
+    const k = VCUR.key; vDelQ = false;
+    try { await delFile('voice/' + k + '.mp3', VI[k] && VI[k].sha, `voice: remove ${k}`); const d = await update('voice.json', x => { x.items = x.items || {}; delete x.items[k]; }, `voice index: remove ${k}`, { v: 1, items: {} }); VI = d.items; delete AUD[k]; toast(t('removed')); vrender(); }
+    catch (e) { toast(errT(e)); }
+  }
+};
 const ACT = {
   connect() { const c = readCode($('#code').value); if (!c) { $('#cerr').innerHTML = `<div class="fb bad mt small">${t('badCode')}</div>`; return; } C = { r: c.r, t: c.t }; try { localStorage.setItem(KEY, JSON.stringify(C)); } catch (e) {} boot(); },
   out() { C = null; try { localStorage.removeItem(KEY); } catch (e) {} render(); },
@@ -250,7 +377,7 @@ const ACT = {
     if (F.r) e.r = F.r; if (F.ne.trim()) e.ne = F.ne.trim(); if (F.nn.trim()) e.nn = F.nn.trim(); if (myName) e.by = myName;
     try {
       const d = await update('words.json', d => { d.words = d.words || []; d.words.push(e); }, `teacher: ${pl}`, { v: 1, words: [] });
-      WL = d.words; Object.assign(F, { pl: '', es: '', en: '', r: '', ne: '', nn: '', em: '' }); lastLT = []; lastAI = null;
+      WL = d.words; lastAdded = WL.length - 1; Object.assign(F, { pl: '', es: '', en: '', r: '', ne: '', nn: '', em: '' }); lastLT = []; lastAI = null;
       render(); toast(t('added'));
     } catch (er) { toast(errT(er)); b.disabled = false; b.textContent = '➕ ' + t('add'); }
   },
@@ -268,9 +395,19 @@ const ACT = {
     } catch (er) { toast(errT(er)); }
   }
 };
-document.addEventListener('click', e => { const a = e.target.closest('[data-a]'); if (a && ACT[a.dataset.a]) { e.preventDefault(); ACT[a.dataset.a](a.dataset, a); } const l = e.target.closest('#lang button'); if (l) { readForm(); lang = l.dataset.l; try { localStorage.setItem('pbt.lang', lang); } catch (x) {} render(); } });
-document.addEventListener('input', e => { if (e.target.id === 'f_es' || e.target.id === 'f_en') { clearTimeout(window.__ed); window.__ed = setTimeout(drawEmojis, 300); } });
-document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.id === 'f_pl') { e.preventDefault(); ACT.check(); } if (e.key === 'Enter' && e.target.id === 'code') ACT.connect(); });
+document.addEventListener('click', e => { const a = e.target.closest('[data-a]'); const f = a && (VACT[a.dataset.a] || ACT[a.dataset.a]); if (f) { e.preventDefault(); f(a.dataset, a); } const l = e.target.closest('#lang button'); if (l) { readForm(); lang = l.dataset.l; try { localStorage.setItem('pbt.lang', lang); } catch (x) {} render(); } });
+document.addEventListener('change', e => { if (e.target.id === 'vmiss') { VF.missing = e.target.checked; render(); } });
+document.addEventListener('input', e => { if (e.target.id === 'vq') { VF.q = e.target.value; clearTimeout(window.__vq); window.__vq = setTimeout(() => { const pos = e.target.selectionStart; render(); const n = document.getElementById('vq'); if (n) { n.focus(); try { n.setSelectionRange(pos, pos); } catch (x) {} } }, 250); return; }
+  if (e.target.id === 'f_es' || e.target.id === 'f_en') { clearTimeout(window.__ed); window.__ed = setTimeout(drawEmojis, 300); } });
+document.addEventListener('keydown', e => {
+  if (TAB === 'voice' && !/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) {
+    if (e.key === ' ') { e.preventDefault(); VACT.vrec(); return; }
+    if (e.key === 'Enter' && PREV) { e.preventDefault(); VACT.vsave(); return; }
+    if (e.key === 'ArrowRight') { e.preventDefault(); VACT.vskip(); return; }
+    if (e.key === 'p' || e.key === 'P') { VACT.vhers(); return; }
+    if (e.key === 'g' || e.key === 'G') { VACT.vgen(); return; }
+  }
+  if (e.key === 'Enter' && e.target.id === 'f_pl') { e.preventDefault(); ACT.check(); } if (e.key === 'Enter' && e.target.id === 'code') ACT.connect(); });
 async function boot() {
   render(); if (!C) return;
   try { await loadAll(); } catch (e) { toast(errT(e)); if (e.message === 'token' || e.message === 'repo') { /* keep the form; let them reconnect */ } }

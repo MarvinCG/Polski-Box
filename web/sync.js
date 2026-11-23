@@ -96,6 +96,50 @@ function toRemote(S) {
 }
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
+/* ---------------- teacher voice: voice.json index + voice/<key>.mp3, kept on the device for offline use */
+const VKEY = 'polskibox.voiceidx', VMETA = 'polskibox.voicemeta';
+let VIDX = {}, VLOC = {};
+try { VIDX = JSON.parse(sget(VKEY) || '{}'); VLOC = JSON.parse(sget(VMETA) || '{}'); } catch (e) {}
+const okKey = k => /^[A-Za-z0-9_-]{1,40}$/.test(k);
+let idb = null;
+function db() {
+  if (idb) return idb;
+  idb = new Promise((res, rej) => { try { const r = indexedDB.open('polskibox', 1); r.onupgradeneeded = () => r.result.createObjectStore('voice'); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); } catch (e) { rej(e); } });
+  return idb;
+}
+const mem = {};
+const VS = {
+  async get(k) {
+    if (mem[k]) return mem[k];
+    const n = NA(); if (n && n.vget) { const v = n.vget(k); return v || null; }
+    try { const d = await db(); return await new Promise(r => { const q = d.transaction('voice').objectStore('voice').get(k); q.onsuccess = () => r(q.result || null); q.onerror = () => r(null); }); } catch (e) { return null; }
+  },
+  async put(k, b64) {
+    const n = NA(); if (n && n.vput) { n.vput(k, b64); return; }
+    try { const d = await db(); await new Promise(r => { const tx = d.transaction('voice', 'readwrite'); tx.objectStore('voice').put(b64, k); tx.oncomplete = tx.onerror = r; }); } catch (e) { mem[k] = b64; }
+  },
+  async del(k) {
+    delete mem[k]; const n = NA(); if (n && n.vdel) { n.vdel(k); return; }
+    try { const d = await db(); d.transaction('voice', 'readwrite').objectStore('voice').delete(k); } catch (e) {}
+  }
+};
+async function fetchVoice(c, k) {
+  const r = await gh(c, 'GET', 'voice/' + k + '.mp3?t=' + Date.now());
+  if (r.status !== 200) throw httpErr(r);
+  const b64 = JSON.parse(r.text).content.replace(/\s/g, '');
+  await VS.put(k, b64); VLOC[k] = (VIDX[k] && VIDX[k].at) || Date.now(); sset(VMETA, JSON.stringify(VLOC));
+  return b64;
+}
+let pref = false;
+async function prefetch(c) {   // download new or re-recorded voices in the background
+  if (pref) return; pref = true;
+  try {
+    for (const k in VLOC) if (!VIDX[k]) { await VS.del(k); delete VLOC[k]; }
+    sset(VMETA, JSON.stringify(VLOC));
+    for (const k in VIDX) { if (!okKey(k) || (VLOC[k] || 0) >= (VIDX[k].at || 0)) continue; try { await fetchVoice(c, k); } catch (e) { if (e.message === 'offline') break; } }
+  } finally { pref = false; }
+}
+
 /* ---------------- the sync engine, wired to the app by PBSync.attach(api) */
 let api = null, busy = null, again = false, timer = null;
 const st = { last: Number(sget('polskibox.synclast') || 0), err: '', running: false };
@@ -112,6 +156,7 @@ async function run(reason) {
         const up = toRemote(api.get());
         if (!rf.data || !same(up, Object.assign({}, rf.data))) await putFile(c, 'progress.json', up, rf.sha, `progress (${api.device()})`);
         try { const wf = await getFile(c, 'words.json'); const list = (wf.data && wf.data.words) || []; sset('polskibox.custom', JSON.stringify(list)); api.custom(list); } catch (e) { if (e.message !== 'repo') throw e; }
+        try { const vf = await getFile(c, 'voice.json'); VIDX = (vf.data && vf.data.items) || {}; sset(VKEY, JSON.stringify(VIDX)); prefetch(c); } catch (e) { if (e.message !== 'repo') throw e; }
         st.last = Date.now(); sset('polskibox.synclast', String(st.last)); break;
       } catch (e) {
         st.err = e.message || 'error';
@@ -133,6 +178,12 @@ window.PBSync = {
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') run('hide'); else soon(500); });
   },
   conf, setConf, makeCode, readCode, merge, toRemote, run, soon, state: st,
+  voice: {
+    has: k => !!(k && VIDX[k]),
+    count: () => Object.keys(VIDX).length,
+    /** base64 MP3 of the teacher's recording: from the device, or downloaded now if it is not there yet */
+    async get(k) { if (!VIDX[k]) return null; let b = (VLOC[k] || 0) >= (VIDX[k].at || 0) ? await VS.get(k) : null; if (!b && conf()) { try { b = await fetchVoice(conf(), k); } catch (e) { b = await VS.get(k); } } return b; }
+  },
   /** Check a repo + token and create the data files if the repository is empty. */
   async connect(repo, token) {
     const c = { repo: repo.trim().replace(/^https?:\/\/github\.com\//, '').replace(/\.git$/, '').replace(/\/$/, ''), token: token.trim() };

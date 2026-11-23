@@ -192,6 +192,31 @@ public class MainActivity extends Activity {
             }).start();
         }
 
+        /** Teacher voice recordings (base64 MP3) stored in the app's private files, so they play offline. */
+        private java.io.File vfile(String key) {
+            if (key == null || !key.matches("[A-Za-z0-9_-]{1,40}")) return null;
+            java.io.File d = new java.io.File(getFilesDir(), "voice"); if (!d.exists()) d.mkdirs();
+            return new java.io.File(d, key + ".b64");
+        }
+
+        @JavascriptInterface
+        public void vput(String key, String b64) {
+            java.io.File f = vfile(key); if (f == null) return;
+            try { java.io.FileOutputStream o = new java.io.FileOutputStream(f); o.write(b64.getBytes("UTF-8")); o.close(); } catch (Exception e) { }
+        }
+
+        @JavascriptInterface
+        public String vget(String key) {
+            java.io.File f = vfile(key); if (f == null || !f.exists()) return "";
+            try {
+                java.io.FileInputStream in = new java.io.FileInputStream(f); ByteArrayOutputStream bo = new ByteArrayOutputStream(); byte[] buf = new byte[16384]; int n;
+                while ((n = in.read(buf)) > 0) bo.write(buf, 0, n); in.close(); return bo.toString("UTF-8");
+            } catch (Exception e) { return ""; }
+        }
+
+        @JavascriptInterface
+        public void vdel(String key) { java.io.File f = vfile(key); if (f != null) f.delete(); }
+
         @JavascriptInterface
         public void share(final String text) {
             runOnUiThread(new Runnable() {

@@ -49,6 +49,7 @@ Los datos que guarda en el repositorio privado:
 | `progress.json` | Cajas, racha por dispositivo, récords y ajustes |
 | `words.json` | Palabras de la profesora (solo se agregan; las borradas se marcan) |
 | `config.json` | Clave opcional de Gemini |
+| `voice.json`, `voice/*.mp3` | Grabaciones de la profesora |
 
 > ⚠️ El código y el enlace llevan el token. Compártelos solo con tus dispositivos y con tu profesora. Si se filtra, revócalo en GitHub y crea otro.
 
@@ -66,6 +67,20 @@ Sin clave, igual se revisan ortografía y gramática con [LanguageTool](https://
 En el nivel gratuito de Gemini, Google puede usar los textos para mejorar sus modelos. Son solo palabras de vocabulario.
 
 ---
+
+## Voz de la profesora
+
+En `teacher.html` → **🎙️ Mi voz**, la profesora graba cada palabra, frase o línea de diálogo:
+
+1. Toca 🎙️ **Grabar** y lee la palabra.
+2. Toca **Detener**. Puede comparar su grabación con la voz generada.
+3. Toca **Guardar y siguiente**.
+
+Con teclado: Espacio graba o detiene, Enter guarda y pasa a la siguiente, → salta.
+
+El audio se recorta, se normaliza y se convierte a MP3 (~10 KB por palabra) en su propio navegador, con [lamejs](https://github.com/zhuker/lamejs) (LGPL). Se guarda en `voice/` del repositorio privado de datos.
+
+La app descarga las grabaciones al sincronizar y las guarda en el dispositivo, así que funcionan sin internet. Donde hay grabación suena su voz, marcada con 👩‍🏫 en el botón; el botón 🤖 reproduce la voz generada. Se puede apagar en **Progreso → Ajustes → Usar la voz de mi profesora**.
 
 ## Voz
 

@@ -57,7 +57,8 @@ en: {
  e_token: 'The token was rejected. Check it or create a new one.', e_forbidden: 'The token has no access to this repository (Contents: read & write).', e_repo: 'Repository not found. Check owner/name and the token’s repository access.', e_offline: 'No connection. It will sync later.', e_conflict: 'Another device synced at the same time. Try again.',
  ago_now: 'just now', ago_m: '{n} min ago', ago_h: '{n} h ago', ago_d: '{n} d ago',
  tchTitle: 'New from your teacher', tchSub: '{n} new words or phrases waiting for you', tchGo: 'Learn them now', tchBadge: 'NEW', tchUnit: 'From your teacher',
- keys: 'Keyboard: 1–4 answer · Enter next · Space listen · Esc back'
+ keys: 'Keyboard: 1–4 answer · Enter next · Space listen · Esc back',
+ tvOn: 'Use my teacher’s voice', tvSub: '{n} recordings by your teacher. Where she recorded a word you hear her; 🤖 plays the generated voice.', tvGen: 'Generated voice'
 },
 es: {
  today: 'Hoy', box: 'Mi caja', words: 'Palabras', me: 'Progreso', streak: 'días seguidos',
@@ -102,14 +103,15 @@ es: {
  e_token: 'GitHub rechazó el token. Revísalo o crea uno nuevo.', e_forbidden: 'El token no tiene acceso a este repositorio (Contents: lectura y escritura).', e_repo: 'No se encontró el repositorio. Revisa dueño/nombre y el acceso del token.', e_offline: 'Sin conexión. Se sincronizará después.', e_conflict: 'Otro dispositivo sincronizó al mismo tiempo. Inténtalo de nuevo.',
  ago_now: 'ahora mismo', ago_m: 'hace {n} min', ago_h: 'hace {n} h', ago_d: 'hace {n} d',
  tchTitle: 'Nuevo de tu profesora', tchSub: '{n} palabras o frases nuevas te esperan', tchGo: 'Aprenderlas ahora', tchBadge: 'NUEVA', tchUnit: 'De tu profesora',
- keys: 'Teclado: 1–4 responder · Enter siguiente · Espacio escuchar · Esc volver'
+ keys: 'Teclado: 1–4 responder · Enter siguiente · Espacio escuchar · Esc volver',
+ tvOn: 'Usar la voz de mi profesora', tvSub: '{n} grabaciones de tu profesora. Donde ella grabó una palabra, la escuchas a ella; 🤖 reproduce la voz generada.', tvGen: 'Voz generada'
 }};
 const t = (k, v) => { let s = (T[S.cfg.ui] || T.en)[k]; if (s == null) s = T.en[k] || k; if (v) for (const x in v) s = s.replace('{' + x + '}', v[x]); return s; };
 
 /* ------------------------------------------------------------ state */
 const KEY = 'polskibox.v1';
 const newDev = () => 'd' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-const blank = () => ({ v: 2, dev: newDev(), cards: {}, intro: { d: -1, n: 0 }, log: {}, ol: {}, q: [], qt: 0, cfgT: 0, gb: {}, seenT: 0, devs: {}, resetAt: 0, cfg: { npd: 8, mode: 'mix', ui: 'en', gl: 'en', voice: 'auto', vname: '', slow: false, strict: false, auto: true, ok: false } });
+const blank = () => ({ v: 2, dev: newDev(), cards: {}, intro: { d: -1, n: 0 }, log: {}, ol: {}, q: [], qt: 0, cfgT: 0, gb: {}, seenT: 0, devs: {}, resetAt: 0, cfg: { npd: 8, mode: 'mix', ui: 'en', gl: 'en', voice: 'auto', vname: '', tv: true, slow: false, strict: false, auto: true, ok: false } });
 const store = {
   get() {
     try { const n = NA(); if (n && n.load) { const s = n.load('state'); if (s) return JSON.parse(s); } } catch (e) {}
@@ -218,8 +220,21 @@ const Voice = (() => {
     try { if (WS && (WS.speaking || WS.pending)) WS.cancel(); } catch (e) {}
     fin();
   }
-  function say(it, slow) {
+  const tvKey = it => it && (it.vk || it.a);
+  const tvHas = it => S.cfg.tv !== false && !!window.PBSync && PBSync.voice.has(tvKey(it));
+  function say(it, slow, gen) {
     stop();
+    if (!gen && tvHas(it)) {   // the teacher's own recording
+      const my = ++seq;
+      return new Promise(done => {
+        res = done; const sl = slow || S.cfg.slow;
+        PBSync.voice.get(tvKey(it)).then(b64 => {
+          if (my !== seq || res !== done) return;
+          if (!b64) { res = null; say(it, slow, true).then(done); return; }
+          try { au = new Audio('data:audio/mpeg;base64,' + b64); au.playbackRate = sl ? 0.75 : 1; au.onended = au.onerror = fin; const p = au.play(); if (p && p.catch) p.catch(fin); } catch (e) { fin(); }
+        });
+      });
+    }
     return new Promise(done => {
       res = done; const sl = slow || S.cfg.slow, en = engine(it);
       if (en === 'nat') {
@@ -249,9 +264,12 @@ const Voice = (() => {
     try { const n = NA(); if (n && n.ttsInfo && n.ttsInfo() === 'nopl') return t('vNopl'); } catch (e) {}
     return t('vNone');
   }
-  return { say, stop, info, voices: () => wv, engine };
+  return { say, stop, info, voices: () => wv, engine, tvHas };
 })();
-const play = (w, slow) => Voice.say(w, slow);
+const play = (w, slow, gen) => Voice.say(w, slow, gen);
+/* extra button to hear the generated voice when the teacher recorded this word */
+const genBtn = w => Voice.tvHas(w) ? `<button class="say slow" data-a="play" data-i="${w.i}" data-g="1" title="${esc(t('tvGen'))}" aria-label="${esc(t('tvGen'))}">🤖</button>` : '';
+const tvCls = w => Voice.tvHas(w) ? ' tv' : '';
 
 /* ------------------------------------------------------------ base render */
 function render() {
@@ -361,6 +379,7 @@ function vMe() {
    <div class="srow"><div class="l">${t('gl')}</div>${seg('gl', [['en', 'English'], ['es', 'Español']])}</div>
    <div class="srow"><div class="l">${t('voice')}<small>${t('vNote')}</small><small><b>${esc(Voice.info())}</b></small></div>${seg('voice', [['auto', t('vAuto')], ['device', t('vDev')], ['bundled', t('vBun')]])}</div>
    ${Voice.voices().length ? `<div class="srow"><div class="l">${t('vPick')}<small>${t('vTip')}</small></div><select class="field sel" id="vname"><option value="">${t('vBest')}</option>${Voice.voices().map(v => `<option ${S.cfg.vname === v.name ? 'selected' : ''} value="${esc(v.name)}">${esc(v.name)}</option>`).join('')}</select></div>` : ''}
+   ${window.PBSync && PBSync.conf() ? `<div class="srow"><div class="l">👩‍🏫 ${t('tvOn')}<small>${t('tvSub', { n: PBSync.voice.count() })}</small></div><button class="sw ${cfg.tv !== false ? 'on' : ''}" data-a="tog" data-k="tv" aria-label="${esc(t('tvOn'))}"></button></div>` : ''}
    <div class="srow"><div class="l">${t('auto')}</div><button class="sw ${cfg.auto ? 'on' : ''}" data-a="tog" data-k="auto" aria-label="${t('auto')}"></button></div>
    <div class="srow"><div class="l">${t('slowDef')}</div><button class="sw ${cfg.slow ? 'on' : ''}" data-a="tog" data-k="slow" aria-label="${t('slowDef')}"></button></div>
    <div class="srow"><div class="l">${t('strict')}<small>${t('strictSub')}</small></div><button class="sw ${cfg.strict ? 'on' : ''}" data-a="tog" data-k="strict" aria-label="${t('strict')}"></button></div></div>
@@ -407,7 +426,7 @@ function sheetHTML() {
   if (s.k === 'word') {
     const w = W[s.i], c = S.cards[s.i];
     b = `<div class="center">${picHTML(w, 'lg')}<div class="pl mt" style="font-size:28px">${esc(w.pl)}</div><div class="ipa">/${esc(w.ipa)}/</div><div class="gl mt" style="font-size:18px">${esc(gloss(w))}${regChip(w)}</div>
-    <div class="mt" style="display:flex;gap:12px;justify-content:center;align-items:center"><button class="say big" data-a="play" data-i="${w.i}" aria-label="${t('say')}">${speakerSvg}</button><button class="say slow" data-a="play" data-i="${w.i}" data-s="1" aria-label="${t('slow')}">🐢</button></div>
+    <div class="mt" style="display:flex;gap:12px;justify-content:center;align-items:center"><button class="say big${tvCls(w)}" data-a="play" data-i="${w.i}" aria-label="${t('say')}">${speakerSvg}</button><button class="say slow" data-a="play" data-i="${w.i}" data-s="1" aria-label="${t('slow')}">🐢</button>${genBtn(w)}</div>
     ${note(w) ? `<div class="fb warn mt" style="text-align:left"><h4>${t('note')}</h4>${esc(note(w))}</div>` : ''}
     <div class="mt">${stTag(w.i)}${c ? ` <span class="small">✓ ${c.c} · ✗ ${c.x}</span>` : ''}</div></div>`;
   } else if (s.k === 'box') {
@@ -539,7 +558,7 @@ function introHTML() {
   if (S.cfg.auto) setTimeout(() => { if (M && M.phase === 'intro' && M.intro[M.ii] === w.i) play(w); }, 250);
   return `${topBar(M.ii / M.intro.length, (M.ii + 1) + '/' + M.intro.length)}<div class="stage intro ex2"><div class="q">${t('newWord')}${w.tch ? ' · 👩‍🏫' : ''}</div><div class="lr"><div class="lhs">${picHTML(w, 'lg')}</div><div class="rhs">
   <div><div class="pl">${esc(w.pl)}</div><div class="ipa">/${esc(w.ipa)}/</div><div class="gl mt" style="font-size:19px">${esc(gloss(w))}${regChip(w)}</div></div>
-  <div style="display:flex;gap:12px;justify-content:center;align-items:center"><button class="say big" data-a="play" data-i="${w.i}">${speakerSvg}</button><button class="say slow" data-a="play" data-i="${w.i}" data-s="1">🐢</button></div>
+  <div style="display:flex;gap:12px;justify-content:center;align-items:center"><button class="say big${tvCls(w)}" data-a="play" data-i="${w.i}">${speakerSvg}</button><button class="say slow" data-a="play" data-i="${w.i}" data-s="1">🐢</button>${genBtn(w)}</div>
   ${note(w) ? `<div class="fb warn" style="text-align:left"><h4>${t('note')}</h4>${esc(note(w))}</div>` : `<div class="small">${t('intro')}</div>`}</div></div></div>
   <div class="foot"><button class="btn" data-a="inext">${last ? t('gotIt') : t('next')}</button></div>`;
 }
@@ -551,7 +570,7 @@ function exHTML() {
   M.cur = { it, w, ty, build, done: false, tokens: [], used: [], hint: 0 };
   const lab = Math.min(M.i + 1, M.q.length) + '/' + M.q.length;
   let st = '';
-  const speak = (big) => `<div style="text-align:center;display:flex;gap:12px;justify-content:center;align-items:center"><button class="say big" data-a="play" data-i="${w.i}">${speakerSvg}</button><button class="say slow" data-a="play" data-i="${w.i}" data-s="1">🐢</button></div>`;
+  const speak = (big) => `<div style="text-align:center;display:flex;gap:12px;justify-content:center;align-items:center"><button class="say big${tvCls(w)}" data-a="play" data-i="${w.i}">${speakerSvg}</button><button class="say slow" data-a="play" data-i="${w.i}" data-s="1">🐢</button>${genBtn(w)}</div>`;
   if (ty === 'A') {
     const ds = shuffle([w].concat(distract(w, 3, gloss))); st = `<div class="q">${t('qMean')}</div>${lr(`${picHTML(w, 'lg')}<div class="center"><div class="pl">${esc(w.pl)}</div><div class="ipa">/${esc(w.ipa)}/</div></div>${speak()}`, opts(ds.map(gloss), ds.indexOf(w)))}`;
     if (S.cfg.auto) setTimeout(() => { if (M && M.cur && M.cur.w === w && !M.cur.done) play(w); }, 250);
@@ -618,7 +637,7 @@ const A = {
   tab: d => { stopDialogue(); V.tab = d.k; V.unit = null; V.sheet = null; render(); const m = $('#main'); if (m) m.scrollTop = 0; },
   start: () => startSession('daily'), more: () => startSession('more'),
   free: d => { const b = Number(d.b); startSession('free', WA.filter(w => status(w.i) === b).map(w => w.i)); },
-  play: d => { play(W[d.i], !!d.s); },
+  play: d => { play(W[d.i], !!d.s, !!d.g); },
   word: d => { V.sheet = { k: 'word', i: Number(d.i) }; render(); },
   boxsheet: d => { V.sheet = { k: 'box', b: Number(d.b) }; render(); },
   close: () => { V.sheet = null; render(); },
@@ -628,7 +647,7 @@ const A = {
   dial: d => { playDialogue(Number(d.u)); },
   line: d => { stopDialogue(); Voice.say(U[d.u].ctx[d.j]); },
   cfg: d => { const k = d.k; let v = d.v; if (k === 'npd') v = Number(v); S.cfg[k] = v; S.cfgT = Date.now(); save(); render(); },
-  tog: d => { S.cfg[d.k] = !S.cfg[d.k]; S.cfgT = Date.now(); save(); render(); },
+  tog: d => { S.cfg[d.k] = d.k === 'tv' ? S.cfg.tv === false : !S.cfg[d.k]; S.cfgT = Date.now(); save(); render(); },
   share: () => shareText(reportText()), copyrep: () => copyText(reportText()),
   export: () => shareText(JSON.stringify(S)),
   import: () => { V.sheet = { k: 'import' }; render(); },
@@ -746,7 +765,7 @@ function setCustom(list) {
   const live = [];
   (list || []).forEach((e, k) => {
     if (!e || e.del || !e.pl) return;
-    const w = { i: CB + k, u: TU, pl: e.pl, es: e.es || '', en: e.en || e.es || '', ipa: e.ipa || (window.PolishIPA ? PolishIPA(e.pl) : ''), em: e.em || '📝', tch: 1, at: e.at || 0 };
+    const w = { i: CB + k, vk: 't' + k, u: TU, pl: e.pl, es: e.es || '', en: e.en || e.es || '', ipa: e.ipa || (window.PolishIPA ? PolishIPA(e.pl) : ''), em: e.em || '📝', tch: 1, at: e.at || 0 };
     if (e.r === 'F' || e.r === 'I') w.r = e.r;
     if (e.ne || e.nn) { w.ne = e.ne || e.nn; w.nn = e.nn || e.ne; }
     W[CB + k] = w; live.push(w);

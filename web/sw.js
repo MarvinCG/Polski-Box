@@ -1,6 +1,6 @@
 /* Offline cache for Polski Box (web / iPad / Windows). The build replaces VERSION. */
 const VERSION = 'pb-dev';
-const CORE = ['./', 'index.html', 'style.css', 'app.js', 'games.js', 'sync.js', 'ipa.js', 'data.js', 'audio-hd.js', 'manifest.webmanifest', 'icons/icon-192.png', 'teacher.html', 'teacher.js'];
+const CORE = ['./', 'index.html', 'style.css', 'app.js', 'games.js', 'sync.js', 'ipa.js', 'data.js', 'audio-hd.js', 'manifest.webmanifest', 'icons/icon-192.png', 'teacher.html', 'teacher.js', 'recorder.js', 'vendor/lame.min.js'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(VERSION).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== VERSION).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {

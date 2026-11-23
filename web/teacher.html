@@ -34,9 +34,16 @@
   .top .seg{background:rgba(255,255,255,.14)}
   .lt{font-size:12px;color:var(--mute);margin-top:16px}
   .lt a{color:var(--co)}
+  .tabs button{flex:1;padding:10px 12px}
+  .lvl{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.lvl i{display:block;height:100%;width:0;background:var(--ok);transition:width .08s}
+  .rbtns{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px}.rbtns .btn{min-height:56px}
+  .recb{font-size:19px}.recc{border:2px solid var(--co)}
+  .vlist{max-height:62vh;overflow-y:auto}.vlist .wrow.sel{background:var(--sky);border-radius:12px;padding-left:8px}
+  @media (max-width:560px){.rbtns{grid-template-columns:1fr 1fr}.rbtns .recb{grid-column:1/3}}
+  @media (hover:none){.kbh{display:none}}
 </style>
 </head><body>
 <div class="top"><h1>Polski Box<small id="ttl">Profesora</small></h1><div class="seg" id="lang"><button data-l="es">ES</button><button data-l="en">EN</button></div></div>
 <div class="tw" id="tw"></div>
-<script src="data.js"></script><script src="ipa.js"></script><script src="teacher.js"></script>
+<script src="data.js"></script><script src="ipa.js"></script><script src="vendor/lame.min.js"></script><script src="recorder.js"></script><script src="teacher.js"></script>
 </body></html>
