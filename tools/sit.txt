@@ -213,18 +213,18 @@ Nie mam karty. | No tengo tarjeta. | I don't have a card. | 🙅
 > Mamá:Her mum | Nie, dziękuję. Kartą, proszę. | No, gracias. Con tarjeta, por favor. | No, thank you. By card, please.
 > Tú:You | Poproszę torbę. | Una bolsa, por favor. | A bag, please.
 
-## s09 | Con su hermano | With her brother | Z jej bratem | 🍻 | Trato informal («ty») para conversar con su hermano o sus amigos: juegos, fútbol, cerveza. | Informal «ty» for chatting with her brother or friends: games, football, beer.
+## s09 | Con su hermano | With her brother | Z jej bratem | 🎮 | Trato informal («ty») para conversar con su hermano (16 años) o con amigos: colegio, videojuegos, fútbol. | Informal «ty» for chatting with her brother (16) or friends: school, games, football.
 Cześć, jestem Aaron. Miło cię poznać. | Hola, soy Aaron. Gusto en conocerte. | Hi, I'm Aaron. Nice to meet you. | 🙋 | I
 Mówmy sobie na ty. | Tuteémonos. | Let's use “ty” with each other. | 🤝 | I
 Jak leci? | ¿Cómo va todo? | How's it going? | 😎 | I | Coloquial. | Colloquial.
-Gdzie pracujesz? | ¿Dónde trabajas? | Where do you work? | 🏢 | I
+Do jakiej szkoły chodzisz? | ¿A qué colegio vas? | Which school do you go to? | 🏫 | I
 Grasz w gry? | ¿Juegas videojuegos? | Do you play games? | 🎮 | I
 W co grasz? | ¿A qué juegas? | What do you play? | 🕹️ | I
 Lubisz piłkę nożną? | ¿Te gusta el fútbol? | Do you like football (soccer)? | ⚽ | I
 Komu kibicujesz? | ¿De qué equipo eres? | Who do you support? | 🏟️ | I
-Napijesz się piwa? | ¿Te tomas una cerveza? | Would you like a beer? | 🍺 | I
+Napijesz się czegoś? | ¿Quieres tomar algo? | Would you like something to drink? | 🥤 | I
 Jasne, chętnie! | ¡Claro, con gusto! | Sure, gladly! | 👍 | I
-Twoje zdrowie! | ¡Salud! | Cheers! | 🍻 | I
+Zagramy razem? | ¿Jugamos juntos? | Shall we play together? | 🎮 | I
 Serio? | ¿En serio? | Seriously? | 😲 | I
 No coś ty! | ¡No puede ser! | No way! | 🤯 | I | Coloquial. | Colloquial.
 Spoko. | Tranquilo / Está bien. | Cool / No worries. | 👌 | I | Coloquial, de «spokojnie». | Colloquial, short for “spokojnie”.
@@ -234,12 +234,12 @@ Dzięki za pomoc! | ¡Gracias por la ayuda! | Thanks for the help! | 🙌 | I
 kumpel | amigo / compa (coloquial) | buddy / mate | 🧑 | I
 > Hermano:Her brother | Cześć! Jestem jej bratem. | ¡Hola! Soy su hermano. | Hi! I'm her brother.
 > Tú:You | Cześć! Miło cię poznać. Mówmy sobie na ty. | ¡Hola! Gusto en conocerte. Tuteémonos. | Hi! Nice to meet you. Let's use “ty”.
-> Hermano:Her brother | Jasne! Jak leci? Napijesz się piwa? | ¡Claro! ¿Cómo va todo? ¿Te tomas una cerveza? | Sure! How's it going? Would you like a beer?
+> Hermano:Her brother | Jasne! Jak leci? Napijesz się czegoś? | ¡Claro! ¿Cómo va todo? ¿Quieres tomar algo? | Sure! How's it going? Would you like something to drink?
 > Tú:You | Chętnie, dzięki! | ¡Con gusto, gracias! | Gladly, thanks!
 > Hermano:Her brother | Grasz w gry komputerowe? | ¿Juegas videojuegos de computadora? | Do you play computer games?
-> Tú:You | Tak, lubię. A ty? W co grasz? | Sí, me gusta. ¿Y tú? ¿A qué juegas? | Yes, I like them. And you? What do you play?
+> Tú:You | Tak, gram. A ty? W co grasz? | Sí, juego. ¿Y tú? ¿A qué juegas? | Yes, I do. And you? What do you play?
 > Hermano:Her brother | Głównie na konsoli. | Sobre todo en consola. | Mainly on a console.
-> Tú:You | Serio? Fajnie! Twoje zdrowie! | ¿En serio? ¡Qué bien! ¡Salud! | Seriously? Cool! Cheers!
+> Tú:You | Serio? Fajnie! Zagramy razem? | ¿En serio? ¡Qué bien! ¿Jugamos juntos? | Seriously? Cool! Shall we play together?
 
 ## s10 | En la mesa familiar | At the family table | Przy rodzinnym stole | 🍲 | Almuerzo o cena con la familia: platos típicos, cubiertos, elogios, brindis y ayudar a recoger. | Lunch or dinner with the family: typical dishes, cutlery, compliments, toasts and helping clear up.
 talerz | plato | plate | 🍽️

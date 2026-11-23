@@ -47,8 +47,8 @@ await row.asElement().click(); await A.waitForTimeout(150); await A.click('.shee
 ok(Math.abs(await top() - y3) < 4, `opening and closing a word keeps the list position (${y3} → ${await top()})`);
 
 /* ---------------- app: edit a phrase (beer → water) */
-const beer = await A.evaluate(() => { const w = window.__pb.WA().find(w => /piwa/.test(w.pl)); return { i: w.i, pl: w.pl, a: w.a, key: w.vk }; });
-ok(!!beer.i, 'found the beer phrase: ' + beer.pl);
+const beer = await A.evaluate(() => { const w = window.__pb.WA().find(w => /czegoś/.test(w.pl)); return { i: w.i, pl: w.pl, a: w.a, key: w.vk }; });
+ok(!!beer.i, 'found the drink phrase: ' + beer.pl);
 await A.evaluate(i => window.__pb.A.word({ i }), beer.i); await A.click('.sheet [data-a="edit"]'); await A.waitForTimeout(100);
 await A.fill('#e_pl', 'Napijesz się wody?'); await A.fill('#e_es', '¿Quieres agua?'); await A.click('[data-a="edcheck"]'); await A.waitForTimeout(300);
 ok(await A.isVisible('text=Sin errores de ortografía.'), 'spelling check in the edit form');

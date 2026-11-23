@@ -256,6 +256,11 @@ open(OUT + '/data.js', 'w', encoding='utf-8').write(
     'window.UNITS=' + json.dumps(uout, ensure_ascii=False, separators=(',', ':')) +
     ';\nwindow.WORDS=' + json.dumps(words, ensure_ascii=False, separators=(',', ':')) + ';\n')
 
+# re-record any line whose text changed since the last run (make() skips files that already exist)
+try: _old = json.load(open(OUT + '/audio.json', encoding='utf-8'))
+except Exception: _old = {}
+for _n, _t in jobs:
+    if _old.get(_n) not in (None, _t) and os.path.exists(f'{OUT}/a/{_n}.mp3'): os.remove(f'{OUT}/a/{_n}.mp3')
 json.dump(dict(jobs), open(OUT + '/audio.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
 
 def make(job):
