@@ -2,7 +2,7 @@
 'use strict';
 const U = window.UNITS, W = window.WORDS.slice();   // W[id] -> word (ids of teacher words start at CB)
 let WA = W.slice();                                 // live list of all words
-const CB = 5000, SITE = 'https://marvincg.github.io/polski-box/';
+const CB = 5000, SITE = 'https://marvincg.github.io/Polski-Box/';
 const TU = U.push({ id: 'tch', es: 'De tu profesora', en: 'From your teacher', pl: 'Od nauczycielki', ic: '1f469-200d-1f3eb', wk: 0, tch: 1, ds: '', dn: '', ctx: [] }) - 1;
 const INT = [0, 1, 2, 4, 8, 16], MAST = 60;
 const $ = (s, r) => (r || document).querySelector(s);

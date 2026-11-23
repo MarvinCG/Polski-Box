@@ -11,7 +11,7 @@ Una sola base de código (`web/`) sirve para todo:
 | Windows / Mac | Web instalable: Edge o Chrome → menú ⋯ → **Aplicaciones → Instalar Polski Box** |
 | Profesora | `teacher.html`: agrega palabras y la app las revisa |
 
-Web: **https://marvincg.github.io/polski-box/**, disponible después de la configuración de abajo.
+Web: **https://marvincg.github.io/Polski-Box/**, disponible después de la configuración de abajo.
 
 ---
 
