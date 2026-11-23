@@ -1,6 +1,6 @@
 # Polski Box 🇵🇱
 
-App para aprender polaco cada día. Tiene una caja de aprendizaje (sistema Leitner), 17 unidades del curso, 12 situaciones con la familia de la novia, diálogos con juego de roles y 6 juegos. Funciona sin internet. La sincronización entre dispositivos es opcional.
+App para aprender polaco cada día. La app está en español (con polaco como opción en Ajustes) y la página de la profesora en polaco (con español como opción). Tiene una caja de aprendizaje (sistema Leitner), 17 unidades del curso, 12 situaciones con la familia de la novia, diálogos con juego de roles y 6 juegos. Funciona sin internet. La sincronización entre dispositivos es opcional.
 
 Es una **web app** y se actualiza sola: cada push a `main` se publica en GitHub Pages, y todos los dispositivos reciben la versión nueva la próxima vez que la abren.
 

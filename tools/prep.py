@@ -245,6 +245,13 @@ print('situations', len(sit_units), 'entries', n - 428, 'missing emoji', sit_mis
 shutil.copy(TW + '1f469-200d-1f3eb.svg', OUT + '/e/1f469-200d-1f3eb.svg')  # teacher unit icon
 print('words', n, 'jobs', len(jobs), 'missing emoji', missing)
 # the "Pa pa" rule etc. need no extra data
+# the app is Spanish (student) + Polish (teacher): English glosses, notes and names stay in this script only
+DROP = ('en', 'nn', 'we', 'dn')
+def strip(o):
+    if isinstance(o, list): return [strip(x) for x in o]
+    if isinstance(o, dict): return {k: strip(v) for k, v in o.items() if k not in DROP}
+    return o
+uout, words = strip(uout), strip(words)
 open(OUT + '/data.js', 'w', encoding='utf-8').write(
     'window.UNITS=' + json.dumps(uout, ensure_ascii=False, separators=(',', ':')) +
     ';\nwindow.WORDS=' + json.dumps(words, ensure_ascii=False, separators=(',', ':')) + ';\n')

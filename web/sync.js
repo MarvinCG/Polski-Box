@@ -68,7 +68,7 @@ function httpErr(r) {
 }
 
 /* ---------------- merging (pure; tested in tools/test_sync.mjs) */
-const SYNC_CFG = ['npd', 'mode', 'ui', 'gl', 'strict', 'auto', 'slow'];
+const SYNC_CFG = ['npd', 'mode', 'ui', 'strict', 'auto', 'slow'];
 function cardT(c) { return c ? (c.t || (c.l || 0) * 864e5) : -1; }
 function mergeLog(a, b) { const o = Object.assign({}, a || {}); for (const d in (b || {})) { const x = o[d], y = b[d]; o[d] = !x ? y : { a: Math.max(x.a || 0, y.a || 0), ok: Math.max(x.ok || 0, y.ok || 0), n: Math.max(x.n || 0, y.n || 0), x: Math.max(x.x || 0, y.x || 0) }; } return o; }
 /** local: app state S. remote: progress.json content (or null). Returns the new local state. */

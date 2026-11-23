@@ -12,10 +12,10 @@ const L = {
   es: {
     ttl: 'Profesora', hello: 'Añadir palabras para Aaron', helloSub: 'Escribe una palabra o una frase en polaco. La reviso, le pongo emoji y pronunciación, y aparece en su app como nueva en la próxima sincronización.',
     connect: 'Conectar', connectSub: 'Abre el enlace que te mandó Aaron, o pega aquí el código que empieza con PBX1.', code: 'Código', connectBtn: 'Conectar', badCode: 'Ese código no es válido.',
-    pl: 'Polaco', es: 'Español', en: 'Inglés', reg: 'Registro', regN: 'Neutral', regF: 'Formal (Pan/Pani)', regI: 'Informal (ty)', noteEs: 'Nota en español (opcional)', noteEn: 'Nota en inglés (opcional)',
+    pl: 'Polaco', es: 'Traducción al español', reg: 'Registro', regN: 'Neutral', regF: 'Formal (Pan/Pani)', regI: 'Informal (ty)', noteEs: 'Nota para Aaron (opcional, en español)',
     emoji: 'Emoji', emojiSug: 'o elige uno', check: 'Revisar', listen: 'Escuchar', add: 'Añadir a la app', adding: 'Guardando…', checking: 'Revisando…',
     ltOk: 'Ortografía y gramática: sin errores.', ltIssues: 'Ortografía y gramática', dup: 'Ya existe en la app:', ipa: 'Pronunciación (IPA)', ltDown: 'No se pudo revisar la ortografía ahora. Puedes añadirla igual.',
-    needTr: 'Falta la traducción al español o al inglés.', needPl: 'Escribe primero la palabra en polaco.', added: '¡Añadida! Aaron la verá como nueva.',
+    needTr: 'Falta la traducción al español.', needPl: 'Escribe primero la palabra en polaco.', added: '¡Añadida! Aaron la verá como nueva.',
     list: 'Añadidas', none: 'Aún no has añadido nada.', stNew: 'Nueva — todavía no la empezó', stBox: 'Caja {n} de 5', stM: 'Dominada ✓', del: 'Borrar', delQ: '¿Borrar?', removed: 'Borrada.',
     out: 'Desconectar', err: 'Error: {e}', e_token: 'El token no es válido.', e_forbidden: 'Sin permiso para escribir en el repositorio.', e_repo: 'No se encontró el repositorio.', e_offline: 'Sin conexión.',
     ltCredit: 'Revisión ortográfica y gramatical por',
@@ -28,32 +28,13 @@ const L = {
     hideSub: 'Aaron ya no la verá en sus sesiones ni en los juegos. Se puede volver a mostrar.', hideBtn: 'Quitar de la app', unhide: 'Volver a mostrar', hidOk: 'Quitada de la app.', unhidOk: 'Visible otra vez.', hidByS: 'Aaron la quitó de su estudio.', hidByT: 'La quitaste de la app.',
     speaker: '{w}:', kbd: 'Teclado: Espacio grabar/detener · Enter guardar y siguiente · → siguiente · P escuchar', recNew: '🎙️ Grabar tu voz para «{p}»', allDone: '¡Todo listo en esta lista! 🎉', hasVoice: 'con tu voz', hasPhoto: 'con foto', hidden: 'quitada'
   },
-  en: {
-    ttl: 'Teacher', hello: 'Add words for Aaron', helloSub: 'Type a Polish word or phrase. I check it, add an emoji and the pronunciation, and it shows up in his app as new on the next sync.',
-    connect: 'Connect', connectSub: 'Open the link Aaron sent you, or paste the code that starts with PBX1.', code: 'Code', connectBtn: 'Connect', badCode: 'That code is not valid.',
-    pl: 'Polish', es: 'Spanish', en: 'English', reg: 'Register', regN: 'Neutral', regF: 'Formal (Pan/Pani)', regI: 'Informal (ty)', noteEs: 'Note in Spanish (optional)', noteEn: 'Note in English (optional)',
-    emoji: 'Emoji', emojiSug: 'or pick one', check: 'Check', listen: 'Listen', add: 'Add to the app', adding: 'Saving…', checking: 'Checking…',
-    ltOk: 'Spelling and grammar: no issues.', ltIssues: 'Spelling and grammar', dup: 'Already in the app:', ipa: 'Pronunciation (IPA)', ltDown: 'The spelling check is not available right now. You can still add it.',
-    needTr: 'Add the Spanish or English translation.', needPl: 'Type the Polish word first.', added: 'Added! Aaron will see it as new.',
-    list: 'Added', none: 'Nothing added yet.', stNew: 'New — not started yet', stBox: 'Box {n} of 5', stM: 'Mastered ✓', del: 'Delete', delQ: 'Delete?', removed: 'Deleted.',
-    out: 'Disconnect', err: 'Error: {e}', e_token: 'The token is not valid.', e_forbidden: 'No permission to write to the repository.', e_repo: 'Repository not found.', e_offline: 'No connection.',
-    ltCredit: 'Spelling and grammar check by',
-    tAdd: '➕ Add a word', tWords: '📚 Words', wTitle: 'Voice, photo and remove', wSub: 'Pick a word or phrase from the list. You can record your voice, give it a photo from your gallery, or remove it if Aaron does not need it.',
-    kMine: 'Your words', kSit: 'Situations', kDlg: 'Dialogues', kCourse: 'Course', search: 'Search…', fAll: 'All', fNoVoice: 'Without your voice', fNoPhoto: 'Without photo', fHidden: 'Removed',
-    nVoice: '{n} of {t} with your voice', voiceT: '🎙️ Your voice', photoT: '🖼️ Photo', hideT: '🚫 Remove from the app',
-    rec: 'Record', stop: 'Stop', recording: 'Recording… tap Stop when you finish', processing: 'Processing…', genVoice: 'Generated voice', herVoice: 'Your recording', saveNext: 'Save & next', redo: 'Again', skip: 'Next ›',
-    vSaved: 'Saved ✓', vDel: 'Delete recording', vDelQ: 'Delete your recording?', vNone: 'Nothing in this list.', noMic: 'This browser cannot record. Use an up-to-date Chrome, Edge or Safari and allow the microphone.', micDenied: 'No microphone permission. Allow it in the browser and try again.', silence: 'Nothing was heard. Get closer to the microphone and record again.',
-    pick: '📷 Choose photo', change: '📷 Change photo', savePhoto: 'Save photo', cancel: 'Cancel', delPhoto: 'Remove photo', delPhotoQ: 'Remove the photo?', photoSaved: 'Photo saved ✓', photoDel: 'Photo removed.', photoErr: 'That image could not be read.', photoOpt: '🖼️ Photo (optional, instead of the emoji)', photoSub: 'Shown instead of the drawing. A clear photo with the object in the middle works best.',
-    hideSub: 'Aaron will no longer see it in his sessions or games. It can be shown again.', hideBtn: 'Remove from the app', unhide: 'Show again', hidOk: 'Removed from the app.', unhidOk: 'Visible again.', hidByS: 'Aaron removed it from his study.', hidByT: 'You removed it from the app.',
-    speaker: '{w}:', kbd: 'Keyboard: Space record/stop · Enter save & next · → next · P listen', recNew: '🎙️ Record your voice for “{p}”', allDone: 'Everything in this list is done! 🎉', hasVoice: 'your voice', hasPhoto: 'photo', hidden: 'removed'
-  },
   pl: {
     ttl: 'Nauczycielka', hello: 'Dodaj słówka dla Aarona', helloSub: 'Wpisz polskie słowo lub zwrot. Sprawdzę je, dodam emoji i wymowę, a przy następnej synchronizacji pojawi się w jego aplikacji jako nowe.',
     connect: 'Połącz', connectSub: 'Otwórz link od Aarona albo wklej tu kod zaczynający się od PBX1.', code: 'Kod', connectBtn: 'Połącz', badCode: 'Ten kod jest nieprawidłowy.',
-    pl: 'Po polsku', es: 'Po hiszpańsku', en: 'Po angielsku', reg: 'Rejestr', regN: 'Neutralnie', regF: 'Formalnie (Pan/Pani)', regI: 'Nieformalnie (ty)', noteEs: 'Uwaga po hiszpańsku (opcjonalnie)', noteEn: 'Uwaga po angielsku (opcjonalnie)',
+    pl: 'Po polsku', es: 'Tłumaczenie na hiszpański', reg: 'Rejestr', regN: 'Neutralnie', regF: 'Formalnie (Pan/Pani)', regI: 'Nieformalnie (ty)', noteEs: 'Uwaga dla Aarona (opcjonalnie, po hiszpańsku)',
     emoji: 'Emoji', emojiSug: 'albo wybierz', check: 'Sprawdź', listen: 'Posłuchaj', add: 'Dodaj do aplikacji', adding: 'Zapisuję…', checking: 'Sprawdzam…',
     ltOk: 'Pisownia i gramatyka: bez błędów.', ltIssues: 'Pisownia i gramatyka', dup: 'Już jest w aplikacji:', ipa: 'Wymowa (IPA)', ltDown: 'Sprawdzanie pisowni jest teraz niedostępne. Możesz dodać słowo mimo to.',
-    needTr: 'Dodaj tłumaczenie na hiszpański lub angielski.', needPl: 'Najpierw wpisz polskie słowo.', added: 'Dodano! Aaron zobaczy je jako nowe.',
+    needTr: 'Dodaj tłumaczenie na hiszpański.', needPl: 'Najpierw wpisz polskie słowo.', added: 'Dodano! Aaron zobaczy je jako nowe.',
     list: 'Dodane', none: 'Jeszcze nic nie dodano.', stNew: 'Nowe — jeszcze nie zaczęte', stBox: 'Przegródka {n} z 5', stM: 'Opanowane ✓', del: 'Usuń', delQ: 'Usunąć?', removed: 'Usunięto.',
     out: 'Rozłącz', err: 'Błąd: {e}', e_token: 'Token jest nieprawidłowy.', e_forbidden: 'Brak uprawnień do zapisu w repozytorium.', e_repo: 'Nie znaleziono repozytorium.', e_offline: 'Brak połączenia.',
     ltCredit: 'Sprawdzanie pisowni i gramatyki:',
@@ -67,9 +48,9 @@ const L = {
     speaker: '{w}:', kbd: 'Klawiatura: Spacja nagraj/zatrzymaj · Enter zapisz i dalej · → dalej · P posłuchaj', recNew: '🎙️ Nagraj swój głos dla „{p}”', allDone: 'Na tej liście wszystko gotowe! 🎉', hasVoice: 'twój głos', hasPhoto: 'zdjęcie', hidden: 'usunięte'
   }
 };
-let lang = (() => { try { return localStorage.getItem('pbt.lang') || 'es'; } catch (e) { return 'es'; } })();
-const t = (k, v) => { let s = (L[lang] || L.es)[k] || L.es[k] || k; if (v) for (const x in v) s = s.replace('{' + x + '}', v[x]); return s; };
-const errT = e => L.es['e_' + e.message] ? t('e_' + e.message) : t('err', { e: e.message });
+let lang = (() => { try { return localStorage.getItem('pbt.lang') === 'es' ? 'es' : 'pl'; } catch (e) { return 'pl'; } })();
+const t = (k, v) => { let s = (L[lang] || L.pl)[k] || L.pl[k] || k; if (v) for (const x in v) s = s.replace('{' + x + '}', v[x]); return s; };
+const errT = e => L.pl['e_' + e.message] ? t('e_' + e.message) : t('err', { e: e.message });
 
 /* ---------------- connection */
 const b64e = s => btoa(unescape(encodeURIComponent(s)));
@@ -133,12 +114,12 @@ async function loadAll() {
 const toEmoji = p => { try { return String.fromCodePoint(...p.split('-').map(h => parseInt(h, 16))); } catch (e) { return ''; } };
 const EMAP = (() => {   // gloss words of the built-in vocabulary -> emoji, to suggest a picture
   const m = {};
-  BUILT.forEach(w => { if (!w.p || /^[#dm]/.test(w.p)) return; const em = toEmoji(w.p); (norm(w.en) + ' ' + norm(w.es)).split(' ').forEach(k => { if (k.length > 2 && !/^(the|and|for|with|una|uno|los|las|del|que|por|con|para|you|your|her|his|this|that|esta|este|muy)$/.test(k)) (m[k] = m[k] || []).push(em); }); });
+  BUILT.forEach(w => { if (!w.p || /^[#dm]/.test(w.p)) return; const em = toEmoji(w.p); norm(w.es).split(' ').forEach(k => { if (k.length > 2 && !/^(the|and|for|with|una|uno|los|las|del|que|por|con|para|you|your|her|his|this|that|esta|este|muy)$/.test(k)) (m[k] = m[k] || []).push(em); }); });
   return m;
 })();
 const PALETTE = '🙂 😊 😄 🤗 🙏 👋 🤝 💬 ❓ ❤️ 👍 👎 🏠 🍽️ ☕ 🍺 🧃 🍞 🧀 🥚 🍎 🥗 🍲 🍰 🛒 💳 🚗 🚌 ✈️ 🗺️ ⛪ 🎄 🎂 🎁 💐 📱 💻 🎮 ⚽ 🎵 📚 🐶 🐱 ☀️ 🌧️ ❄️ 🌳 ⏰ 📅 👨‍👩‍👧 👩 👨 👴 👵 👦 💤 🚿 🛏️'.split(' ');
-function suggestEmoji(es, en) {
-  const score = {}; (norm(en) + ' ' + norm(es)).split(' ').forEach(k => (EMAP[k] || []).forEach((e, j) => { score[e] = (score[e] || 0) + 1 / (1 + j * 0.2); }));
+function suggestEmoji(es) {
+  const score = {}; norm(es).split(' ').forEach(k => (EMAP[k] || []).forEach((e, j) => { score[e] = (score[e] || 0) + 1 / (1 + j * 0.2); }));
   return Object.keys(score).sort((a, b) => score[b] - score[a]).slice(0, 8);
 }
 function findDup(pl) {
@@ -194,28 +175,28 @@ function speak(text) {
   const u = new SpeechSynthesisUtterance(text.replace(/\([^)]*\)/g, ' ')); u.lang = 'pl-PL'; if (vs[0]) u.voice = vs[0]; u.rate = 0.92; speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
 function playUrl(u) { try { const a = new Audio(u); a.play().catch(() => {}); } catch (e) {} }
-const glOf = x => lang === 'en' ? (x.en || x.es) : (x.es || x.en);
+const glOf = x => x.es || x.en || '';
 const SPK_PL = { 'Tú': 'Ty (Aaron)', 'Mamá': 'Mama', 'Papá': 'Tata', 'Abuela': 'Babcia', 'Hermano': 'Brat', 'Kasjer': 'Kasjer' };
-const uName = u => !u ? '' : lang === 'en' ? u.en : lang === 'pl' ? (u.pl || u.es) : u.es;
+const uName = u => !u ? '' : lang === 'pl' ? (u.pl || u.es) : u.es;
 let TAB = 'add';
 
 /* ================================================================ tab 1: add a word */
-const F = { pl: '', es: '', en: '', r: '', ne: '', nn: '', em: '' };
+const F = { pl: '', es: '', r: '', ne: '', em: '' };
 let lastLT = [], pendingDel = null, lastAdded = null, FPHOTO = null;
-function readForm() { ['pl', 'es', 'en', 'ne', 'nn', 'em'].forEach(k => { const e = $('#f_' + k); if (e) F[k] = e.value; }); }
+function readForm() { ['pl', 'es', 'ne', 'em'].forEach(k => { const e = $('#f_' + k); if (e) F[k] = e.value; }); }
 function addHTML() {
   const regSeg = [['', t('regN')], ['F', t('regF')], ['I', t('regI')]].map(([v, l]) => `<button class="${F.r === v ? 'on' : ''}" data-a="reg" data-v="${v}">${l}</button>`).join('');
   return (lastAdded != null && WL[lastAdded] && window.PBRec && PBRec.supported() ? `<button class="btn s" style="margin-bottom:14px" data-a="recnew">${esc(t('recNew', { p: WL[lastAdded].pl }))}</button>` : '') + `<div class="tgrid"><div>
     <div class="card"><h2>${t('hello')}</h2><p class="gl" style="margin:0">${t('helloSub')}</p>
       <label for="f_pl">${t('pl')}</label><input class="field pl-in" id="f_pl" lang="pl" value="${esc(F.pl)}" autocomplete="off" spellcheck="true" placeholder="np. Świetnie Pani gotuje.">
       <div class="keys mt">${'ą ć ę ł ń ó ś ź ż'.split(' ').map(c => `<button data-a="key" data-c="${c}">${c}</button>`).join('')}</div>
-      <div class="row2"><div><label for="f_es">${t('es')}</label><input class="field" id="f_es" value="${esc(F.es)}" autocomplete="off"></div><div><label for="f_en">${t('en')}</label><input class="field" id="f_en" value="${esc(F.en)}" autocomplete="off"></div></div>
+      <label for="f_es">${t('es')}</label><input class="field" id="f_es" value="${esc(F.es)}" autocomplete="off">
       <label>${t('reg')}</label><div class="seg r">${regSeg}</div>
       <label for="f_em">${t('emoji')}</label><div style="display:flex;gap:10px;align-items:center"><input class="field emoin" id="f_em" value="${esc(F.em)}" maxlength="16" autocomplete="off"><span class="small">${t('emojiSug')}</span></div>
       <div class="emopick" id="emos"></div>
       <label>${t('photoOpt')}</label>
       <div class="phrow">${FPHOTO ? `<img class="thumb" src="${FPHOTO.url}" alt=""><button class="btn g sm" data-a="fphotodel">✕ ${t('cancel')}</button>` : `<label class="btn s sm filebtn">${t('pick')}<input type="file" accept="image/*" id="fphoto" hidden></label>`}</div>
-      <div class="row2"><div><label for="f_ne">${t('noteEs')}</label><textarea class="field" id="f_ne">${esc(F.ne)}</textarea></div><div><label for="f_nn">${t('noteEn')}</label><textarea class="field" id="f_nn">${esc(F.nn)}</textarea></div></div>
+      <label for="f_ne">${t('noteEs')}</label><textarea class="field" id="f_ne">${esc(F.ne)}</textarea>
       <div class="btns two mt"><button class="btn s" data-a="check" id="bcheck">🔎 ${t('check')}</button><button class="btn s" data-a="listen">🔊 ${t('listen')}</button></div>
       <button class="btn mt" data-a="add" id="badd">➕ ${t('add')}</button>
     </div></div>
@@ -223,7 +204,7 @@ function addHTML() {
     <div class="card lst"><h2>${t('list')} (${WL.filter(w => !w.del).length})</h2><div id="list">${listHTML()}</div></div></div></div>`;
 }
 function drawEmojis() {
-  readForm(); const list = Array.from(new Set(suggestEmoji(F.es, F.en).concat(PALETTE))).slice(0, 40);
+  readForm(); const list = Array.from(new Set(suggestEmoji(F.es).concat(PALETTE))).slice(0, 40);
   const e = $('#emos'); if (e) e.innerHTML = list.map(x => `<button class="${F.em === x ? 'on' : ''}" data-a="emo" data-v="${esc(x)}">${x}</button>`).join('');
 }
 function listHTML() {
@@ -237,7 +218,7 @@ function listHTML() {
 }
 function resHTML(dup) {
   let h = '';
-  if (dup) h += `<div class="issue bad"><b>⚠️ ${t('dup')}</b>${esc(dup.pl)} — ${esc(dup.es || dup.en || '')}</div>`;
+  if (dup) h += `<div class="issue bad"><b>⚠️ ${t('dup')}</b>${esc(dup.pl)} — ${esc(dup.es || '')}</div>`;
   if (lastLT === null) h += `<div class="issue">${t('ltDown')}</div>`;
   else if (!lastLT.length) h += `<div class="issue ok"><b>✓ ${t('ltOk')}</b></div>`;
   else h += `<div class="small" style="font-weight:700;margin-top:10px">${t('ltIssues')}</div>` + lastLT.map((m, j) => {
@@ -254,7 +235,7 @@ let CUR = null, PREV = null, VSTATE = 'idle', VMSG = '', delQ = null, PPREV = nu
 const AUD = {}, PHO = {};   // key -> data URL of downloaded recordings / photos
 function items(kind) {
   if (kind === 'mine') return WL.map((w, k) => w.del ? null : { key: 't' + k, pl: w.pl, gl: glOf(w), ipa: w.ipa || (window.PolishIPA ? PolishIPA(w.pl) : ''), em: w.em || '📝', word: 1 }).filter(Boolean);
-  if (kind === 'dlg') { const o = []; UN.forEach(u => (u.ctx || []).forEach(l => o.push({ key: l.a, pl: l.pl, gl: glOf(l), who: lang === 'en' ? l.we : lang === 'pl' ? (SPK_PL[l.w] || l.w) : l.w, unit: uName(u) }))); return o; }
+  if (kind === 'dlg') { const o = []; UN.forEach(u => (u.ctx || []).forEach(l => o.push({ key: l.a, pl: l.pl, gl: glOf(l), who: lang === 'pl' ? (SPK_PL[l.w] || l.w) : l.w, unit: uName(u) }))); return o; }
   return BUILT.filter(w => !!(UN[w.u] && UN[w.u].sit) === (kind === 'sit')).map(w => ({ key: w.a, pl: w.pl, gl: glOf(w), ipa: w.ipa, p: w.p, ic: UN[w.u] && UN[w.u].ic, unit: uName(UN[w.u]), word: 1 }));
 }
 function wList() {
@@ -337,7 +318,7 @@ const ACT = {
     readForm(); if (!F.pl.trim()) { toast(t('needPl')); return; }
     const b = $('#bcheck'); b.disabled = true; b.textContent = t('checking');
     lastLT = await languageTool(F.pl).catch(() => null);
-    if (!F.em) { const s = suggestEmoji(F.es, F.en); if (s[0]) $('#f_em').value = s[0]; }
+    if (!F.em) { const s = suggestEmoji(F.es); if (s[0]) $('#f_em').value = s[0]; }
     readForm(); $('#res').innerHTML = resHTML(findDup(F.pl)); drawEmojis();
     b.disabled = false; b.textContent = '🔎 ' + t('check');
   },
@@ -347,16 +328,16 @@ const ACT = {
   },
   async add() {
     readForm(); const pl = F.pl.trim().replace(/\s+/g, ' ');
-    if (!pl) return toast(t('needPl')); if (!F.es.trim() && !F.en.trim()) return toast(t('needTr'));
+    if (!pl) return toast(t('needPl')); if (!F.es.trim()) return toast(t('needTr'));
     const b = $('#badd'); b.disabled = true; b.textContent = t('adding');
-    const e = { pl, es: F.es.trim(), en: F.en.trim(), ipa: window.PolishIPA ? PolishIPA(pl) : '', em: F.em.trim() || suggestEmoji(F.es, F.en)[0] || '📝', at: Date.now() };
-    if (F.r) e.r = F.r; if (F.ne.trim()) e.ne = F.ne.trim(); if (F.nn.trim()) e.nn = F.nn.trim();
+    const e = { pl, es: F.es.trim(), ipa: window.PolishIPA ? PolishIPA(pl) : '', em: F.em.trim() || suggestEmoji(F.es)[0] || '📝', at: Date.now() };
+    if (F.r) e.r = F.r; if (F.ne.trim()) e.ne = F.ne.trim();
     try {
       let k = -1;
       const d = await update('words.json', d => { d.words = d.words || []; d.words.push(e); k = d.words.length - 1; }, `teacher: ${pl}`, { v: 1, words: [] });
       WL = d.words; lastAdded = k;
       if (FPHOTO) { try { await saveMedia('img', 't' + k, FPHOTO.b64, pl); PHO['t' + k] = FPHOTO.url; } catch (er) { toast(errT(er)); } }
-      Object.assign(F, { pl: '', es: '', en: '', r: '', ne: '', nn: '', em: '' }); lastLT = []; FPHOTO = null;
+      Object.assign(F, { pl: '', es: '', r: '', ne: '', em: '' }); lastLT = []; FPHOTO = null;
       render(); toast(t('added'));
     } catch (er) { toast(errT(er)); b.disabled = false; b.textContent = '➕ ' + t('add'); }
   },
@@ -445,7 +426,7 @@ document.addEventListener('change', async e => {
 });
 document.addEventListener('input', e => {
   if (e.target.id === 'wq') { WF.q = e.target.value; clearTimeout(window.__wq); window.__wq = setTimeout(() => { const pos = e.target.selectionStart; render(); const n = $('#wq'); if (n) { n.focus(); try { n.setSelectionRange(pos, pos); } catch (x) {} } }, 250); return; }
-  if (e.target.id === 'f_es' || e.target.id === 'f_en') { clearTimeout(window.__ed); window.__ed = setTimeout(drawEmojis, 300); }
+  if (e.target.id === 'f_es') { clearTimeout(window.__ed); window.__ed = setTimeout(drawEmojis, 300); }
 });
 document.addEventListener('keydown', e => {
   if (TAB === 'words' && !/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) {
