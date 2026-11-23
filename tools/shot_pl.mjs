@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+const br = await chromium.launch(); const errs = [];
+const ctx = await br.newContext({ viewport: { width: 412, height: 860 } }); const p = await ctx.newPage(); p.on('pageerror', e => errs.push(e.message));
+await p.goto('http://localhost:8765/'); await p.screenshot({ path: 'shots/pl_welcome.png' });
+await p.click('[data-a="lang"][data-v="pl"]'); await p.waitForTimeout(200); await p.screenshot({ path: 'shots/pl_today.png' });
+await p.click('[data-a="tab"][data-k="sit"]'); await p.click('.ucard'); await p.waitForTimeout(150); await p.screenshot({ path: 'shots/pl_sit.png' });
+await p.click('[data-a="tab"][data-k="games"]'); await p.screenshot({ path: 'shots/pl_games.png' });
+await p.click('[data-a="tab"][data-k="today"]'); await p.click('[data-a="start"]'); await p.click('[data-a="inext"]'); await p.screenshot({ path: 'shots/pl_intro.png' });
+const t = await br.newContext({ viewport: { width: 1200, height: 800 } }); const q = await t.newPage(); q.on('pageerror', e => errs.push(e.message));
+await q.goto('http://localhost:8765/teacher.html'); await q.click('#lang button[data-l="pl"]'); await q.screenshot({ path: 'shots/pl_teacher.png' });
+console.log('ERRORS', errs); await br.close();

@@ -42,6 +42,24 @@ const L = {
     rec: 'Record', stop: 'Stop', recording: 'Recording… tap Stop when you finish', processing: 'Processing…', genVoice: 'Generated voice', herVoice: 'Your recording', saveNext: 'Save & next', redo: 'Again', skip: 'Skip ›',
     vSaved: 'Saved ✓', vDel: 'Delete recording', vDelQ: 'Delete your recording?', vNone: 'Nothing in this list.', noMic: 'This browser cannot record. Use an up-to-date Chrome, Edge or Safari and allow the microphone.', micDenied: 'No microphone permission. Allow it in the browser and try again.', silence: 'Nothing was heard. Get closer to the microphone and record again.',
     recorded: 'recorded', speaker: '{w}:', kbd: 'Keyboard: Space record/stop · Enter save & next · → skip · P listen', recNew: '🎙️ Record your voice for “{p}”', allDone: 'Everything in this list is recorded! 🎉'
+  },
+  pl: {
+    ttl: 'Nauczycielka', hello: 'Dodaj słówka dla Aarona', helloSub: 'Wpisz polskie słowo lub zwrot. Sprawdzę je, dodam emoji i wymowę, a przy następnej synchronizacji pojawi się w jego aplikacji jako nowe.',
+    connect: 'Połącz', connectSub: 'Otwórz link od Aarona albo wklej tu kod zaczynający się od PBX1.', code: 'Kod', connectBtn: 'Połącz', badCode: 'Ten kod jest nieprawidłowy.',
+    pl: 'Po polsku', es: 'Po hiszpańsku', en: 'Po angielsku', reg: 'Rejestr', regN: 'Neutralnie', regF: 'Formalnie (Pan/Pani)', regI: 'Nieformalnie (ty)', noteEs: 'Uwaga po hiszpańsku (opcjonalnie)', noteEn: 'Uwaga po angielsku (opcjonalnie)',
+    emoji: 'Emoji', emojiSug: 'Propozycje', check: 'Sprawdź', listen: 'Posłuchaj', add: 'Dodaj do aplikacji', adding: 'Zapisuję…', checking: 'Sprawdzam…',
+    ltOk: 'Pisownia i gramatyka: bez błędów.', ltIssues: 'Pisownia i gramatyka', apply: 'Zastosuj', dup: 'Już jest w aplikacji:', ipa: 'Wymowa (IPA)',
+    ai: 'Sprawdzenie przez AI', aiOk: 'AI nie znalazła problemów.', aiCorr: 'Poprawiona wersja', aiFill: 'Propozycje', aiOff: 'Sprawdzanie przez AI wyłączone (opcjonalne).', aiErr: 'AI nie odpowiedziała: {e}',
+    needTr: 'Dodaj tłumaczenie na hiszpański lub angielski.', needPl: 'Najpierw wpisz polskie słowo.', added: 'Dodano! Aaron zobaczy je jako nowe.',
+    list: 'Dodane', none: 'Jeszcze nic nie dodano.', stNew: 'Nowe — jeszcze nie zaczęte', stBox: 'Przegródka {n} z 5', stM: 'Opanowane ✓', del: 'Usuń', delQ: 'Usunąć?', removed: 'Usunięto.',
+    settings: 'Ustawienia', name: 'Twoje imię', aiKey: 'Klucz Google Gemini (opcjonalnie, za darmo)', aiModel: 'Model', save: 'Zapisz', saved: 'Zapisano.', aiHow: 'Utwórz go na aistudio.google.com/apikey. W darmowym planie Google może wykorzystywać teksty do ulepszania modeli.',
+    out: 'Rozłącz', err: 'Błąd: {e}', e_token: 'Token jest nieprawidłowy.', e_forbidden: 'Brak uprawnień do zapisu w repozytorium.', e_repo: 'Nie znaleziono repozytorium.', e_offline: 'Brak połączenia.',
+    ltCredit: 'Sprawdzanie pisowni i gramatyki:', by: 'dodała: {n}',
+    tAdd: '➕ Dodaj słówka', tVoice: '🎙️ Mój głos', vTitle: 'Nagraj swój głos', vSub: 'Aaron usłyszy twój głos zamiast syntetycznego. Czytaj każde słowo lub zwrot naturalnie, trochę wolniej niż zwykle.',
+    kMine: 'Twoje słówka', kSit: 'Sytuacje', kDlg: 'Dialogi', kCourse: 'Kurs', onlyMissing: 'Tylko nienagrane', search: 'Szukaj…', done: 'Nagrane: {n} z {t}',
+    rec: 'Nagraj', stop: 'Zatrzymaj', recording: 'Nagrywam… dotknij Zatrzymaj, gdy skończysz', processing: 'Przetwarzam…', genVoice: 'Głos syntetyczny', herVoice: 'Twoje nagranie', saveNext: 'Zapisz i dalej', redo: 'Jeszcze raz', skip: 'Pomiń ›',
+    vSaved: 'Zapisano ✓', vDel: 'Usuń nagranie', vDelQ: 'Usunąć nagranie?', vNone: 'Na tej liście nic nie ma.', noMic: 'Ta przeglądarka nie może nagrywać. Użyj aktualnego Chrome, Edge lub Safari i zezwól na mikrofon.', micDenied: 'Brak dostępu do mikrofonu. Zezwól na niego w przeglądarce i spróbuj ponownie.', silence: 'Nic nie było słychać. Podejdź bliżej mikrofonu i nagraj ponownie.',
+    recorded: 'nagrane', speaker: '{w}:', kbd: 'Klawiatura: Spacja nagraj/zatrzymaj · Enter zapisz i dalej · → pomiń · P posłuchaj', recNew: '🎙️ Nagraj swój głos dla „{p}”', allDone: 'Wszystko z tej listy nagrane! 🎉'
   }
 };
 let lang = (() => { try { return localStorage.getItem('pbt.lang') || 'es'; } catch (e) { return 'es'; } })();
@@ -211,7 +229,7 @@ function listHTML() {
   if (!live.length) return `<div class="empty">${t('none')}</div>`;
   return live.map(({ w, k }) => {
     const c = CARDS[CB + k], st = !c ? `<span class="tag d">✨ ${t('stNew')}</span>` : c.b >= 6 ? `<span class="tag m">${t('stM')}</span>` : `<span class="tag">${t('stBox', { n: c.b })}</span>`;
-    return `<div class="wrow"><div class="pic sm"><span class="emo">${esc(w.em || '📝')}</span></div><div class="t"><b>${esc(w.pl)}</b><span class="gl">${esc(lang === 'en' ? (w.en || w.es) : (w.es || w.en))}${w.r ? ` <em class="rg ${w.r}">${w.r === 'F' ? 'Formal' : 'Informal'}</em>` : ''}</span><small>${st}${w.by ? ' · ' + esc(t('by', { n: w.by })) : ''}</small></div><button class="btn g sm" style="width:auto" data-a="del" data-k="${k}">${pendingDel === k ? t('delQ') : t('del')}</button></div>`;
+    return `<div class="wrow"><div class="pic sm"><span class="emo">${esc(w.em || '📝')}</span></div><div class="t"><b>${esc(w.pl)}</b><span class="gl">${esc(lang === 'en' ? (w.en || w.es) : (w.es || w.en))}${w.r ? ` <em class="rg ${w.r}">${w.r === 'F' ? t('regF').split(' (')[0] : t('regI').split(' (')[0]}</em>` : ''}</span><small>${st}${w.by ? ' · ' + esc(t('by', { n: w.by })) : ''}</small></div><button class="btn g sm" style="width:auto" data-a="del" data-k="${k}">${pendingDel === k ? t('delQ') : t('del')}</button></div>`;
   }).join('');
 }
 function resHTML(dup) {
@@ -248,8 +266,8 @@ const UN = window.UNITS || [];
 const glOf = x => lang === 'en' ? (x.en || x.es) : (x.es || x.en);
 function vItems(kind) {
   if (kind === 'mine') return WL.map((w, k) => w.del ? null : { key: 't' + k, pl: w.pl, gl: glOf(w), ipa: w.ipa || (window.PolishIPA ? PolishIPA(w.pl) : '') }).filter(Boolean);
-  if (kind === 'dlg') { const o = []; UN.forEach(u => (u.ctx || []).forEach(l => o.push({ key: l.a, pl: l.pl, gl: glOf(l), who: lang === 'en' ? l.we : l.w, unit: lang === 'en' ? u.en : u.es }))); return o; }
-  return BUILT.filter(w => !!(UN[w.u] && UN[w.u].sit) === (kind === 'sit')).map(w => ({ key: w.a, pl: w.pl, gl: glOf(w), ipa: w.ipa, unit: UN[w.u] ? (lang === 'en' ? UN[w.u].en : UN[w.u].es) : '' }));
+  if (kind === 'dlg') { const o = []; UN.forEach(u => (u.ctx || []).forEach(l => o.push({ key: l.a, pl: l.pl, gl: glOf(l), who: lang === 'en' ? l.we : lang === 'pl' ? (SPK_PL[l.w] || l.w) : l.w, unit: lang === 'en' ? u.en : lang === 'pl' ? (u.pl || u.es) : u.es }))); return o; }
+  return BUILT.filter(w => !!(UN[w.u] && UN[w.u].sit) === (kind === 'sit')).map(w => ({ key: w.a, pl: w.pl, gl: glOf(w), ipa: w.ipa, unit: UN[w.u] ? (lang === 'en' ? UN[w.u].en : lang === 'pl' ? (UN[w.u].pl || UN[w.u].es) : UN[w.u].es) : '' }));
 }
 function vList() {
   const q = norm(VF.q);

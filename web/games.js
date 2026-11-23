@@ -25,9 +25,20 @@ const GT = {
     formal: 'Formal', informal: 'Informal', regF: 'Formal: usa Pan / Pani / Państwo o formas de cortesía — para sus papás y familiares.', regI: 'Informal: usa ty — para su hermano y amigos.',
     check: 'Comprobar', hint: 'Pista', dk: 'Ver respuesta', replay: 'Escuchar otra vez', next: 'Siguiente', notEnough: 'Aprende unas palabras más primero — este juego necesita {n}.',
     right: '¡Correcto!', wrong: 'No del todo', quit: 'Salir del juego'
+  },
+  pl: {
+    title: 'Gry', sub: 'Baw się swoimi słówkami. Każda runda przynosi do dwóch nowych.', play: 'Graj', best: 'Rekord', lvl: 'Poziom {n}', xp: '{n} XP', toNext: 'Brakuje {n} XP do poziomu {l}',
+    today: 'Gra dnia', newIn: 'Nowe słówka w tej grze', newSub: 'Posłuchaj i popatrz. Po grze trafią do twojego pudełka.', go: 'Gramy!',
+    score: 'Punkty', record: 'Nowy rekord!', again: 'Zagraj jeszcze raz', close: 'Zamknij', practised: 'Słówka z tej gry', earned: '+{n} XP', time: 'Czas', moves: 'Ruchy', round: 'Runda',
+    mem: 'Pary', memD: 'Znajdź polskie słowo do każdego obrazka.', blitz: 'Na czas', blitzD: '60 sekund. Ile zgadniesz? Serie mnożą punkty.',
+    listen: 'Posłuchaj i dotknij', listenD: 'Usłysz słowo i dotknij właściwego obrazka.', spell: 'Przeliteruj', spellD: 'Ułóż słowo litera po literze — uważaj na ą, ę, ł…',
+    order: 'Szyk zdania', orderD: 'Złóż zdanie z powrotem.', reg: 'Formalnie czy nieformalnie?', regD: 'Pan / Pani do jej rodziców, ty do jej brata. Rozróżnisz?',
+    formal: 'Formalnie', informal: 'Nieformalnie', regF: 'Formalnie: Pan / Pani / Państwo lub formy grzecznościowe — do jej rodziców i krewnych.', regI: 'Nieformalnie: na „ty” — do jej brata i przyjaciół.',
+    check: 'Sprawdź', hint: 'Podpowiedź', dk: 'Pokaż odpowiedź', replay: 'Posłuchaj jeszcze raz', next: 'Dalej', notEnough: 'Najpierw naucz się kilku słówek — ta gra potrzebuje {n}.',
+    right: 'Dobrze!', wrong: 'Nie całkiem', quit: 'Wyjdź z gry'
   }
 };
-const g = (k, v) => { const ui = P().S().cfg.ui; let s = (GT[ui] || GT.en)[k] || GT.en[k] || k; if (v) for (const x in v) s = s.replace('{' + x + '}', v[x]); return s; };
+const g = (k, v) => { const ui = P().S().cfg.ui; let s = (GT[ui] || GT.en)[k] || (ui === 'pl' && GT.es[k]) || GT.en[k] || k; if (v) for (const x in v) s = s.replace('{' + x + '}', v[x]); return s; };
 const GAMES = [
   { k: 'mem', ic: '🃏', need: 6 }, { k: 'blitz', ic: '⚡', need: 8 }, { k: 'listen', ic: '👂', need: 6 },
   { k: 'spell', ic: '🔤', need: 4 }, { k: 'order', ic: '🧩', need: 3 }, { k: 'reg', ic: '🎩', need: 6 }
