@@ -1,0 +1,23 @@
+{
+  "name": "Polski Box",
+  "short_name": "Polski Box",
+  "description": "Aprende polaco cada día: caja de aprendizaje, situaciones con la familia y juegos.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "any",
+  "background_color": "#f6f3ea",
+  "theme_color": "#163a85",
+  "categories": ["education"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Juegos", "url": "./#games" },
+    { "name": "Página de la profesora", "url": "./teacher.html" }
+  ]
+}

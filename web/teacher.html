@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#163a85">
+<meta name="robots" content="noindex">
+<title>Polski Box · Profesora</title>
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  body{user-select:text;-webkit-user-select:text}
+  .tw{max-width:1180px;margin:0 auto;padding:16px max(16px,env(safe-area-inset-left)) 40px}
+  .tgrid{display:grid;gap:16px}
+  @media (min-width:900px){.tgrid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:start}}
+  label{display:block;font-size:13px;font-weight:700;color:var(--mute);margin:12px 0 5px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  textarea.field{font-family:inherit;font-size:16px;min-height:64px}
+  .pl-in{font-size:22px;font-weight:700}
+  .emopick{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .emopick button{width:42px;height:42px;border-radius:10px;background:var(--sky);font-size:24px}
+  .emopick button.on{outline:3px solid var(--co)}
+  .emoin{width:72px;text-align:center;font-size:28px}
+  .issue{border-radius:14px;padding:10px 12px;margin-top:8px;background:var(--ambb)}
+  .issue.ok{background:var(--okb)}.issue.bad{background:var(--badb)}
+  .issue b{display:block}.issue .ctx{font-size:14px;color:var(--mute);margin:3px 0}.issue mark{background:var(--amb);color:#fff;border-radius:4px;padding:0 3px}
+  .sug{display:inline-block;margin:4px 6px 0 0;padding:5px 10px;border-radius:9px;background:var(--card);color:var(--co);font-weight:700;box-shadow:var(--sh)}
+  .ai{border:2px solid var(--co)}
+  .kv b{font-weight:700}
+  .seg.r button{padding:8px 14px}
+  .lst .wrow small{display:block;color:var(--mute);font-size:12px}
+  .hdr{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .hdr h1{margin:0;font-size:20px;flex:1}
+  .top .seg button{color:#cfd9f5}.top .seg button.on{color:var(--co)}
+  .top .seg{background:rgba(255,255,255,.14)}
+  .lt{font-size:12px;color:var(--mute);margin-top:16px}
+  .lt a{color:var(--co)}
+</style>
+</head><body>
+<div class="top"><h1>Polski Box<small id="ttl">Profesora</small></h1><div class="seg" id="lang"><button data-l="es">ES</button><button data-l="en">EN</button></div></div>
+<div class="tw" id="tw"></div>
+<script src="data.js"></script><script src="ipa.js"></script><script src="teacher.js"></script>
+</body></html>

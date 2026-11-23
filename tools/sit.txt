@@ -1,0 +1,321 @@
+# Format
+# ## key | titulo es | title en | tytuł pl | icono | descripción es | description en
+# entry:  pl | es | en | emoji | reg(F/I/blank) | nota es | note en
+# line:   > hablante_es:speaker_en | pl | es | en
+
+## s01 | Conocer a su familia | Meeting her family | Poznajemy rodzinę | 🤝 | Presentarte con respeto a los papás y familiares de tu novia. Trato formal: «Pan», «Pani», «Państwo». | Introduce yourself respectfully to your girlfriend's parents and relatives. Formal address: “Pan”, “Pani”, “Państwo”.
+Dzień dobry, nazywam się Aaron. | Buenos días, me llamo Aaron. | Good day, my name is Aaron. | 🤝 | F
+Miło mi Panią poznać. | Mucho gusto en conocerla. (a una mujer) | Nice to meet you. (to a woman) | 👩 | F | A un hombre: «Miło mi Pana poznać». | To a man: “Miło mi Pana poznać”.
+Bardzo miło mi Państwa poznać. | Mucho gusto en conocerlos. (a los dos) | Very nice to meet you both. | 👫 | F
+Jestem chłopakiem Państwa córki. | Soy el novio de su hija. | I'm your daughter's boyfriend. | 💑 | F | Literalmente «el novio de la hija de ustedes». | Literally “the boyfriend of your daughter”.
+Dziękuję za zaproszenie. | Gracias por la invitación. | Thank you for the invitation. | 💌 | F
+Dziękuję, że mogłem przyjść. | Gracias por recibirme. | Thank you for having me. | 🚪 | F | «mogłem» lo dice un hombre; una mujer dice «mogłam». | “mogłem” is said by a man; a woman says “mogłam”.
+To dla Pani. Przyniosłem kwiaty. | Esto es para usted. Traje flores. | This is for you. I brought flowers. | 💐 | F | En Polonia se regalan flores en número impar (nunca par). | In Poland flowers are given in odd numbers (never an even number).
+Mam drobny upominek dla Państwa. | Tengo un pequeño detalle para ustedes. | I have a small gift for you both. | 🎁 | F
+Czy mogę wejść? | ¿Puedo pasar? | May I come in? | 🚪 | F
+Czy mam zdjąć buty? | ¿Me quito los zapatos? | Should I take off my shoes? | 👟 | | En muchas casas polacas los zapatos se dejan en la entrada. | In many Polish homes you take your shoes off at the door.
+Mają Państwo piękny dom. | Tienen una casa muy bonita. | You have a beautiful home. | 🏡 | F
+Dużo o Państwu słyszałem. | He oído mucho sobre ustedes. | I've heard a lot about you. | 👂 | F
+Cieszę się, że mogę Państwa poznać. | Me alegra poder conocerlos. | I'm glad to meet you. | 😊 | F
+Może przejdziemy na ty? | ¿Y si nos tuteamos? | Shall we switch to “ty” (first names)? | 🤗 | | Lo suele proponer la persona mayor. Respuesta: «Tak, chętnie!». | Usually the older person proposes it. Answer: “Tak, chętnie!”.
+Tak, chętnie! | ¡Sí, con gusto! | Yes, gladly! | 😄
+Proszę mówić do mnie Aaron. | Por favor, llámenme Aaron. | Please call me Aaron. | 📛 | F
+> Mamá:Her mum | Dzień dobry! Bardzo nam miło. Proszę wejść. | ¡Buenos días! Mucho gusto. Pase, por favor. | Good day! We're delighted. Please come in.
+> Tú:You | Dzień dobry, nazywam się Aaron. Miło mi Panią poznać. | Buenos días, me llamo Aaron. Mucho gusto en conocerla. | Good day, my name is Aaron. Nice to meet you.
+> Mamá:Her mum | Mnie również. Niech się Pan rozgości. | Igualmente. Póngase cómodo. | Likewise. Please make yourself at home.
+> Tú:You | Dziękuję za zaproszenie. To dla Pani. | Gracias por la invitación. Esto es para usted. | Thank you for the invitation. This is for you.
+> Mamá:Her mum | Jakie piękne kwiaty! Bardzo dziękuję. | ¡Qué flores tan lindas! Muchas gracias. | What beautiful flowers! Thank you very much.
+> Papá:Her dad | Dzień dobry, bardzo mi miło. Jak minęła podróż? | Buenos días, mucho gusto. ¿Cómo estuvo el viaje? | Good day, very nice to meet you. How was the trip?
+> Tú:You | Dziękuję, dobrze. Dużo o Państwu słyszałem. | Bien, gracias. He oído mucho sobre ustedes. | Fine, thank you. I've heard a lot about you.
+> Papá:Her dad | Może przejdziemy na ty? | ¿Y si nos tuteamos? | Shall we switch to “ty”?
+> Tú:You | Tak, chętnie! Dziękuję. | ¡Sí, con gusto! Gracias. | Yes, gladly! Thank you.
+
+## s02 | Hablar de mí | Talking about myself | Opowiadam o sobie | 🧑 | Cómo contar quién eres, a qué te dedicas y qué te gusta, con cortesía y sencillez. | How to say who you are, what you do and what you like, politely and simply.
+Pochodzę z Kostaryki. | Soy de Costa Rica. (vengo de…) | I come from Costa Rica. | 🇨🇷 | | «pochodzić z» + genitivo. | “pochodzić z” + genitive.
+Pracuję w branży informatycznej. | Trabajo en el sector informático. | I work in the IT industry. | 💻
+Zajmuję się serwerami i sieciami. | Me dedico a los servidores y las redes. | I work with servers and networks. | 🖥️
+Uczę się polskiego od niedawna. | Estudio polaco desde hace poco. | I've only recently started learning Polish. | 📖
+Jeszcze nie mówię dobrze po polsku. | Todavía no hablo bien polaco. | I don't speak Polish well yet. | 🐢
+Proszę o cierpliwość. | Les pido paciencia. | Please be patient with me. | 🙏 | F
+Dziękuję za cierpliwość. | Gracias por la paciencia. | Thank you for your patience. | 😊 | F
+Mówię po hiszpańsku i po angielsku. | Hablo español e inglés. | I speak Spanish and English. | 🗣️
+Mam siostrę. | Tengo una hermana. | I have a sister. | 👧
+W wolnym czasie lubię grać w gry. | En mi tiempo libre me gusta jugar videojuegos. | In my free time I like playing games. | 🎮
+Lubię też podróżować. | También me gusta viajar. | I also like travelling. | ✈️
+Bardzo podoba mi się Polska. | Me gusta mucho Polonia. | I really like Poland. | 🇵🇱 | | «podobać się» funciona al revés: «Polska mi się podoba» = Polonia me agrada. | “podobać się” works the other way round: lit. “Poland pleases me”.
+Jestem trochę zdenerwowany. | Estoy un poco nervioso. | I'm a little nervous. | 😅 | | Una mujer dice «zdenerwowana». | A woman says “zdenerwowana”.
+Chciałbym lepiej mówić po polsku. | Me gustaría hablar mejor polaco. | I would like to speak better Polish. | 🎯 | | Una mujer dice «chciałabym». | A woman says “chciałabym”.
+> Mamá:Her mum | Skąd Pan pochodzi? | ¿De dónde es usted? | Where are you from?
+> Tú:You | Pochodzę z Kostaryki. | Soy de Costa Rica. | I come from Costa Rica.
+> Mamá:Her mum | Och, to daleko! Czym Pan się zajmuje? | ¡Ay, qué lejos! ¿A qué se dedica? | Oh, that's far! What do you do?
+> Tú:You | Pracuję w branży informatycznej. Zajmuję się serwerami i sieciami. | Trabajo en el sector informático. Me dedico a los servidores y las redes. | I work in the IT industry. I work with servers and networks.
+> Mamá:Her mum | Bardzo ciekawe. Świetnie Pan mówi po polsku! | Muy interesante. ¡Usted habla muy bien polaco! | Very interesting. You speak Polish really well!
+> Tú:You | Dziękuję, ale uczę się dopiero od niedawna. | Gracias, pero apenas llevo poco tiempo estudiando. | Thank you, but I've only just started learning.
+
+## s03 | Hablar de otras personas | Talking about other people | Mówię o innych | 👥 | Presentar a tu novia, hablar de su familia y preguntar por los parientes. | Talk about your girlfriend, her family, and ask about relatives.
+To jest moja dziewczyna. | Esta es mi novia. | This is my girlfriend. | 💑
+Jesteśmy razem od roku. | Estamos juntos desde hace un año. | We've been together for a year. | 💞 | | Cambia el número: «od dwóch lat» (dos años), «od trzech lat» (tres años). | Change the number: “od dwóch lat” (two years), “od trzech lat” (three years).
+Poznaliśmy się rok temu. | Nos conocimos hace un año. | We met a year ago. | 📅
+Jest bardzo miła i mądra. | Es muy amable e inteligente. | She is very kind and smart. | 😊
+Jest bardzo zabawna. | Es muy graciosa. | She is very funny. | 😂
+Zawsze mi pomaga. | Siempre me ayuda. | She always helps me. | 🤝
+Państwa córka jest wspaniała. | Su hija es maravillosa. | Your daughter is wonderful. | 🌟 | F
+Jej brat jest bardzo sympatyczny. | Su hermano es muy simpático. | Her brother is very nice. | 🧑
+Jej mama świetnie gotuje. | Su mamá cocina de maravilla. | Her mum cooks really well. | 👩‍🍳
+Jest ode mnie młodszy. | Es menor que yo. | He is younger than me. | 👦 | | «starszy» = mayor. | “starszy” = older.
+Kim jest ta pani? | ¿Quién es esa señora? | Who is that lady? | 🧐 | F
+Czy to Pana siostra? | ¿Es su hermana? (a un hombre) | Is that your sister? (to a man) | ❓ | F | A una mujer: «Czy to Pani siostra?». | To a woman: “Czy to Pani siostra?”.
+Mój przyjaciel mieszka daleko stąd. | Mi amigo vive lejos de aquí. | My friend lives far from here. | 🌍
+ciocia | tía | aunt | 👩
+wujek | tío | uncle | 👨
+kuzyn / kuzynka | primo / prima | cousin (m. / f.) | 👭
+szwagier | cuñado | brother-in-law | 🧔
+wnuczka | nieta | granddaughter | 👧
+> Abuela:Grandma | A kim Pan jest dla mojej wnuczki? | ¿Y qué es usted de mi nieta? | And who are you to my granddaughter?
+> Tú:You | Jestem jej chłopakiem. Jesteśmy razem od roku. | Soy su novio. Estamos juntos desde hace un año. | I'm her boyfriend. We've been together for a year.
+> Abuela:Grandma | A gdzie się poznaliście? | ¿Y dónde se conocieron? | And where did you meet?
+> Tú:You | Poznaliśmy się rok temu. Jest bardzo miła i mądra. | Nos conocimos hace un año. Es muy amable e inteligente. | We met a year ago. She is very kind and smart.
+> Abuela:Grandma | To prawda, to dobra dziewczyna. | Es verdad, es una buena chica. | That's true, she's a good girl.
+> Tú:You | Pani wnuczka jest wspaniała. | Su nieta es maravillosa. | Your granddaughter is wonderful.
+
+## s04 | Entablar conversación | Starting a conversation | Rozmowa towarzyska | 💬 | Preguntas amables, temas seguros (clima, viaje, trabajo, aficiones) y cómo pedir que repitan. | Polite questions, safe topics (weather, trip, work, hobbies) and how to ask people to repeat.
+Jak się Pani miewa? | ¿Cómo está usted? (a una mujer) | How are you? (to a woman) | 🙂 | F | A un hombre: «Jak się Pan miewa?». | To a man: “Jak się Pan miewa?”.
+Jak minął dzień? | ¿Cómo estuvo el día? | How was your day? | 🌇
+Jak minęła podróż? | ¿Cómo estuvo el viaje? | How was the trip? | 🧳
+Dzisiaj jest piękna pogoda. | Hoy hace buen tiempo. | The weather is lovely today. | ☀️
+Ale dziś zimno! | ¡Qué frío hace hoy! | It's so cold today! | 🥶
+Pada deszcz. | Está lloviendo. | It's raining. | 🌧️
+Czym Pan się zajmuje? | ¿A qué se dedica usted? | What do you do for a living? | 💼 | F | A una mujer: «Czym Pani się zajmuje?». | To a woman: “Czym Pani się zajmuje?”.
+Co Pan lubi robić w wolnym czasie? | ¿Qué le gusta hacer en su tiempo libre? | What do you like to do in your free time? | 🎨 | F
+Czy była Pani kiedyś w Ameryce Środkowej? | ¿Ha estado alguna vez en Centroamérica? | Have you ever been to Central America? | 🌎 | F
+Jak długo Państwo tu mieszkają? | ¿Cuánto tiempo llevan viviendo aquí? | How long have you lived here? | 🏘️ | F
+To bardzo ciekawe! | ¡Qué interesante! | How interesting! | 🤩
+Naprawdę? Nie wiedziałem! | ¿De verdad? ¡No lo sabía! | Really? I didn't know! | 😮 | | Una mujer dice «wiedziałam». | A woman says “wiedziałam”.
+Czy mogę o coś zapytać? | ¿Puedo preguntar algo? | May I ask something? | ✋ | F
+Czy może Pani powtórzyć, proszę? | ¿Podría repetir, por favor? | Could you repeat that, please? | 🔁 | F
+Proszę mówić trochę wolniej. | Por favor, hable un poco más despacio. | Please speak a little more slowly. | 🐢 | F
+> Papá:Her dad | Jak minęła podróż? | ¿Cómo estuvo el viaje? | How was the trip?
+> Tú:You | Dziękuję, dobrze. Było trochę długo. | Bien, gracias. Fue un poco largo. | Fine, thank you. It was a bit long.
+> Papá:Her dad | Co Pan lubi robić w wolnym czasie? | ¿Qué le gusta hacer en su tiempo libre? | What do you like to do in your free time?
+> Tú:You | Lubię grać w gry i podróżować. A Pan? | Me gusta jugar videojuegos y viajar. ¿Y a usted? | I like playing games and travelling. And you?
+> Papá:Her dad | Ja lubię łowić ryby nad jeziorem. | A mí me gusta pescar en el lago. | I like fishing by the lake.
+> Tú:You | Przepraszam, czy może Pan powtórzyć, proszę? | Perdón, ¿podría repetir, por favor? | Sorry, could you repeat that, please?
+> Papá:Her dad | Łowić ryby. Nad jeziorem. | Pescar. En el lago. | Fishing. By the lake.
+> Tú:You | Aha, rozumiem! To bardzo ciekawe. | ¡Ajá, entiendo! Qué interesante. | Aha, I understand! How interesting.
+
+## s05 | Por la mañana en su casa | Morning at her house | Rano w domu | 🌅 | Despertar como invitado: baño, ducha, pedir cosas y ofrecer ayuda sin molestar. | Waking up as a guest: bathroom, shower, asking for things and offering help politely.
+Czy dobrze Pan spał? | ¿Durmió bien? (te lo preguntan a ti) | Did you sleep well? (asked to you) | 😴 | F
+Spałem bardzo dobrze, dziękuję. | Dormí muy bien, gracias. | I slept very well, thank you. | 😌 | | Una mujer dice «spałam». | A woman says “spałam”.
+Czy mogę skorzystać z łazienki? | ¿Puedo usar el baño? | May I use the bathroom? | 🚿 | F
+Czy mogę wziąć prysznic? | ¿Puedo ducharme? | May I take a shower? | 🛁 | F
+Czy mogę pożyczyć ręcznik? | ¿Me prestan una toalla? | May I borrow a towel? | 🧖 | F
+Czy jest ciepła woda? | ¿Hay agua caliente? | Is there hot water? | ♨️
+Czy mogę otworzyć okno? | ¿Puedo abrir la ventana? | May I open the window? | 🪟 | F
+Jestem jeszcze trochę zaspany. | Todavía estoy un poco dormido. | I'm still a bit sleepy. | 🥱 | | Una mujer dice «zaspana». | A woman says “zaspana”.
+Zaraz będę gotowy. | Enseguida estoy listo. | I'll be ready in a moment. | ⏱️ | | Una mujer dice «gotowa». | A woman says “gotowa”.
+Czy mogę w czymś pomóc? | ¿Puedo ayudar en algo? | Can I help with anything? | 🙋 | F
+Gdzie mogę położyć rzeczy? | ¿Dónde puedo dejar mis cosas? | Where can I put my things? | 🎒
+Czy mogę naładować telefon? | ¿Puedo cargar mi teléfono? | May I charge my phone? | 🔌 | F
+Miłego poranka! | ¡Que tengan una linda mañana! | Have a lovely morning! | 🌄
+> Mamá:Her mum | Dzień dobry! Czy dobrze Pan spał? | ¡Buenos días! ¿Durmió bien? | Good morning! Did you sleep well?
+> Tú:You | Dzień dobry! Spałem bardzo dobrze, dziękuję. | ¡Buenos días! Dormí muy bien, gracias. | Good morning! I slept very well, thank you.
+> Tú:You | Czy mogę skorzystać z łazienki? | ¿Puedo usar el baño? | May I use the bathroom?
+> Mamá:Her mum | Oczywiście. Ręczniki są na półce. | Por supuesto. Las toallas están en el estante. | Of course. The towels are on the shelf.
+> Tú:You | Dziękuję. Zaraz będę gotowy. | Gracias. Enseguida estoy listo. | Thank you. I'll be ready in a moment.
+> Mamá:Her mum | Śniadanie będzie za dziesięć minut. | El desayuno estará en diez minutos. | Breakfast will be ready in ten minutes.
+
+## s06 | Desayuno en familia | Breakfast with the family | Śniadanie z rodziną | 🥐 | Vocabulario del desayuno polaco y cómo pedir, agradecer y rechazar con educación. | Polish breakfast vocabulary and how to ask, thank and politely decline.
+jajecznica | huevos revueltos | scrambled eggs | 🍳
+kanapka | sándwich (pan con algo) | open sandwich | 🥪 | El desayuno polaco típico: «kanapki» con jamón, queso, pepino o tomate. | The classic Polish breakfast: “kanapki” with ham, cheese, cucumber or tomato.
+szynka | jamón | ham | 🥓
+parówki | salchichas (hervidas) | frankfurters | 🌭
+twaróg | requesón / queso fresco | quark (fresh cheese) | 🧀
+ogórek | pepino | cucumber | 🥒
+dżem | mermelada | jam | 🍓
+miód | miel | honey | 🍯
+płatki z mlekiem | cereal con leche | cereal with milk | 🥣
+herbata z cytryną | té con limón | tea with lemon | 🍋
+Smacznego! | ¡Buen provecho! | Enjoy your meal! | 😋 | | Respuesta: «Dziękuję, nawzajem!». | Answer: “Dziękuję, nawzajem!”.
+Dziękuję, nawzajem! | ¡Gracias, igualmente! | Thank you, same to you! | 🙏
+Czy mógłbym prosić o herbatę? | ¿Podría pedir un té? | Could I have some tea, please? | 🍵 | F | Una mujer dice «mogłabym». | A woman says “mogłabym”.
+Czy mógłbym prosić o sól? | ¿Me podría pasar la sal? | Could you pass me the salt? | 🧂 | F
+Czy może mi Pan podać chleb? | ¿Me puede pasar el pan? | Could you pass me the bread? | 🍞 | F
+To jest bardzo smaczne! | ¡Esto está muy rico! | This is very tasty! | 😍
+Jak to się nazywa? | ¿Cómo se llama esto? | What is this called? | 🔍
+Nigdy tego nie jadłem. | Nunca había comido esto. | I've never eaten this before. | 🤔 | | Una mujer dice «jadłam». | A woman says “jadłam”.
+Poproszę jeszcze trochę. | Un poquito más, por favor. | A little more, please. | ➕
+Dziękuję, już się najadłem. | Gracias, ya comí suficiente. | Thank you, I'm full. | 😌 | | Una mujer dice «najadłam». | A woman says “najadłam”.
+Dziękuję, wystarczy. | Gracias, es suficiente. | Thank you, that's enough. | ✋
+> Mamá:Her mum | Proszę, niech się Pan częstuje. Jest jajecznica i kanapki. | Por favor, sírvase. Hay huevos revueltos y sándwiches. | Please, help yourself. There are scrambled eggs and sandwiches.
+> Tú:You | Dziękuję bardzo. Wygląda pysznie! | Muchas gracias. ¡Se ve delicioso! | Thank you very much. It looks delicious!
+> Mamá:Her mum | Czy chce Pan kawę, czy herbatę? | ¿Quiere café o té? | Would you like coffee or tea?
+> Tú:You | Poproszę herbatę z cytryną. | Un té con limón, por favor. | Tea with lemon, please.
+> Papá:Her dad | Smacznego! | ¡Buen provecho! | Enjoy your meal!
+> Tú:You | Dziękuję, nawzajem! | ¡Gracias, igualmente! | Thank you, same to you!
+> Mamá:Her mum | Proszę, niech Pan weźmie jeszcze kanapkę. | Por favor, tome otro sándwich. | Please, have another sandwich.
+> Tú:You | Dziękuję, już się najadłem. Wszystko było pyszne. | Gracias, ya comí suficiente. Todo estuvo delicioso. | Thank you, I'm full. Everything was delicious.
+
+## s07 | En el carro | In the car | W samochodzie | 🚗 | Viajar con la familia: preguntar con tacto, pedir permisos pequeños y agradecer el aventón. | Travelling with the family: asking politely, small requests and thanking them for the ride.
+Dokąd jedziemy? | ¿Adónde vamos? | Where are we going? | 🧭
+Daleko jeszcze? | ¿Falta mucho? | Is it still far? | 🛣️
+Jak długo to potrwa? | ¿Cuánto tiempo tomará? | How long will it take? | ⏳
+pas bezpieczeństwa | cinturón de seguridad | seat belt | 💺
+Proszę zapiąć pasy. | Por favor, abróchense los cinturones. | Please fasten your seat belts. | 🚗 | F
+Czy mogę usiąść z przodu? | ¿Puedo sentarme adelante? | May I sit in the front? | 💺 | F
+Czy mogę usiąść z tyłu? | ¿Puedo sentarme atrás? | May I sit in the back? | 🪑 | F
+Czy mogę włączyć radio? | ¿Puedo poner la radio? | May I turn on the radio? | 📻 | F
+Czy może być trochę ciszej? | ¿Podemos bajar un poco el volumen? | Could it be a little quieter? | 🔉
+Skręcamy w lewo? | ¿Giramos a la izquierda? | Are we turning left? | ⬅️
+Tutaj jest korek. | Aquí hay trancón (tráfico). | There's a traffic jam here. | 🚦
+autostrada | autopista | motorway | 🛤️
+Gdzie można zaparkować? | ¿Dónde se puede parquear? | Where can we park? | 🅿️
+Czy możemy się zatrzymać na stacji benzynowej? | ¿Podemos parar en una gasolinera? | Can we stop at a petrol station? | ⛽ | F
+Piękne widoki! | ¡Qué lindo paisaje! | What beautiful views! | 🏞️
+Dziękuję za podwiezienie. | Gracias por llevarme. | Thank you for the ride. | 🙏 | F
+Dojechaliśmy! | ¡Llegamos! | We've arrived! | 🏁
+> Papá:Her dad | Zapraszam do samochodu. Proszę zapiąć pasy. | Suba al carro, por favor. Abróchese el cinturón. | Please get in the car. Fasten your seat belt.
+> Tú:You | Dziękuję. Czy mogę usiąść z przodu? | Gracias. ¿Puedo sentarme adelante? | Thank you. May I sit in the front?
+> Papá:Her dad | Oczywiście. Jedziemy do sklepu. | Claro. Vamos a la tienda. | Of course. We're going to the shop.
+> Tú:You | Jak długo to potrwa? | ¿Cuánto tiempo tomará? | How long will it take?
+> Papá:Her dad | Około dwudziestu minut. Niestety jest korek. | Unos veinte minutos. Lástima que hay trancón. | About twenty minutes. Unfortunately there's a traffic jam.
+> Tú:You | Nie szkodzi. Piękne widoki! | No importa. ¡Qué lindo paisaje! | No problem. What beautiful views!
+> Papá:Her dad | Dojechaliśmy! Tutaj możemy zaparkować. | ¡Llegamos! Aquí podemos parquear. | We've arrived! We can park here.
+> Tú:You | Dziękuję za podwiezienie. | Gracias por llevarme. | Thank you for the ride.
+
+## s08 | En el supermercado | At the supermarket | W supermarkecie | 🛒 | Moverte en la tienda, preguntar por secciones, pedir por peso y pagar. | Finding your way around the shop, asking for sections, ordering by weight and paying.
+wózek | carrito de compras | shopping trolley | 🛒
+koszyk | canasta | basket | 🧺
+lista zakupów | lista de compras | shopping list | 📝
+dział | sección / pasillo | department / aisle | 🏬
+pieczywo | pan y panadería | bread and bakery goods | 🥖
+nabiał | lácteos | dairy products | 🥛
+mrożonki | congelados | frozen food | 🧊
+słodycze | dulces | sweets | 🍬
+napoje | bebidas | drinks | 🥤
+Gdzie jest nabiał? | ¿Dónde están los lácteos? | Where is the dairy section? | 🧀
+Czego jeszcze potrzebujemy? | ¿Qué más necesitamos? | What else do we need? | 🤔
+Mamy już mleko? | ¿Ya tenemos leche? | Do we already have milk? | 🥛
+Ile kosztuje kilogram jabłek? | ¿Cuánto cuesta el kilo de manzanas? | How much is a kilo of apples? | 🍎
+Poproszę dwieście gramów szynki. | Doscientos gramos de jamón, por favor. | Two hundred grams of ham, please. | 🥓
+Czy to jest w promocji? | ¿Está en oferta? | Is it on sale? | 🏷️
+Gdzie są kasy samoobsługowe? | ¿Dónde están las cajas de autoservicio? | Where are the self-checkouts? | 🏧
+Kartą czy gotówką? | ¿Con tarjeta o en efectivo? | Card or cash? | 💳 | | Lo pregunta la cajera. | The cashier asks this.
+Kartą, proszę. | Con tarjeta, por favor. | By card, please. | 💳
+Poproszę torbę. | Una bolsa, por favor. | A bag, please. | 👜
+Czy ma Pan kartę stałego klienta? | ¿Tiene tarjeta de cliente frecuente? | Do you have a loyalty card? | 🪪 | F | La cajera pregunta esto. | The cashier asks this.
+Nie mam karty. | No tengo tarjeta. | I don't have a card. | 🙅
+> Mamá:Her mum | Weźmy wózek. Mam listę zakupów. | Tomemos un carrito. Tengo la lista de compras. | Let's take a trolley. I have the shopping list.
+> Tú:You | Dobrze. Gdzie jest nabiał? | Bien. ¿Dónde están los lácteos? | OK. Where is the dairy section?
+> Mamá:Her mum | W tamtym dziale. Potrzebujemy mleka i sera. | En esa sección. Necesitamos leche y queso. | In that aisle. We need milk and cheese.
+> Tú:You | Czego jeszcze potrzebujemy? | ¿Qué más necesitamos? | What else do we need?
+> Mamá:Her mum | Jeszcze pieczywa i jabłek. | Todavía pan y manzanas. | Bread and apples too.
+> Kasjer:Cashier | Dzień dobry. Czy ma Pani kartę stałego klienta? | Buenos días. ¿Tiene tarjeta de cliente frecuente? | Good day. Do you have a loyalty card?
+> Mamá:Her mum | Nie, dziękuję. Kartą, proszę. | No, gracias. Con tarjeta, por favor. | No, thank you. By card, please.
+> Tú:You | Poproszę torbę. | Una bolsa, por favor. | A bag, please.
+
+## s09 | Con su hermano | With her brother | Z jej bratem | 🍻 | Trato informal («ty») para conversar con su hermano o sus amigos: juegos, fútbol, cerveza. | Informal «ty» for chatting with her brother or friends: games, football, beer.
+Cześć, jestem Aaron. Miło cię poznać. | Hola, soy Aaron. Gusto en conocerte. | Hi, I'm Aaron. Nice to meet you. | 🙋 | I
+Mówmy sobie na ty. | Tuteémonos. | Let's use “ty” with each other. | 🤝 | I
+Jak leci? | ¿Cómo va todo? | How's it going? | 😎 | I | Coloquial. | Colloquial.
+Gdzie pracujesz? | ¿Dónde trabajas? | Where do you work? | 🏢 | I
+Grasz w gry? | ¿Juegas videojuegos? | Do you play games? | 🎮 | I
+W co grasz? | ¿A qué juegas? | What do you play? | 🕹️ | I
+Lubisz piłkę nożną? | ¿Te gusta el fútbol? | Do you like football (soccer)? | ⚽ | I
+Komu kibicujesz? | ¿De qué equipo eres? | Who do you support? | 🏟️ | I
+Napijesz się piwa? | ¿Te tomas una cerveza? | Would you like a beer? | 🍺 | I
+Jasne, chętnie! | ¡Claro, con gusto! | Sure, gladly! | 👍 | I
+Twoje zdrowie! | ¡Salud! | Cheers! | 🍻 | I
+Serio? | ¿En serio? | Seriously? | 😲 | I
+No coś ty! | ¡No puede ser! | No way! | 🤯 | I | Coloquial. | Colloquial.
+Spoko. | Tranquilo / Está bien. | Cool / No worries. | 👌 | I | Coloquial, de «spokojnie». | Colloquial, short for “spokojnie”.
+Fajnie! | ¡Qué bien! | Cool! / Great! | 🎉 | I
+Opowiedz mi coś o sobie. | Cuéntame algo de ti. | Tell me something about yourself. | 🗣️ | I
+Dzięki za pomoc! | ¡Gracias por la ayuda! | Thanks for the help! | 🙌 | I
+kumpel | amigo / compa (coloquial) | buddy / mate | 🧑 | I
+> Hermano:Her brother | Cześć! Jestem jej bratem. | ¡Hola! Soy su hermano. | Hi! I'm her brother.
+> Tú:You | Cześć! Miło cię poznać. Mówmy sobie na ty. | ¡Hola! Gusto en conocerte. Tuteémonos. | Hi! Nice to meet you. Let's use “ty”.
+> Hermano:Her brother | Jasne! Jak leci? Napijesz się piwa? | ¡Claro! ¿Cómo va todo? ¿Te tomas una cerveza? | Sure! How's it going? Would you like a beer?
+> Tú:You | Chętnie, dzięki! | ¡Con gusto, gracias! | Gladly, thanks!
+> Hermano:Her brother | Grasz w gry komputerowe? | ¿Juegas videojuegos de computadora? | Do you play computer games?
+> Tú:You | Tak, lubię. A ty? W co grasz? | Sí, me gusta. ¿Y tú? ¿A qué juegas? | Yes, I like them. And you? What do you play?
+> Hermano:Her brother | Głównie na konsoli. | Sobre todo en consola. | Mainly on a console.
+> Tú:You | Serio? Fajnie! Twoje zdrowie! | ¿En serio? ¡Qué bien! ¡Salud! | Seriously? Cool! Cheers!
+
+## s10 | En la mesa familiar | At the family table | Przy rodzinnym stole | 🍲 | Almuerzo o cena con la familia: platos típicos, cubiertos, elogios, brindis y ayudar a recoger. | Lunch or dinner with the family: typical dishes, cutlery, compliments, toasts and helping clear up.
+talerz | plato | plate | 🍽️
+widelec | tenedor | fork | 🍴
+nóż | cuchillo | knife | 🔪
+łyżka | cuchara | spoon | 🥄
+serwetka | servilleta | napkin | 🧻
+rosół | caldo de pollo | chicken broth | 🍜 | La sopa clásica del domingo. | The classic Sunday soup.
+schabowy | chuleta de cerdo empanizada | breaded pork cutlet | 🍖
+surówka | ensalada de repollo o zanahoria | raw-vegetable salad | 🥕
+sernik | pastel de queso | cheesecake | 🍰
+Zapraszam do stołu! | ¡A la mesa! | Come to the table! | 🍽️ | | Lo dice la anfitriona o el anfitrión. | Said by the host.
+Czy mogę tutaj usiąść? | ¿Puedo sentarme aquí? | May I sit here? | 💺 | F
+Ta zupa jest wyśmienita! | ¡Esta sopa está deliciosa! | This soup is excellent! | 😍
+Czy mogę prosić o dokładkę? | ¿Podría repetir? (servirme más) | May I have seconds? | 🍽️ | F
+Nie, dziękuję, już nie dam rady. | No, gracias, ya no puedo más. | No thank you, I can't manage any more. | 😅
+Czy mogę pomóc posprzątać? | ¿Puedo ayudar a recoger? | May I help clear up? | 🧹 | F
+Dziękuję za pyszny obiad. | Gracias por el delicioso almuerzo. | Thank you for the delicious lunch. | 🙏 | F
+Moje uznanie dla kucharki! | ¡Mis felicitaciones a la cocinera! | My compliments to the cook! | 👏 | F
+Za Państwa zdrowie! | ¡A su salud! | To your health! | 🥂 | F | Brindis a los anfitriones. | A toast to the hosts.
+Jestem uczulony na… | Soy alérgico a… | I'm allergic to… | 🤧 | | Una mujer dice «uczulona». | A woman says “uczulona”.
+Kto to ugotował? | ¿Quién cocinó esto? | Who cooked this? | 🧑‍🍳
+> Mamá:Her mum | Zapraszam do stołu! Dzisiaj jest rosół i schabowy. | ¡A la mesa! Hoy hay caldo de pollo y chuleta empanizada. | Come to the table! Today there's chicken broth and breaded pork cutlet.
+> Tú:You | Pięknie pachnie! | ¡Huele riquísimo! | It smells wonderful!
+> Papá:Her dad | Za nasze spotkanie! | ¡Por nuestro encuentro! | To our meeting!
+> Tú:You | Za Państwa zdrowie! | ¡A su salud! | To your health!
+> Mamá:Her mum | Czy smakuje? | ¿Le gusta? | Do you like it?
+> Tú:You | Bardzo! Ta zupa jest wyśmienita. | ¡Mucho! Esta sopa está deliciosa. | Very much! This soup is excellent.
+> Mamá:Her mum | Czy mam nałożyć dokładkę? | ¿Le sirvo más? | Shall I serve you some more?
+> Tú:You | Nie, dziękuję, już nie dam rady. Dziękuję za pyszny obiad. | No, gracias, ya no puedo más. Gracias por el delicioso almuerzo. | No thank you, I can't manage any more. Thank you for the delicious lunch.
+
+## s11 | Agradecer y despedirse | Thanks & goodbyes | Podziękowania i pożegnania | 👋 | Cómo agradecer la hospitalidad, despedirte bien y felicitar en fechas especiales. | How to thank your hosts, say goodbye well and greet people on special occasions.
+Bardzo dziękuję za gościnę. | Muchas gracias por su hospitalidad. | Thank you very much for your hospitality. | 🏡 | F
+Czułem się u Państwa bardzo dobrze. | Me sentí muy bien en su casa. | I felt very welcome at your home. | 🥰 | F | Una mujer dice «czułam». | A woman says “czułam”.
+Dziękuję za miły wieczór. | Gracias por la agradable velada. | Thank you for a lovely evening. | 🌙 | F
+Wspaniale spędziłem czas. | La pasé de maravilla. | I had a wonderful time. | 🌟 | | Una mujer dice «spędziłam». | A woman says “spędziłam”.
+Niestety muszę już iść. | Lamentablemente ya me tengo que ir. | Unfortunately I have to go now. | ⏰
+Proszę pozdrowić rodzinę. | Por favor, saluden a la familia de mi parte. | Please give my regards to the family. | 💌 | F
+Do zobaczenia wkrótce! | ¡Hasta pronto! | See you soon! | 👋
+Szczęśliwej drogi! | ¡Buen viaje! | Safe travels! | 🛣️
+Dobranoc, miłych snów! | Buenas noches, ¡dulces sueños! | Good night, sweet dreams! | 😴
+Dziękuję za wszystko. | Gracias por todo. | Thank you for everything. | 🙏
+Cieszę się na następne spotkanie. | Espero con ilusión el próximo encuentro. | I'm looking forward to our next meeting. | 📅
+Wesołych Świąt! | ¡Felices fiestas! (Navidad o Pascua) | Merry Christmas! / Happy Easter! | 🎄
+Szczęśliwego Nowego Roku! | ¡Feliz Año Nuevo! | Happy New Year! | 🎆
+Sto lat! | ¡Que cumplas cien años! (cumpleaños) | Many happy returns! (lit. “a hundred years”) | 🎂 | Se canta en los cumpleaños: «Sto lat, sto lat…». | Sung at birthdays: “Sto lat, sto lat…”.
+Zdrowia i szczęścia! | ¡Salud y felicidad! | Health and happiness! | 🍀
+> Tú:You | Bardzo dziękuję za gościnę. Czułem się u Państwa bardzo dobrze. | Muchas gracias por su hospitalidad. Me sentí muy bien en su casa. | Thank you very much for your hospitality. I felt very welcome.
+> Mamá:Her mum | Cała przyjemność po naszej stronie! Proszę przyjeżdżać częściej. | ¡El placer es todo nuestro! Venga más seguido. | The pleasure is all ours! Please come more often.
+> Papá:Her dad | Szczęśliwej drogi! Dajcie znać, jak dojedziecie. | ¡Buen viaje! Avísennos cuando lleguen. | Safe travels! Let us know when you arrive.
+> Tú:You | Dziękuję, damy znać. Proszę pozdrowić rodzinę. | Gracias, les avisaremos. Saluden a la familia. | Thank you, we'll let you know. Please give my regards to the family.
+> Mamá:Her mum | Do zobaczenia wkrótce! | ¡Hasta pronto! | See you soon!
+> Tú:You | Do zobaczenia! Dziękuję za wszystko. | ¡Hasta pronto! Gracias por todo. | See you! Thank you for everything.
+
+## s12 | Costa Rica y Polonia | Costa Rica & Poland | Kostaryka i Polska | 🌴 | Contar de dónde vienes, comparar países y mostrar interés por Polonia. | Tell where you come from, compare countries and show interest in Poland.
+Kostaryka leży w Ameryce Środkowej. | Costa Rica está en Centroamérica. | Costa Rica is in Central America. | 🌎
+W Kostaryce jest bardzo ciepło. | En Costa Rica hace mucho calor. | It's very warm in Costa Rica. | 🌴
+Mamy tam piękne plaże i lasy deszczowe. | Allá tenemos playas hermosas y selvas tropicales. | We have beautiful beaches and rainforests there. | 🏖️
+Typowe danie to ryż z fasolą. | El plato típico es arroz con frijoles. | A typical dish is rice with beans. | 🍚
+W Polsce jest zimniej. | En Polonia hace más frío. | It's colder in Poland. | ❄️
+Pierwszy raz widzę śnieg! | ¡Es la primera vez que veo nieve! | It's the first time I've seen snow! | ⛄
+Polskie jedzenie jest bardzo smaczne. | La comida polaca es muy rica. | Polish food is very tasty. | 🥟
+Podoba mi się polska kultura. | Me gusta la cultura polaca. | I like Polish culture. | 🎭
+Co warto zobaczyć w Polsce? | ¿Qué vale la pena ver en Polonia? | What is worth seeing in Poland? | 🗺️
+Chciałbym zobaczyć Kraków i Gdańsk. | Me gustaría ver Cracovia y Gdansk. | I would like to see Kraków and Gdańsk. | 🏰
+Tęsknię za rodziną. | Extraño a mi familia. | I miss my family. | 💙
+Jak długo trwa lot do Polski? | ¿Cuánto dura el vuelo a Polonia? | How long is the flight to Poland? | 🛫
+morze | mar | sea | 🌊
+góry | montañas | mountains | 🏔️
+las | bosque | forest | 🌲
+zima | invierno | winter | ☃️
+lato | verano | summer | 🌞
+> Papá:Her dad | Jak Panu się podoba Polska? | ¿Qué le parece Polonia? | How do you like Poland?
+> Tú:You | Bardzo mi się podoba! Polskie jedzenie jest pyszne. | ¡Me gusta mucho! La comida polaca es deliciosa. | I like it very much! Polish food is delicious.
+> Papá:Her dad | A jak jest w Kostaryce? Czy tam jest zimno? | ¿Y cómo es en Costa Rica? ¿Hace frío allá? | And what is it like in Costa Rica? Is it cold there?
+> Tú:You | Nie, w Kostaryce jest bardzo ciepło. Mamy piękne plaże. | No, en Costa Rica hace mucho calor. Tenemos playas hermosas. | No, it's very warm in Costa Rica. We have beautiful beaches.
+> Papá:Her dad | Chętnie bym je zobaczył. | Con gusto las vería. | I would gladly see them.
+> Tú:You | Zapraszam! | ¡Los invito! | You're welcome to visit!
+> Papá:Her dad | Dziękuję! Może kiedyś. | ¡Gracias! Quizás algún día. | Thank you! Maybe one day.

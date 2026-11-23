@@ -1,0 +1,16 @@
+{
+  "name": "polski-box-tools",
+  "version": "1.0.0",
+  "description": "Build tools for Polski Box",
+  "scripts": {
+    "prep": "python3 prep.py",
+    "test": "node test_v2.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@twemoji/svg": "^15.0.0"
+  },
+  "private": true
+}
