@@ -9,7 +9,7 @@ Es una **web app** y se actualiza sola: cada push a `main` se publica en GitHub 
 | Android (teléfono, tablet, **Samsung DeX**) | Chrome → menú ⋮ → **Instalar app**, o el botón *Instalar* en Progreso |
 | iPad / iPhone | Safari → Compartir → **Añadir a pantalla de inicio** |
 | Windows / Mac | Edge o Chrome → **Instalar Polski Box** (icono en la barra de direcciones) |
-| Profesora | `teacher.html`: agrega palabras y graba su voz |
+| Profesora | `teacher.html`: agrega palabras, graba su voz, pone fotos y quita frases |
 
 Web: **https://marvincg.github.io/Polski-Box/**, disponible después de la configuración de abajo.
 
@@ -46,27 +46,27 @@ Los datos que guarda en el repositorio privado:
 
 | Archivo | Contenido |
 |---|---|
-| `progress.json` | Cajas, racha por dispositivo, récords y ajustes |
+| `progress.json` | Cajas, racha por dispositivo, récords, ajustes y palabras quitadas |
 | `words.json` | Palabras de la profesora (solo se agregan; las borradas se marcan) |
-| `config.json` | Clave opcional de Gemini |
 | `voice.json`, `voice/*.mp3` | Grabaciones de la profesora |
+| `img.json`, `img/*.jpg` | Fotos de la profesora |
 
 > ⚠️ El código y el enlace llevan el token. Compártelos solo con tus dispositivos y con tu profesora. Si se filtra, revócalo en GitHub y crea otro.
 
-### 3. Revisión con IA para la profesora (opcional, gratis)
-
-En `teacher.html`, abajo en **Ajustes**, se puede pegar una clave de **Google Gemini** ([crear clave](https://ai.google.dev/gemini-api/docs/api-key)). Con ella, cada palabra recibe:
-- corrección
-- traducción ES/EN
-- registro formal/informal
-- emoji
-- nota de uso
-
-Sin clave, igual se revisan ortografía y gramática con [LanguageTool](https://dev.languagetool.org/public-http-api), además de duplicados, IPA y emoji sugerido.
-
-En el nivel gratuito de Gemini, Google puede usar los textos para mejorar sus modelos. Son solo palabras de vocabulario.
-
 ---
+
+## Página de la profesora
+
+Tiene dos pestañas:
+
+- **➕ Añadir palabra.** Escribe la palabra o frase en polaco y toca *Revisar*. La revisión de ortografía y gramática la hace [LanguageTool](https://dev.languagetool.org/public-http-api), y además avisa de duplicados y muestra la IPA. Puede elegir un emoji o una **foto de su galería**.
+- **📚 Palabras.** Para cualquier palabra, frase o línea de diálogo puede:
+  - grabar su voz;
+  - ponerle una **foto**, que se reduce a JPEG de ~720 px en su navegador y se ve en la app en lugar del dibujo;
+  - **quitarla de la app** o volver a mostrarla.
+  Hay filtros: *sin tu voz*, *sin foto* y *quitadas*.
+
+Tú también puedes quitar palabras desde la app: abre una palabra → **Quitar de mi estudio**, o toca *No la necesito* cuando te aparece una nueva. Las quitadas no salen en sesiones ni juegos y se recuperan en **Palabras → Quitadas**. Lo que quita uno lo ve el otro al sincronizar.
 
 ## Voz de la profesora
 

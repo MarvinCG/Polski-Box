@@ -59,7 +59,7 @@ en: {
  tchTitle: 'New from your teacher', tchSub: '{n} new words or phrases waiting for you', tchGo: 'Learn them now', tchBadge: 'NEW', tchUnit: 'From your teacher',
  keys: 'Keyboard: 1–4 answer · Enter next · Space listen · Esc back',
  inst: 'Install the app', instSub: 'Polski Box is a web app: install it once and it updates by itself. Works offline.', instBtn: 'Install Polski Box', instIOS: 'On iPad / iPhone: tap Share ⬆️ in Safari, then “Add to Home Screen”.', instOther: 'In Chrome or Edge: open the menu ⋮ and choose “Install app” (or “Add to Home screen”).',
- tvOn: 'Use my teacher’s voice', tvSub: '{n} recordings by your teacher. Where she recorded a word you hear her; 🤖 plays the generated voice.', tvGen: 'Generated voice'
+ tvOn: 'Use my teacher’s voice', tvSub: '{n} recordings by your teacher. Where she recorded a word you hear her; 🤖 plays the generated voice.', tvGen: 'Generated voice', hide: "Remove from my study", unhide: "Study it again", restore: "Restore", ihide: "I don’t need it", hidden: "Removed", hiddenSub: "They don’t appear in your sessions or games. Your teacher can also remove words.", hidToast: "Removed. You’ll find it in Words › Removed.", unhidToast: "Back in your study.", hidTag: "removed"
 },
 es: {
  today: 'Hoy', box: 'Mi caja', words: 'Palabras', me: 'Progreso', streak: 'días seguidos',
@@ -106,16 +106,16 @@ es: {
  tchTitle: 'Nuevo de tu profesora', tchSub: '{n} palabras o frases nuevas te esperan', tchGo: 'Aprenderlas ahora', tchBadge: 'NUEVA', tchUnit: 'De tu profesora',
  keys: 'Teclado: 1–4 responder · Enter siguiente · Espacio escuchar · Esc volver',
  inst: 'Instalar la app', instSub: 'Polski Box es una web app: la instalas una vez y se actualiza sola. Funciona sin internet.', instBtn: 'Instalar Polski Box', instIOS: 'En iPad / iPhone: en Safari toca Compartir ⬆️ y luego «Añadir a pantalla de inicio».', instOther: 'En Chrome o Edge: abre el menú ⋮ y elige «Instalar app» (o «Agregar a la pantalla principal»).',
- tvOn: 'Usar la voz de mi profesora', tvSub: '{n} grabaciones de tu profesora. Donde ella grabó una palabra, la escuchas a ella; 🤖 reproduce la voz generada.', tvGen: 'Voz generada'
+ tvOn: 'Usar la voz de mi profesora', tvSub: '{n} grabaciones de tu profesora. Donde ella grabó una palabra, la escuchas a ella; 🤖 reproduce la voz generada.', tvGen: 'Voz generada', hide: "Quitar de mi estudio", unhide: "Volver a estudiarla", restore: "Recuperar", ihide: "No la necesito", hidden: "Quitadas", hiddenSub: "No aparecen en tus sesiones ni en los juegos. Tu profesora también puede quitar palabras.", hidToast: "Quitada. La encuentras en Palabras › Quitadas.", unhidToast: "Volvió a tu estudio.", hidTag: "quitada"
 },
-pl: {"today": "Dziś", "box": "Moje pudełko", "words": "Słówka", "me": "Postępy", "streak": "dni z rzędu", "hello": "Dzień dobry!", "start": "Zacznij dzisiejszą sesję", "rev": "{n} do powtórki", "nw": "{n} nowych słówek", "both": "{a} · {b}", "done": "Na dziś gotowe!", "doneSub": "Twoje pudełka są aktualne. Wróć jutro po kolejne słówka.", "more": "Naucz się 5 nowych słówek", "free": "Wolna praktyka", "todayGoal": "Dziś", "wotd": "Słówko dnia", "dotd": "Mini dialog", "playAll": "Odtwórz dialog", "boxes": "Twoje pudełko do nauki", "boxesSub": "Każde słówko wędruje z przegródki 1 do 5. Dobra odpowiedź przesuwa je dalej, błąd — z powrotem do przegródki 1.", "every1": "codziennie", "everyN": "co {n} dni", "mastered": "Opanowane", "newLeft": "nowych słówek czeka", "due": "do powtórki", "box1": "Przegródka {n}", "practiceBox": "Ćwicz tę przegródkę", "practiceNote": "Wolna praktyka nie zmienia pudełek.", "emptyBox": "Na razie pusto.", "search": "Szukaj słowa lub znaczenia…", "units": "Działy", "prio": "Najpierw ten dział", "prioOn": "Ten dział idzie pierwszy w nowych słówkach", "prioOff": "Nowe słówka idą według kursu", "dialogues": "Dialogi", "back": "‹ Wstecz", "st_new": "nowe", "st_box": "przegr. {n}", "st_m": "opanowane", "slow": "Wolno", "say": "Posłuchaj", "close": "Zamknij", "note": "Uwaga", "noResults": "Nic nie znaleziono.", "unitWords": "Słówka", "qMean": "Co to znaczy?", "qListen": "Posłuchaj. Co to znaczy?", "qSay": "Jak powiesz…?", "qWrite": "Napisz po polsku", "qDict": "Posłuchaj i napisz, co słyszysz", "qBuild": "Ułóż zdanie", "qBuildL": "Posłuchaj i ułóż zdanie", "check": "Sprawdź", "dk": "Nie wiem", "next": "Dalej", "cont": "Kontynuuj", "hint": "Podpowiedź", "typeHere": "Pisz po polsku…", "right": "Dobrze!", "wrong": "Nie całkiem", "accent": "Dobrze — uważaj na polskie znaki:", "answer": "Odpowiedź", "tryAgain": "Za chwilę zobaczysz je znowu.", "newWord": "Nowe słówko", "gotIt": "Rozumiem", "intro": "Posłuchaj, popatrz i powtórz na głos. Potem cię zapytamy.", "sumTitle": "Sesja zakończona!", "sumA": "odpowiedzi", "sumOk": "dobrze", "sumNew": "nowych słówek", "sumUp": "awansowało", "sumDown": "wróciło do przegródki 1", "sumNext": "Następna powtórka: jutro", "quit": "Wyjść z sesji?", "quitSub": "Dotychczasowe odpowiedzi są zapisane.", "quitYes": "Wyjdź", "keep": "Dalej ćwiczę", "stats": "Podsumowanie", "started": "Rozpoczęte", "mastered2": "Opanowane", "acc": "Trafność (7 dni)", "last14": "Ostatnie 14 dni", "byUnit": "Według działów", "report": "Raport dla nauczycielki", "reportSub": "Krótkie podsumowanie postępów i słówka, które jeszcze sprawiają trudność.", "share": "Udostępnij raport", "copy": "Kopiuj raport", "copied": "Skopiowano", "weak": "Słówka do ćwiczenia", "noWeak": "Na razie brak trudnych słówek. Tak trzymaj!", "settings": "Ustawienia", "npd": "Nowe słówka dziennie", "ui": "Język aplikacji", "gl": "Tłumaczenia", "voice": "Głos", "vAuto": "Auto", "vDev": "Urządzenie", "vBun": "Nagrania", "vNote": "Auto wybiera najbardziej naturalny polski głos na tym urządzeniu.", "vReady": "Głos telefonu: polski gotowy.", "vNopl": "Telefon nie ma polskiego głosu (Ustawienia › Język › Zamiana tekstu na mowę). Używam wbudowanych nagrań.", "vNone": "Używam wbudowanych nagrań.", "auto": "Odtwarzaj dźwięk automatycznie", "slowDef": "Zawsze odtwarzaj wolno", "strict": "Wymagaj polskich znaków przy pisaniu", "strictSub": "Wyłączone: ą/ę/ł… można pisać jako a/e/l…", "backup": "Kopia zapasowa", "export": "Eksportuj postępy", "import": "Importuj postępy", "importPh": "Wklej tu kopię zapasową", "importGo": "Importuj", "importBad": "Nie udało się odczytać kopii.", "importOk": "Postępy przywrócone.", "reset": "Usuń wszystkie postępy", "resetQ": "Usunąć wszystkie postępy?", "resetSub": "Pudełka, seria dni i statystyki zostaną usunięte. Tego nie da się cofnąć.", "resetYes": "Usuń", "about": "O aplikacji", "aboutTxt": "Dźwięk: wbudowane nagrania (neuronowy głos HD, gdy dostępny) lub polski głos urządzenia. Obrazki: Twemoji, © Twitter, Inc. i współtwórcy, CC-BY 4.0. Treść: „Polaco desde cero” ({u} działów) oraz {s} sytuacji z życia, razem {n} haseł. Działa bez internetu; synchronizacja jest opcjonalna. Sprawdzanie gramatyki dla nauczycielki: LanguageTool (languagetool.org).", "welcome": "Witaj w Polski Box", "wTxt": "Wybierz język. Możesz go później zmienić.", "w1": "Codziennie kilka nowych słówek z obrazkiem i dźwiękiem.", "w2": "Pudełko przypomina każde słówko wtedy, gdy zaczynasz je zapominać.", "w3": "Słówko jest opanowane dopiero wtedy, gdy umiesz je napisać ze słuchu.", "pick": "Polski", "reportHead": "Polski Box — raport postępów", "rDate": "Data", "rStreak": "Seria", "rStarted": "Rozpoczęte słówka", "rMast": "Opanowane", "rBoxes": "W przegródkach 1–5", "rAcc": "Trafność (ostatnie 7 dni)", "rUnits": "Według działów", "rWeak": "Słówka do wspólnego ćwiczenia", "day": "dzień", "month": "miesiąc", "sit": "Sytuacje", "sitIntro": "Prawdziwe chwile z rodziną dziewczyny. Do rodziców i krewnych zwracaj się formalnie: Pan / Pani / Państwo; do brata i przyjaciół — na „ty”.", "learnSit": "Naucz się nowych zwrotów ({n})", "allStarted": "Wszystkie zwroty rozpoczęte ✓", "practiseSit": "Ćwicz", "roleplay": "Odgrywanie ról", "rpYour": "Twoja kolej", "rpSay": "Powiedz to po polsku", "rpShow": "Pokaż i posłuchaj", "rpHint": "Podpowiedź", "rpAgain": "Jeszcze raz", "rpDone": "Koniec odgrywania ról!", "rpDoneSub": "Powiedz całą rozmowę na głos jeszcze raz, a potem przećwicz ją z nauczycielką.", "rpTip": "Najpierw powiedz swoją kwestię na głos, potem dotknij „Pokaż i posłuchaj”.", "formal": "Formalnie", "informal": "Nieformalnie", "mode": "Nowe słówka dziennie", "mCourse": "Kurs", "mMix": "Mieszane", "mSit": "Sytuacje", "sitToday": "Sytuacja dnia", "open": "Otwórz", "phrases": "Zwroty", "nSit": "{n} sytuacji", "started2": "rozpoczęte", "games": "Gry", "vHD": "Używam nagrań HD (głos neuronowy).", "vWeb": "Używam głosu „{v}”.", "vPick": "Głos na tym urządzeniu", "vBest": "Najlepszy dostępny", "vTip": "Wskazówka — iPad: Ustawienia › Dostępność › Treść mówiona › Głosy › Polski › Zosia (rozszerzony). Windows: użyj Edge, aby mieć naturalne głosy Zofia i Marek.", "sync": "Synchronizacja urządzeń", "syncSub": "Te same pudełka, seria dni i słówka od nauczycielki na telefonie, tablecie i komputerze. Używa prywatnego repozytorium GitHub.", "syncOff": "Nie połączono", "syncOn": "Połączono z {r}", "syncLast": "Ostatnia synchronizacja: {t}", "syncNever": "nigdy", "syncNow": "Synchronizuj teraz", "syncing": "Synchronizuję…", "syncSetup": "Połącz", "syncRepo": "Repozytorium danych (właściciel/nazwa)", "syncToken": "Token GitHub (fine-grained, Contents: odczyt i zapis)", "syncCode": "…albo wklej kod z innego urządzenia", "syncGo": "Połącz", "syncCopy": "Kopiuj kod dla innego urządzenia", "syncTeacher": "Kopiuj link dla nauczycielki", "syncOut": "Rozłącz", "syncDone": "Połączono i zsynchronizowano", "syncWarn": "Kod i link zawierają twój token dostępu. Udostępniaj je tylko swoim urządzeniom i nauczycielce.", "e_token": "GitHub odrzucił token. Sprawdź go albo utwórz nowy.", "e_forbidden": "Token nie ma dostępu do tego repozytorium (Contents: odczyt i zapis).", "e_repo": "Nie znaleziono repozytorium. Sprawdź właściciela/nazwę i dostęp tokenu.", "e_offline": "Brak połączenia. Zsynchronizuję później.", "e_conflict": "Inne urządzenie synchronizowało w tym samym czasie. Spróbuj ponownie.", "ago_now": "przed chwilą", "ago_m": "{n} min temu", "ago_h": "{n} godz. temu", "ago_d": "{n} dni temu", "tchTitle": "Nowe od nauczycielki", "tchSub": "Czeka na ciebie {n} nowych słówek lub zwrotów", "tchGo": "Naucz się ich teraz", "tchBadge": "NOWE", "tchUnit": "Od nauczycielki", "keys": "Klawiatura: 1–4 odpowiedź · Enter dalej · Spacja posłuchaj · Esc wstecz", "inst": "Zainstaluj aplikację", "instSub": "Polski Box to aplikacja webowa: instalujesz ją raz, a aktualizuje się sama. Działa bez internetu.", "instBtn": "Zainstaluj Polski Box", "instIOS": "Na iPadzie / iPhonie: w Safari dotknij Udostępnij ⬆️, a potem „Do ekranu początkowego”.", "instOther": "W Chrome lub Edge: otwórz menu ⋮ i wybierz „Zainstaluj aplikację” (lub „Dodaj do ekranu głównego”).", "tvOn": "Używaj głosu nauczycielki", "tvSub": "{n} nagrań nauczycielki. Tam, gdzie nagrała słówko, słyszysz ją; 🤖 odtwarza głos syntetyczny.", "tvGen": "Głos syntetyczny"}
+pl: {"today": "Dziś", "box": "Moje pudełko", "words": "Słówka", "me": "Postępy", "streak": "dni z rzędu", "hello": "Dzień dobry!", "start": "Zacznij dzisiejszą sesję", "rev": "{n} do powtórki", "nw": "{n} nowych słówek", "both": "{a} · {b}", "done": "Na dziś gotowe!", "doneSub": "Twoje pudełka są aktualne. Wróć jutro po kolejne słówka.", "more": "Naucz się 5 nowych słówek", "free": "Wolna praktyka", "todayGoal": "Dziś", "wotd": "Słówko dnia", "dotd": "Mini dialog", "playAll": "Odtwórz dialog", "boxes": "Twoje pudełko do nauki", "boxesSub": "Każde słówko wędruje z przegródki 1 do 5. Dobra odpowiedź przesuwa je dalej, błąd — z powrotem do przegródki 1.", "every1": "codziennie", "everyN": "co {n} dni", "mastered": "Opanowane", "newLeft": "nowych słówek czeka", "due": "do powtórki", "box1": "Przegródka {n}", "practiceBox": "Ćwicz tę przegródkę", "practiceNote": "Wolna praktyka nie zmienia pudełek.", "emptyBox": "Na razie pusto.", "search": "Szukaj słowa lub znaczenia…", "units": "Działy", "prio": "Najpierw ten dział", "prioOn": "Ten dział idzie pierwszy w nowych słówkach", "prioOff": "Nowe słówka idą według kursu", "dialogues": "Dialogi", "back": "‹ Wstecz", "st_new": "nowe", "st_box": "przegr. {n}", "st_m": "opanowane", "slow": "Wolno", "say": "Posłuchaj", "close": "Zamknij", "note": "Uwaga", "noResults": "Nic nie znaleziono.", "unitWords": "Słówka", "qMean": "Co to znaczy?", "qListen": "Posłuchaj. Co to znaczy?", "qSay": "Jak powiesz…?", "qWrite": "Napisz po polsku", "qDict": "Posłuchaj i napisz, co słyszysz", "qBuild": "Ułóż zdanie", "qBuildL": "Posłuchaj i ułóż zdanie", "check": "Sprawdź", "dk": "Nie wiem", "next": "Dalej", "cont": "Kontynuuj", "hint": "Podpowiedź", "typeHere": "Pisz po polsku…", "right": "Dobrze!", "wrong": "Nie całkiem", "accent": "Dobrze — uważaj na polskie znaki:", "answer": "Odpowiedź", "tryAgain": "Za chwilę zobaczysz je znowu.", "newWord": "Nowe słówko", "gotIt": "Rozumiem", "intro": "Posłuchaj, popatrz i powtórz na głos. Potem cię zapytamy.", "sumTitle": "Sesja zakończona!", "sumA": "odpowiedzi", "sumOk": "dobrze", "sumNew": "nowych słówek", "sumUp": "awansowało", "sumDown": "wróciło do przegródki 1", "sumNext": "Następna powtórka: jutro", "quit": "Wyjść z sesji?", "quitSub": "Dotychczasowe odpowiedzi są zapisane.", "quitYes": "Wyjdź", "keep": "Dalej ćwiczę", "stats": "Podsumowanie", "started": "Rozpoczęte", "mastered2": "Opanowane", "acc": "Trafność (7 dni)", "last14": "Ostatnie 14 dni", "byUnit": "Według działów", "report": "Raport dla nauczycielki", "reportSub": "Krótkie podsumowanie postępów i słówka, które jeszcze sprawiają trudność.", "share": "Udostępnij raport", "copy": "Kopiuj raport", "copied": "Skopiowano", "weak": "Słówka do ćwiczenia", "noWeak": "Na razie brak trudnych słówek. Tak trzymaj!", "settings": "Ustawienia", "npd": "Nowe słówka dziennie", "ui": "Język aplikacji", "gl": "Tłumaczenia", "voice": "Głos", "vAuto": "Auto", "vDev": "Urządzenie", "vBun": "Nagrania", "vNote": "Auto wybiera najbardziej naturalny polski głos na tym urządzeniu.", "vReady": "Głos telefonu: polski gotowy.", "vNopl": "Telefon nie ma polskiego głosu (Ustawienia › Język › Zamiana tekstu na mowę). Używam wbudowanych nagrań.", "vNone": "Używam wbudowanych nagrań.", "auto": "Odtwarzaj dźwięk automatycznie", "slowDef": "Zawsze odtwarzaj wolno", "strict": "Wymagaj polskich znaków przy pisaniu", "strictSub": "Wyłączone: ą/ę/ł… można pisać jako a/e/l…", "backup": "Kopia zapasowa", "export": "Eksportuj postępy", "import": "Importuj postępy", "importPh": "Wklej tu kopię zapasową", "importGo": "Importuj", "importBad": "Nie udało się odczytać kopii.", "importOk": "Postępy przywrócone.", "reset": "Usuń wszystkie postępy", "resetQ": "Usunąć wszystkie postępy?", "resetSub": "Pudełka, seria dni i statystyki zostaną usunięte. Tego nie da się cofnąć.", "resetYes": "Usuń", "about": "O aplikacji", "aboutTxt": "Dźwięk: wbudowane nagrania (neuronowy głos HD, gdy dostępny) lub polski głos urządzenia. Obrazki: Twemoji, © Twitter, Inc. i współtwórcy, CC-BY 4.0. Treść: „Polaco desde cero” ({u} działów) oraz {s} sytuacji z życia, razem {n} haseł. Działa bez internetu; synchronizacja jest opcjonalna. Sprawdzanie gramatyki dla nauczycielki: LanguageTool (languagetool.org).", "welcome": "Witaj w Polski Box", "wTxt": "Wybierz język. Możesz go później zmienić.", "w1": "Codziennie kilka nowych słówek z obrazkiem i dźwiękiem.", "w2": "Pudełko przypomina każde słówko wtedy, gdy zaczynasz je zapominać.", "w3": "Słówko jest opanowane dopiero wtedy, gdy umiesz je napisać ze słuchu.", "pick": "Polski", "reportHead": "Polski Box — raport postępów", "rDate": "Data", "rStreak": "Seria", "rStarted": "Rozpoczęte słówka", "rMast": "Opanowane", "rBoxes": "W przegródkach 1–5", "rAcc": "Trafność (ostatnie 7 dni)", "rUnits": "Według działów", "rWeak": "Słówka do wspólnego ćwiczenia", "day": "dzień", "month": "miesiąc", "sit": "Sytuacje", "sitIntro": "Prawdziwe chwile z rodziną dziewczyny. Do rodziców i krewnych zwracaj się formalnie: Pan / Pani / Państwo; do brata i przyjaciół — na „ty”.", "learnSit": "Naucz się nowych zwrotów ({n})", "allStarted": "Wszystkie zwroty rozpoczęte ✓", "practiseSit": "Ćwicz", "roleplay": "Odgrywanie ról", "rpYour": "Twoja kolej", "rpSay": "Powiedz to po polsku", "rpShow": "Pokaż i posłuchaj", "rpHint": "Podpowiedź", "rpAgain": "Jeszcze raz", "rpDone": "Koniec odgrywania ról!", "rpDoneSub": "Powiedz całą rozmowę na głos jeszcze raz, a potem przećwicz ją z nauczycielką.", "rpTip": "Najpierw powiedz swoją kwestię na głos, potem dotknij „Pokaż i posłuchaj”.", "formal": "Formalnie", "informal": "Nieformalnie", "mode": "Nowe słówka dziennie", "mCourse": "Kurs", "mMix": "Mieszane", "mSit": "Sytuacje", "sitToday": "Sytuacja dnia", "open": "Otwórz", "phrases": "Zwroty", "nSit": "{n} sytuacji", "started2": "rozpoczęte", "games": "Gry", "vHD": "Używam nagrań HD (głos neuronowy).", "vWeb": "Używam głosu „{v}”.", "vPick": "Głos na tym urządzeniu", "vBest": "Najlepszy dostępny", "vTip": "Wskazówka — iPad: Ustawienia › Dostępność › Treść mówiona › Głosy › Polski › Zosia (rozszerzony). Windows: użyj Edge, aby mieć naturalne głosy Zofia i Marek.", "sync": "Synchronizacja urządzeń", "syncSub": "Te same pudełka, seria dni i słówka od nauczycielki na telefonie, tablecie i komputerze. Używa prywatnego repozytorium GitHub.", "syncOff": "Nie połączono", "syncOn": "Połączono z {r}", "syncLast": "Ostatnia synchronizacja: {t}", "syncNever": "nigdy", "syncNow": "Synchronizuj teraz", "syncing": "Synchronizuję…", "syncSetup": "Połącz", "syncRepo": "Repozytorium danych (właściciel/nazwa)", "syncToken": "Token GitHub (fine-grained, Contents: odczyt i zapis)", "syncCode": "…albo wklej kod z innego urządzenia", "syncGo": "Połącz", "syncCopy": "Kopiuj kod dla innego urządzenia", "syncTeacher": "Kopiuj link dla nauczycielki", "syncOut": "Rozłącz", "syncDone": "Połączono i zsynchronizowano", "syncWarn": "Kod i link zawierają twój token dostępu. Udostępniaj je tylko swoim urządzeniom i nauczycielce.", "e_token": "GitHub odrzucił token. Sprawdź go albo utwórz nowy.", "e_forbidden": "Token nie ma dostępu do tego repozytorium (Contents: odczyt i zapis).", "e_repo": "Nie znaleziono repozytorium. Sprawdź właściciela/nazwę i dostęp tokenu.", "e_offline": "Brak połączenia. Zsynchronizuję później.", "e_conflict": "Inne urządzenie synchronizowało w tym samym czasie. Spróbuj ponownie.", "ago_now": "przed chwilą", "ago_m": "{n} min temu", "ago_h": "{n} godz. temu", "ago_d": "{n} dni temu", "tchTitle": "Nowe od nauczycielki", "tchSub": "Czeka na ciebie {n} nowych słówek lub zwrotów", "tchGo": "Naucz się ich teraz", "tchBadge": "NOWE", "tchUnit": "Od nauczycielki", "keys": "Klawiatura: 1–4 odpowiedź · Enter dalej · Spacja posłuchaj · Esc wstecz", "inst": "Zainstaluj aplikację", "instSub": "Polski Box to aplikacja webowa: instalujesz ją raz, a aktualizuje się sama. Działa bez internetu.", "instBtn": "Zainstaluj Polski Box", "instIOS": "Na iPadzie / iPhonie: w Safari dotknij Udostępnij ⬆️, a potem „Do ekranu początkowego”.", "instOther": "W Chrome lub Edge: otwórz menu ⋮ i wybierz „Zainstaluj aplikację” (lub „Dodaj do ekranu głównego”).", "tvOn": "Używaj głosu nauczycielki", "tvSub": "{n} nagrań nauczycielki. Tam, gdzie nagrała słówko, słyszysz ją; 🤖 odtwarza głos syntetyczny.", "tvGen": "Głos syntetyczny", "hide": "Usuń z mojej nauki", "unhide": "Ucz się jej znowu", "restore": "Przywróć", "ihide": "Nie potrzebuję", "hidden": "Usunięte", "hiddenSub": "Nie pojawiają się w sesjach ani w grach. Nauczycielka też może usuwać słówka.", "hidToast": "Usunięto. Znajdziesz je w Słówka › Usunięte.", "unhidToast": "Wróciło do nauki.", "hidTag": "usunięte"}
 };
 const t = (k, v) => { let s = (T[S.cfg.ui] || T.en)[k]; if (s == null) s = (S.cfg.ui === 'pl' && T.es[k]) || T.en[k] || k; if (v) for (const x in v) s = s.replace('{' + x + '}', v[x]); return s; };
 
 /* ------------------------------------------------------------ state */
 const KEY = 'polskibox.v1';
 const newDev = () => 'd' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-const blank = () => ({ v: 2, dev: newDev(), cards: {}, intro: { d: -1, n: 0 }, log: {}, ol: {}, q: [], qt: 0, cfgT: 0, gb: {}, seenT: 0, devs: {}, resetAt: 0, cfg: { npd: 8, mode: 'mix', ui: 'en', gl: 'en', voice: 'auto', vname: '', tv: true, slow: false, strict: false, auto: true, ok: false } });
+const blank = () => ({ v: 2, dev: newDev(), cards: {}, intro: { d: -1, n: 0 }, log: {}, ol: {}, q: [], qt: 0, cfgT: 0, gb: {}, seenT: 0, devs: {}, resetAt: 0, hid: {}, cfg: { npd: 8, mode: 'mix', ui: 'en', gl: 'en', voice: 'auto', vname: '', tv: true, slow: false, strict: false, auto: true, ok: false } });
 const store = {
   get() {
     try { const n = NA(); if (n && n.load) { const s = n.load('state'); if (s) return JSON.parse(s); } } catch (e) {}
@@ -132,7 +132,7 @@ function norm(o) {
   const b = blank(); if (!o || typeof o !== 'object') return b;
   const r = Object.assign(b, o); r.cfg = Object.assign(blank().cfg, o.cfg || {});
   r.cards = (o.cards && typeof o.cards === 'object') ? o.cards : {}; r.log = o.log || {}; r.q = Array.isArray(o.q) ? o.q : []; r.intro = o.intro || { d: -1, n: 0 };
-  r.ol = o.ol || {}; r.gb = o.gb || {}; r.devs = o.devs || {}; if (!r.dev) r.dev = newDev();
+  r.ol = o.ol || {}; r.gb = o.gb || {}; r.devs = o.devs || {}; r.hid = (o.hid && typeof o.hid === 'object') ? o.hid : {}; if (!r.dev) r.dev = newDev();
   return r;
 }
 let S = norm(store.get());
@@ -158,6 +158,7 @@ const ICO = {
 };
 function picHTML(w, cls) {
   cls = cls || ''; const p = w.p;
+  const ph = window.PBSync && PBSync.img.url(wkey(w)); if (ph) return `<div class="pic photo ${cls}"><img src="${ph}" alt=""></div>`;
   if (w.em) return `<div class="pic ${cls}"><span class="emo">${esc(w.em)}</span></div>`;
   if (!p) return `<div class="pic ph ${cls}"><img src="e/${U[w.u].ic}.svg" alt=""></div>`;
   if (p[0] === '#') return `<div class="pic ${cls}"><span class="num">${esc(p.slice(1))}</span></div>`;
@@ -165,11 +166,16 @@ function picHTML(w, cls) {
   return `<div class="pic ${cls}"><img src="e/${p}.svg" alt=""></div>`;
 }
 const status = i => { const c = S.cards[i]; return c ? c.b : 0; };
+/* stable key of a word, shared with the teacher page: built-in words use their audio id, teacher words t<k> */
+const wkey = w => w ? (w.vk || w.a) : '';
+const isHid = w => { const h = S.hid && S.hid[wkey(w)]; return !!(h && h.h); };
+const live = i => { const w = W[i]; return !!w && !isHid(w); };
+function refreshWA() { WA = W.filter(w => w && !isHid(w)); }
 /* answers of a day on every synced device */
 function LG(d) { const o = { a: 0, ok: 0, x: 0 }; const add = l => { if (l) { o.a += l.a || 0; o.ok += l.ok || 0; o.x += l.x || 0; } }; add(S.log[d]); for (const k in (S.ol || {})) add(S.ol[k][d]); return o; }
 const tchNew = () => WA.filter(w => w.tch && !S.cards[w.i]);
 function stTag(i) { const b = status(i); return b === 0 ? `<span class="tag n">${t('st_new')}</span>` : b === 6 ? `<span class="tag m">${t('st_m')}</span>` : `<span class="tag">${t('st_box', { n: b })}</span>`; }
-function dueIds() { const d = today(); return Object.keys(S.cards).map(Number).filter(i => S.cards[i].d <= d).sort((a, b) => S.cards[a].b - S.cards[b].b || S.cards[a].d - S.cards[b].d); }
+function dueIds() { const d = today(); return Object.keys(S.cards).map(Number).filter(i => live(i) && S.cards[i].d <= d).sort((a, b) => S.cards[a].b - S.cards[b].b || S.cards[a].d - S.cards[b].d); }
 function newPool() {
   const un = i => !S.cards[i];
   const order = isSit => {
@@ -186,8 +192,8 @@ function newPool() {
 }
 function counts() {
   const b = [0, 0, 0, 0, 0, 0, 0], due = [0, 0, 0, 0, 0, 0, 0], d = today();
-  for (const k in S.cards) { const c = S.cards[k]; b[c.b]++; if (c.d <= d) due[c.b]++; }
-  b[0] = WA.length - Object.keys(S.cards).length; return { b, due };
+  let n = 0; for (const k in S.cards) { if (!live(k)) continue; const c = S.cards[k]; b[c.b]++; n++; if (c.d <= d) due[c.b]++; }
+  b[0] = WA.length - n; return { b, due };
 }
 function streak() {
   let d = today(), n = 0; if (!LG(d).a) d--;
@@ -338,6 +344,8 @@ function wresHTML() {
       const ws = WA.filter(w => w.u === k); if (!ws.length) return ''; const m = ws.reduce((a, w) => a + status(w.i), 0) / (6 * ws.length), st = ws.filter(w => status(w.i) > 0).length;
       return `<button class="ucard" data-a="unit" data-u="${k}"><img src="e/${u.ic}.svg" alt=""><div class="t"><b>${esc(utitle(u))}</b><small>${esc(uother(u))} · ${st}/${ws.length}</small><div class="bar"><i style="width:${Math.round(m * 100)}%"></i></div></div></button>`;
     }).join('');
+    const hw = W.filter(w => w && isHid(w));
+    if (hw.length) h += `<div class="card mt"><h2>🚫 ${t('hidden')} (${hw.length})</h2><p class="small" style="margin:0 0 6px">${t('hiddenSub')}</p>${hw.map(w => `<div class="wrow">${picHTML(w, 'sm')}<div class="t"><b>${esc(w.pl)}</b><span class="gl">${esc(gloss(w))}</span></div><button class="btn s sm" style="width:auto" data-a="hide" data-i="${w.i}">↩️ ${t('restore')}</button></div>`).join('')}</div>`;
   }
   return h;
 }
@@ -413,7 +421,7 @@ function syncCard() {
    <div class="btns mt"><button class="btn sm" data-a="syncnow">${t('syncNow')}</button><div class="btns two"><button class="btn s sm" data-a="synccode">${t('syncCopy')}</button><button class="btn s sm" data-a="synctch">${t('syncTeacher')}</button></div></div>
    <div class="small mt">${t('syncWarn')}</div><button class="btn g sm mt" data-a="syncout">${t('syncOut')}</button></div>`;
 }
-function weakList() { return Object.keys(S.cards).map(Number).filter(i => S.cards[i].x > 0).sort((a, b) => S.cards[b].x - S.cards[a].x || S.cards[a].b - S.cards[b].b); }
+function weakList() { return Object.keys(S.cards).map(Number).filter(i => live(i) && S.cards[i].x > 0).sort((a, b) => S.cards[b].x - S.cards[a].x || S.cards[a].b - S.cards[b].b); }
 function reportText() {
   const c = counts(), d = today(), L = [];
   L.push(t('reportHead')); L.push(`${t('rDate')}: ${dayStr(d)} · ${t('rStreak')}: ${streak()}`);
@@ -444,7 +452,8 @@ function sheetHTML() {
     b = `<div class="center">${picHTML(w, 'lg')}<div class="pl mt" style="font-size:28px">${esc(w.pl)}</div><div class="ipa">/${esc(w.ipa)}/</div><div class="gl mt" style="font-size:18px">${esc(gloss(w))}${regChip(w)}</div>
     <div class="mt" style="display:flex;gap:12px;justify-content:center;align-items:center"><button class="say big${tvCls(w)}" data-a="play" data-i="${w.i}" aria-label="${t('say')}">${speakerSvg}</button><button class="say slow" data-a="play" data-i="${w.i}" data-s="1" aria-label="${t('slow')}">🐢</button>${genBtn(w)}</div>
     ${note(w) ? `<div class="fb warn mt" style="text-align:left"><h4>${t('note')}</h4>${esc(note(w))}</div>` : ''}
-    <div class="mt">${stTag(w.i)}${c ? ` <span class="small">✓ ${c.c} · ✗ ${c.x}</span>` : ''}</div></div>`;
+    <div class="mt">${isHid(w) ? `<span class="tag">🚫 ${t('hidTag')}</span>` : stTag(w.i)}${c ? ` <span class="small">✓ ${c.c} · ✗ ${c.x}</span>` : ''}</div></div>
+    <button class="btn ${isHid(w) ? 's' : 'g'} sm mt2" data-a="hide" data-i="${w.i}">${isHid(w) ? '↩️ ' + t('unhide') : '🚫 ' + t('hide')}</button>`;
   } else if (s.k === 'box') {
     const ids = WA.filter(w => status(w.i) === s.b).map(w => w.i);
     b = `<h3>${s.b === 6 ? '🏆 ' + t('mastered') : t('box1', { n: s.b })}</h3><div class="small">${s.b === 6 ? '' : (s.b === 1 ? t('every1') : t('everyN', { n: INT[s.b] }))}</div>
@@ -577,7 +586,7 @@ function introHTML() {
   <div><div class="pl">${esc(w.pl)}</div><div class="ipa">/${esc(w.ipa)}/</div><div class="gl mt" style="font-size:19px">${esc(gloss(w))}${regChip(w)}</div></div>
   <div style="display:flex;gap:12px;justify-content:center;align-items:center"><button class="say big${tvCls(w)}" data-a="play" data-i="${w.i}">${speakerSvg}</button><button class="say slow" data-a="play" data-i="${w.i}" data-s="1">🐢</button>${genBtn(w)}</div>
   ${note(w) ? `<div class="fb warn" style="text-align:left"><h4>${t('note')}</h4>${esc(note(w))}</div>` : `<div class="small">${t('intro')}</div>`}</div></div></div>
-  <div class="foot"><button class="btn" data-a="inext">${last ? t('gotIt') : t('next')}</button></div>`;
+  <div class="foot"><button class="btn" data-a="inext">${last ? t('gotIt') : t('next')}</button><button class="btn g sm" data-a="ihide">🚫 ${t('ihide')}</button></div>`;
 }
 function opts(list, correct) {
   return `<div class="opts">${list.map((x, k) => `<button class="opt" data-a="opt" data-k="${k}" data-c="${k === correct ? 1 : 0}">${esc(x)}</button>`).join('')}</div>`;
@@ -668,9 +677,9 @@ const A = {
   share: () => shareText(reportText()), copyrep: () => copyText(reportText()),
   export: () => shareText(JSON.stringify(S)),
   import: () => { V.sheet = { k: 'import' }; render(); },
-  importgo: () => { try { const o = JSON.parse(($('#imp').value || '').trim()); if (!o || typeof o.cards !== 'object') throw 0; const dev = S.dev; S = norm(o); S.dev = dev; S.cfg.ok = true; Object.keys(S.cards).forEach(k => { S.cards[k].t = Date.now(); }); save(); V.sheet = null; render(); toast(t('importOk')); } catch (e) { toast(t('importBad')); } },
+  importgo: () => { try { const o = JSON.parse(($('#imp').value || '').trim()); if (!o || typeof o.cards !== 'object') throw 0; const dev = S.dev; S = norm(o); S.dev = dev; S.cfg.ok = true; Object.keys(S.cards).forEach(k => { S.cards[k].t = Date.now(); }); refreshWA(); save(); V.sheet = null; render(); toast(t('importOk')); } catch (e) { toast(t('importBad')); } },
   reset: () => { V.sheet = { k: 'reset' }; render(); },
-  resetgo: () => { const c = S.cfg, dev = S.dev; S = blank(); S.cfg = c; S.dev = dev; S.resetAt = Date.now(); save(); V.sheet = null; render(); },
+  resetgo: () => { const c = S.cfg, dev = S.dev; S = blank(); S.cfg = c; S.dev = dev; S.resetAt = Date.now(); refreshWA(); save(); V.sheet = null; render(); },
   lang: d => { S.cfg.ui = d.v; S.cfg.gl = d.v === 'pl' ? 'es' : d.v; S.cfg.ok = true; S.cfgT = Date.now(); save(); V.sheet = null; render(); },
   /* session */
   mask: () => { if (M) { M.sheet = true; renderMSheet(); } },
@@ -709,6 +718,20 @@ const A = {
   rpagain: () => { if (M) startRP(M.u); },
   sitopen: d => { stopDialogue(); V.tab = 'sit'; V.unit = Number(d.u); V.sheet = null; render(); const m = $('#main'); if (m) m.scrollTop = 0; },
   install: async () => { if (!instEv) return; instEv.prompt(); try { await instEv.userChoice; } catch (e) {} instEv = null; render(); },
+  hide: d => {
+    const w = W[Number(d.i)]; if (!w) return; const was = isHid(w);
+    S.hid[wkey(w)] = { h: !was, t: Date.now(), by: 's' }; refreshWA(); save();
+    if (V.sheet && V.sheet.k === 'word' && !was) V.sheet = null;
+    render(); toast(was ? t('unhidToast') : t('hidToast'));
+  },
+  ihide: () => {
+    if (!M) return; const w = W[M.intro[M.ii]]; if (!w) return;
+    S.hid[wkey(w)] = { h: true, t: Date.now(), by: 's' }; refreshWA(); save(); toast(t('hidToast'));
+    M.intro.splice(M.ii, 1);
+    if (!M.intro.length) { M = null; renderSession(); render(); return; }
+    if (M.ii >= M.intro.length) { buildQueue(); }
+    renderSession();
+  },
   syncsetup: () => { V.sheet = { k: 'sync' }; render(); },
   syncgo: async () => {
     const code = PBSync.readCode(($('#scode') || {}).value);
@@ -728,6 +751,7 @@ function drawLine() { const C = M.cur, l = $('#line'); if (!l) return; l.innerHT
 
 /* ------------------------------------------------------------ boot */
 function boot() {
+  refreshWA();
   const app = $('#app'); app.innerHTML = '<div id="base" style="display:contents"></div><div id="exw"></div><div id="exs"></div>';
   app.addEventListener('click', e => {
     const a = e.target.closest('[data-a]'); if (!a) return;
@@ -770,8 +794,9 @@ function boot() {
   render();
   if (window.PBSync) PBSync.attach({
     get: () => S,
-    set: n => { const keep = { cfg: { voice: S.cfg.voice, vname: S.cfg.vname, ok: S.cfg.ok || n.cfg.ok } }; S = norm(n); Object.assign(S.cfg, keep.cfg); store.set(S); if (!M && !(window.PBGames && PBGames.active())) render(); },
+    set: n => { const keep = { cfg: { voice: S.cfg.voice, vname: S.cfg.vname, ok: S.cfg.ok || n.cfg.ok } }; S = norm(n); Object.assign(S.cfg, keep.cfg); refreshWA(); store.set(S); if (!M && !(window.PBGames && PBGames.active())) render(); },
     custom: list => { setCustom(list); if (!M && !(window.PBGames && PBGames.active())) render(); },
+    media: () => { if (!M && !(window.PBGames && PBGames.active())) render(); else renderSession(); },
     device: () => deviceName(),
     status: () => { if (!M && !(window.PBGames && PBGames.active())) { const sy = $('.chip.sy'); if (sy) { sy.classList.toggle('spin', !!PBSync.state.running); } if (V.tab === 'me') render(); } }
   });
@@ -780,15 +805,14 @@ function boot() {
 function setCustom(list) {
   for (let i = W.length - 1; i >= CB; i--) delete W[i];
   W.length = Math.min(W.length, CB);
-  const live = [];
   (list || []).forEach((e, k) => {
     if (!e || e.del || !e.pl) return;
     const w = { i: CB + k, vk: 't' + k, u: TU, pl: e.pl, es: e.es || '', en: e.en || e.es || '', ipa: e.ipa || (window.PolishIPA ? PolishIPA(e.pl) : ''), em: e.em || '📝', tch: 1, at: e.at || 0 };
     if (e.r === 'F' || e.r === 'I') w.r = e.r;
     if (e.ne || e.nn) { w.ne = e.ne || e.nn; w.nn = e.nn || e.ne; }
-    W[CB + k] = w; live.push(w);
+    W[CB + k] = w;
   });
-  WA = W.filter(Boolean);
+  refreshWA();
 }
 function deviceName() { const u = navigator.userAgent; return /iPad/.test(u) || (/Macintosh/.test(u) && navigator.maxTouchPoints > 1) ? 'iPad' : /Android/.test(u) ? (NA() ? 'Android app' : 'Android') : /Windows/.test(u) ? 'Windows' : /Mac/.test(u) ? 'Mac' : 'web'; }
 window.__pause = function () { stopDialogue(); };

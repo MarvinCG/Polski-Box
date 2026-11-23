@@ -86,59 +86,91 @@ function merge(local, remote) {
   for (const dev in logs) { if (dev === S.dev) S.log = mergeLog(S.log, logs[dev]); else S.ol[dev] = mergeLog(S.ol[dev], logs[dev]); }
   S.gb = S.gb || {}; const gb = remote.gb || {}; for (const k in gb) S.gb[k] = Math.max(S.gb[k] || 0, gb[k]);
   S.seenT = Math.max(S.seenT || 0, remote.seenT || 0);
+  S.hid = S.hid || {}; const rh = remote.hid || {};   // words removed from study, by the student or the teacher (latest change wins)
+  for (const k in rh) { if (!S.hid[k] || (rh[k].t || 0) > (S.hid[k].t || 0)) S.hid[k] = rh[k]; }
   S.devs = Object.assign({}, remote.devs || {}, S.devs || {});
   return S;
 }
 function toRemote(S) {
   const cfg = {}; SYNC_CFG.forEach(k => cfg[k] = S.cfg[k]);
   const logs = Object.assign({}, S.ol || {}); logs[S.dev] = S.log;
-  return { v: 2, cards: S.cards, intro: S.intro, q: S.q, qt: S.qt || 0, cfg, cfgT: S.cfgT || 0, logs, gb: S.gb || {}, seenT: S.seenT || 0, devs: S.devs || {}, resetAt: S.resetAt || 0 };
+  return { v: 2, cards: S.cards, intro: S.intro, q: S.q, qt: S.qt || 0, cfg, cfgT: S.cfgT || 0, logs, gb: S.gb || {}, seenT: S.seenT || 0, devs: S.devs || {}, resetAt: S.resetAt || 0, hid: S.hid || {} };
 }
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
-/* ---------------- teacher voice: voice.json index + voice/<key>.mp3, kept on the device for offline use */
-const VKEY = 'polskibox.voiceidx', VMETA = 'polskibox.voicemeta';
-let VIDX = {}, VLOC = {};
-try { VIDX = JSON.parse(sget(VKEY) || '{}'); VLOC = JSON.parse(sget(VMETA) || '{}'); } catch (e) {}
+/* ---------------- teacher media, kept on the device for offline use:
+   voice.json + voice/<key>.mp3 (her recordings), img.json + img/<key>.jpg (her photos) */
 const okKey = k => /^[A-Za-z0-9_-]{1,40}$/.test(k);
 let idb = null;
 function db() {
   if (idb) return idb;
-  idb = new Promise((res, rej) => { try { const r = indexedDB.open('polskibox', 1); r.onupgradeneeded = () => r.result.createObjectStore('voice'); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); } catch (e) { rej(e); } });
+  idb = new Promise((res, rej) => {
+    try {
+      const r = indexedDB.open('polskibox', 2);
+      r.onupgradeneeded = () => { const d = r.result; ['voice', 'img'].forEach(n => { if (!d.objectStoreNames.contains(n)) d.createObjectStore(n); }); };
+      r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+    } catch (e) { rej(e); }
+  });
   return idb;
 }
-const mem = {};
-const VS = {
-  async get(k) {
-    if (mem[k]) return mem[k];
-    const n = NA(); if (n && n.vget) { const v = n.vget(k); return v || null; }
-    try { const d = await db(); return await new Promise(r => { const q = d.transaction('voice').objectStore('voice').get(k); q.onsuccess = () => r(q.result || null); q.onerror = () => r(null); }); } catch (e) { return null; }
-  },
-  async put(k, b64) {
-    const n = NA(); if (n && n.vput) { n.vput(k, b64); return; }
-    try { const d = await db(); await new Promise(r => { const tx = d.transaction('voice', 'readwrite'); tx.objectStore('voice').put(b64, k); tx.oncomplete = tx.onerror = r; }); } catch (e) { mem[k] = b64; }
-  },
-  async del(k) {
-    delete mem[k]; const n = NA(); if (n && n.vdel) { n.vdel(k); return; }
-    try { const d = await db(); d.transaction('voice', 'readwrite').objectStore('voice').delete(k); } catch (e) {}
+function store(name, native) {
+  const mem = {};
+  return {
+    async get(k) {
+      if (mem[k]) return mem[k];
+      const n = NA(); if (native && n && n.vget) { const v = n.vget(k); return v || null; }
+      try { const d = await db(); return await new Promise(r => { const q = d.transaction(name).objectStore(name).get(k); q.onsuccess = () => r(q.result || null); q.onerror = () => r(null); }); } catch (e) { return null; }
+    },
+    async put(k, b64) {
+      const n = NA(); if (native && n && n.vput) { n.vput(k, b64); return; }
+      try { const d = await db(); await new Promise(r => { const tx = d.transaction(name, 'readwrite'); tx.objectStore(name).put(b64, k); tx.oncomplete = tx.onerror = r; }); } catch (e) { mem[k] = b64; }
+    },
+    async del(k) {
+      delete mem[k]; const n = NA(); if (native && n && n.vdel) { n.vdel(k); return; }
+      try { const d = await db(); d.transaction(name, 'readwrite').objectStore(name).delete(k); } catch (e) {}
+    }
+  };
+}
+function media(kind, ext, onNew) {
+  const IK = 'polskibox.' + kind + 'idx', MK = 'polskibox.' + kind + 'meta', S = store(kind, kind === 'voice');
+  let idx = {}, loc = {}, pref = false;
+  try { idx = JSON.parse(sget(IK) || '{}'); loc = JSON.parse(sget(MK) || '{}'); } catch (e) {}
+  async function fetchOne(c, k) {
+    const r = await gh(c, 'GET', kind + '/' + k + '.' + ext + '?t=' + Date.now());
+    if (r.status !== 200) throw httpErr(r);
+    const b64 = JSON.parse(r.text).content.replace(/\s/g, '');
+    await S.put(k, b64); loc[k] = (idx[k] && idx[k].at) || Date.now(); sset(MK, JSON.stringify(loc));
+    if (onNew) onNew(k, b64);
+    return b64;
   }
-};
-async function fetchVoice(c, k) {
-  const r = await gh(c, 'GET', 'voice/' + k + '.mp3?t=' + Date.now());
-  if (r.status !== 200) throw httpErr(r);
-  const b64 = JSON.parse(r.text).content.replace(/\s/g, '');
-  await VS.put(k, b64); VLOC[k] = (VIDX[k] && VIDX[k].at) || Date.now(); sset(VMETA, JSON.stringify(VLOC));
-  return b64;
+  return {
+    setIndex(items, c) { idx = items || {}; sset(IK, JSON.stringify(idx)); this.prefetch(c); },
+    async prefetch(c) {   // download new or replaced files in the background; drop removed ones
+      if (pref) return; pref = true;
+      try {
+        for (const k in loc) if (!idx[k]) { await S.del(k); delete loc[k]; if (onNew) onNew(k, null); }
+        sset(MK, JSON.stringify(loc));
+        for (const k in idx) { if (!okKey(k) || (loc[k] || 0) >= (idx[k].at || 0)) continue; try { await fetchOne(c, k); } catch (e) { if (e.message === 'offline') break; } }
+      } finally { pref = false; }
+    },
+    has: k => !!(k && idx[k]),
+    keys: () => Object.keys(idx),
+    count: () => Object.keys(idx).length,
+    local: k => (loc[k] || 0) >= ((idx[k] && idx[k].at) || 1),
+    async get(k) { if (!idx[k]) return null; let b = (loc[k] || 0) >= (idx[k].at || 0) ? await S.get(k) : null; if (!b && conf()) { try { b = await fetchOne(conf(), k); } catch (e) { b = await S.get(k); } } return b; },
+    raw: S
+  };
 }
-let pref = false;
-async function prefetch(c) {   // download new or re-recorded voices in the background
-  if (pref) return; pref = true;
-  try {
-    for (const k in VLOC) if (!VIDX[k]) { await VS.del(k); delete VLOC[k]; }
-    sset(VMETA, JSON.stringify(VLOC));
-    for (const k in VIDX) { if (!okKey(k) || (VLOC[k] || 0) >= (VIDX[k].at || 0)) continue; try { await fetchVoice(c, k); } catch (e) { if (e.message === 'offline') break; } }
-  } finally { pref = false; }
+const VOICE = media('voice', 'mp3');
+/* photos are shown by <img src="blob:…">, so they are turned into object URLs once and kept in memory */
+const IMGURL = {};
+function setImgURL(k, b64) {
+  if (IMGURL[k]) { try { URL.revokeObjectURL(IMGURL[k]); } catch (e) {} delete IMGURL[k]; }
+  if (b64) { try { const bin = atob(b64), u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i); IMGURL[k] = URL.createObjectURL(new Blob([u8], { type: 'image/jpeg' })); } catch (e) {} }
+  clearTimeout(setImgURL.t); setImgURL.t = setTimeout(() => api && api.media && api.media(), 120);
 }
+const IMG = media('img', 'jpg', setImgURL);
+async function loadImgs() { for (const k of IMG.keys()) { if (IMGURL[k] || !IMG.local(k)) continue; const b = await IMG.raw.get(k); if (b) setImgURL(k, b); } }
 
 /* ---------------- the sync engine, wired to the app by PBSync.attach(api) */
 let api = null, busy = null, again = false, timer = null;
@@ -156,7 +188,8 @@ async function run(reason) {
         const up = toRemote(api.get());
         if (!rf.data || !same(up, Object.assign({}, rf.data))) await putFile(c, 'progress.json', up, rf.sha, `progress (${api.device()})`);
         try { const wf = await getFile(c, 'words.json'); const list = (wf.data && wf.data.words) || []; sset('polskibox.custom', JSON.stringify(list)); api.custom(list); } catch (e) { if (e.message !== 'repo') throw e; }
-        try { const vf = await getFile(c, 'voice.json'); VIDX = (vf.data && vf.data.items) || {}; sset(VKEY, JSON.stringify(VIDX)); prefetch(c); } catch (e) { if (e.message !== 'repo') throw e; }
+        try { const vf = await getFile(c, 'voice.json'); VOICE.setIndex(vf.data && vf.data.items, c); } catch (e) { if (e.message !== 'repo') throw e; }
+        try { const mf = await getFile(c, 'img.json'); IMG.setIndex(mf.data && mf.data.items, c); } catch (e) { if (e.message !== 'repo') throw e; }
         st.last = Date.now(); sset('polskibox.synclast', String(st.last)); break;
       } catch (e) {
         st.err = e.message || 'error';
@@ -173,17 +206,16 @@ window.PBSync = {
   attach(a) {
     api = a;
     try { const cached = JSON.parse(sget('polskibox.custom') || '[]'); if (cached.length) api.custom(cached); } catch (e) {}
+    loadImgs();
     if (conf()) setTimeout(() => run('boot'), 800);
     setInterval(() => { if (document.visibilityState !== 'hidden') run('tick'); }, 4 * 60 * 1000);
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') run('hide'); else soon(500); });
   },
   conf, setConf, makeCode, readCode, merge, toRemote, run, soon, state: st,
-  voice: {
-    has: k => !!(k && VIDX[k]),
-    count: () => Object.keys(VIDX).length,
-    /** base64 MP3 of the teacher's recording: from the device, or downloaded now if it is not there yet */
-    async get(k) { if (!VIDX[k]) return null; let b = (VLOC[k] || 0) >= (VIDX[k].at || 0) ? await VS.get(k) : null; if (!b && conf()) { try { b = await fetchVoice(conf(), k); } catch (e) { b = await VS.get(k); } } return b; }
-  },
+  /** the teacher's recordings: has(key), count(), get(key) -> base64 MP3 (downloaded now if not on the device yet) */
+  voice: { has: VOICE.has, count: VOICE.count, get: k => VOICE.get(k) },
+  /** the teacher's photos: url(key) -> blob URL when the photo is on this device */
+  img: { url: k => IMGURL[k] || null, count: IMG.count },
   /** Check a repo + token and create the data files if the repository is empty. */
   async connect(repo, token) {
     const c = { repo: repo.trim().replace(/^https?:\/\/github\.com\//, '').replace(/\.git$/, '').replace(/\/$/, ''), token: token.trim() };
