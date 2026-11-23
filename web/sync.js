@@ -88,13 +88,15 @@ function merge(local, remote) {
   S.seenT = Math.max(S.seenT || 0, remote.seenT || 0);
   S.hid = S.hid || {}; const rh = remote.hid || {};   // words removed from study, by the student or the teacher (latest change wins)
   for (const k in rh) { if (!S.hid[k] || (rh[k].t || 0) > (S.hid[k].t || 0)) S.hid[k] = rh[k]; }
+  S.ed = S.ed || {}; const re = remote.ed || {};    // edited words and lines (latest change wins)
+  for (const k in re) { if (!S.ed[k] || (re[k].t || 0) > (S.ed[k].t || 0)) S.ed[k] = re[k]; }
   S.devs = Object.assign({}, remote.devs || {}, S.devs || {});
   return S;
 }
 function toRemote(S) {
   const cfg = {}; SYNC_CFG.forEach(k => cfg[k] = S.cfg[k]);
   const logs = Object.assign({}, S.ol || {}); logs[S.dev] = S.log;
-  return { v: 2, cards: S.cards, intro: S.intro, q: S.q, qt: S.qt || 0, cfg, cfgT: S.cfgT || 0, logs, gb: S.gb || {}, seenT: S.seenT || 0, devs: S.devs || {}, resetAt: S.resetAt || 0, hid: S.hid || {} };
+  return { v: 2, cards: S.cards, intro: S.intro, q: S.q, qt: S.qt || 0, cfg, cfgT: S.cfgT || 0, logs, gb: S.gb || {}, seenT: S.seenT || 0, devs: S.devs || {}, resetAt: S.resetAt || 0, hid: S.hid || {}, ed: S.ed || {} };
 }
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
@@ -154,6 +156,8 @@ function media(kind, ext, onNew) {
       } finally { pref = false; }
     },
     has: k => !!(k && idx[k]),
+    at: k => (idx[k] && idx[k].at) || 0,
+    meta: k => idx[k] || null,
     keys: () => Object.keys(idx),
     count: () => Object.keys(idx).length,
     local: k => (loc[k] || 0) >= ((idx[k] && idx[k].at) || 1),
@@ -213,7 +217,7 @@ window.PBSync = {
   },
   conf, setConf, makeCode, readCode, merge, toRemote, run, soon, state: st,
   /** the teacher's recordings: has(key), count(), get(key) -> base64 MP3 (downloaded now if not on the device yet) */
-  voice: { has: VOICE.has, count: VOICE.count, get: k => VOICE.get(k) },
+  voice: { has: VOICE.has, at: VOICE.at, meta: VOICE.meta, count: VOICE.count, get: k => VOICE.get(k) },
   /** the teacher's photos: url(key) -> blob URL when the photo is on this device */
   img: { url: k => IMGURL[k] || null, count: IMG.count },
   /** Check a repo + token and create the data files if the repository is empty. */

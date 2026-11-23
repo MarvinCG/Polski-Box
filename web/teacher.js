@@ -26,7 +26,7 @@ const L = {
     vSaved: 'Guardada ✓', vDel: 'Borrar grabación', vDelQ: '¿Borrar tu grabación?', vNone: 'No hay nada en esta lista.', noMic: 'Este navegador no puede grabar. Usa Chrome, Edge o Safari actualizados, con permiso de micrófono.', micDenied: 'Sin permiso para el micrófono. Actívalo en el navegador y vuelve a intentarlo.', silence: 'No se oyó nada. Acércate al micrófono y vuelve a grabar.',
     pick: '📷 Elegir foto', change: '📷 Cambiar foto', savePhoto: 'Guardar foto', cancel: 'Cancelar', delPhoto: 'Quitar foto', delPhotoQ: '¿Quitar la foto?', photoSaved: 'Foto guardada ✓', photoDel: 'Foto quitada.', photoErr: 'No se pudo leer esa imagen.', photoOpt: '🖼️ Foto (opcional, en lugar del emoji)', photoSub: 'Se muestra en lugar del dibujo. Mejor una foto clara, con el objeto en el centro.',
     hideSub: 'Aaron ya no la verá en sus sesiones ni en los juegos. Se puede volver a mostrar.', hideBtn: 'Quitar de la app', unhide: 'Volver a mostrar', hidOk: 'Quitada de la app.', unhidOk: 'Visible otra vez.', hidByS: 'Aaron la quitó de su estudio.', hidByT: 'La quitaste de la app.',
-    speaker: '{w}:', kbd: 'Teclado: Espacio grabar/detener · Enter guardar y siguiente · → siguiente · P escuchar', recNew: '🎙️ Grabar tu voz para «{p}»', allDone: '¡Todo listo en esta lista! 🎉', hasVoice: 'con tu voz', hasPhoto: 'con foto', hidden: 'quitada'
+    speaker: '{w}:', kbd: 'Teclado: Espacio grabar/detener · Enter guardar y siguiente · → siguiente · P escuchar', recNew: '🎙️ Grabar tu voz para «{p}»', allDone: '¡Todo listo en esta lista! 🎉', hasVoice: 'con tu voz', hasPhoto: 'con foto', hidden: 'quitada', editT: "✏️ Modificar", editSub: "Cambia el polaco, la traducción o la nota (por ejemplo, agua en lugar de cerveza). Aaron lo ve en su próxima sincronización.", editBtn: "Modificar texto", eSave: "Guardar", eSaved: "Cambios guardados.", eRestore: "Volver al original", eRestored: "Se restauró el original.", edited: "modificada", orig: "original", stale: "⚠️ La frase cambió después de tu grabación. Grábala de nuevo; mientras tanto Aaron escucha la voz generada.", delT: "🗑 Eliminar definitivamente", delSub: "Desaparece por completo, también para Aaron, junto con tu voz y tu foto. No se puede recuperar.", delBtn: "Eliminar definitivamente", delQx: "¿Seguro? Toca otra vez para eliminar"
   },
   pl: {
     ttl: 'Nauczycielka', hello: 'Dodaj słówka dla Aarona', helloSub: 'Wpisz polskie słowo lub zwrot. Sprawdzę je, dodam emoji i wymowę, a przy następnej synchronizacji pojawi się w jego aplikacji jako nowe.',
@@ -45,7 +45,7 @@ const L = {
     vSaved: 'Zapisano ✓', vDel: 'Usuń nagranie', vDelQ: 'Usunąć nagranie?', vNone: 'Na tej liście nic nie ma.', noMic: 'Ta przeglądarka nie może nagrywać. Użyj aktualnego Chrome, Edge lub Safari i zezwól na mikrofon.', micDenied: 'Brak dostępu do mikrofonu. Zezwól na niego w przeglądarce i spróbuj ponownie.', silence: 'Nic nie było słychać. Podejdź bliżej mikrofonu i nagraj ponownie.',
     pick: '📷 Wybierz zdjęcie', change: '📷 Zmień zdjęcie', savePhoto: 'Zapisz zdjęcie', cancel: 'Anuluj', delPhoto: 'Usuń zdjęcie', delPhotoQ: 'Usunąć zdjęcie?', photoSaved: 'Zdjęcie zapisane ✓', photoDel: 'Zdjęcie usunięte.', photoErr: 'Nie udało się odczytać tego obrazu.', photoOpt: '🖼️ Zdjęcie (opcjonalnie, zamiast emoji)', photoSub: 'Pojawia się zamiast rysunku. Najlepiej wyraźne zdjęcie z przedmiotem na środku.',
     hideSub: 'Aaron nie zobaczy go już w sesjach ani w grach. Można je przywrócić.', hideBtn: 'Usuń z aplikacji', unhide: 'Pokaż znowu', hidOk: 'Usunięto z aplikacji.', unhidOk: 'Znowu widoczne.', hidByS: 'Aaron usunął je ze swojej nauki.', hidByT: 'Usunęłaś je z aplikacji.',
-    speaker: '{w}:', kbd: 'Klawiatura: Spacja nagraj/zatrzymaj · Enter zapisz i dalej · → dalej · P posłuchaj', recNew: '🎙️ Nagraj swój głos dla „{p}”', allDone: 'Na tej liście wszystko gotowe! 🎉', hasVoice: 'twój głos', hasPhoto: 'zdjęcie', hidden: 'usunięte'
+    speaker: '{w}:', kbd: 'Klawiatura: Spacja nagraj/zatrzymaj · Enter zapisz i dalej · → dalej · P posłuchaj', recNew: '🎙️ Nagraj swój głos dla „{p}”', allDone: 'Na tej liście wszystko gotowe! 🎉', hasVoice: 'twój głos', hasPhoto: 'zdjęcie', hidden: 'usunięte', editT: "✏️ Zmień", editSub: "Zmień polski tekst, tłumaczenie lub uwagę (np. woda zamiast piwa). Aaron zobaczy to przy następnej synchronizacji.", editBtn: "Zmień tekst", eSave: "Zapisz", eSaved: "Zmiany zapisane.", eRestore: "Przywróć oryginał", eRestored: "Przywrócono oryginał.", edited: "zmienione", orig: "oryginał", stale: "⚠️ Zwrot zmienił się po twoim nagraniu. Nagraj go ponownie; do tego czasu Aaron słyszy głos syntetyczny.", delT: "🗑 Usuń na zawsze", delSub: "Zniknie całkowicie, także u Aarona, razem z twoim nagraniem i zdjęciem. Nie da się go odzyskać.", delBtn: "Usuń na zawsze", delQx: "Na pewno? Dotknij jeszcze raz, aby usunąć"
   }
 };
 let lang = (() => { try { return localStorage.getItem('pbt.lang') === 'es' ? 'es' : 'pl'; } catch (e) { return 'pl'; } })();
@@ -103,12 +103,12 @@ async function update(path, fn, msg, empty) {
 
 /* ---------------- data */
 const BUILT = (window.WORDS || []), UN = window.UNITS || [];
-let WL = [], CARDS = {}, HID = {}, VI = {}, II = {};
+let WL = [], CARDS = {}, HID = {}, ED = {}, VI = {}, II = {};
 const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l').replace(/[^\p{L}\p{N} ]/gu, ' ').replace(/\s+/g, ' ').trim();
 async function loadAll() {
   const opt = p => getFile(p).catch(() => ({ data: null }));
   const [w, p, v, i] = await Promise.all([getFile('words.json'), opt('progress.json'), opt('voice.json'), opt('img.json')]);
-  WL = (w.data && w.data.words) || []; CARDS = (p.data && p.data.cards) || {}; HID = (p.data && p.data.hid) || {};
+  WL = (w.data && w.data.words) || []; CARDS = (p.data && p.data.cards) || {}; HID = (p.data && p.data.hid) || {}; ED = (p.data && p.data.ed) || {};
   VI = (v.data && v.data.items) || {}; II = (i.data && i.data.items) || {};
 }
 const toEmoji = p => { try { return String.fromCodePoint(...p.split('-').map(h => parseInt(h, 16))); } catch (e) { return ''; } };
@@ -147,10 +147,10 @@ async function photoFromFile(file) {
   } finally { URL.revokeObjectURL(url); }
 }
 /* save / delete a media file and its index entry (voice.json or img.json) */
-async function saveMedia(kind, k, b64, label) {
+async function saveMedia(kind, k, b64, label, text) {
   const idx = kind === 'voice' ? VI : II, ext = kind === 'voice' ? 'mp3' : 'jpg';
   const sha = await putRaw(`${kind}/${k}.${ext}`, b64, idx[k] && idx[k].sha, `${kind}: ${label}`);
-  const d = await update(kind + '.json', x => { x.items = x.items || {}; x.items[k] = { at: Date.now(), sha }; }, `${kind} index: ${k}`, { v: 1, items: {} });
+  const d = await update(kind + '.json', x => { x.items = x.items || {}; x.items[k] = text ? { at: Date.now(), sha, pl: text } : { at: Date.now(), sha }; }, `${kind} index: ${k}`, { v: 1, items: {} });
   if (kind === 'voice') VI = d.items; else II = d.items;
 }
 async function delMedia(kind, k) {
@@ -160,11 +160,21 @@ async function delMedia(kind, k) {
   if (kind === 'voice') VI = d.items; else II = d.items;
 }
 /* removed words live in progress.json → hid, shared with the student's app (latest change wins) */
-async function setHidden(k, h) {
-  const d = await update('progress.json', x => { x.hid = x.hid || {}; x.hid[k] = { h, t: Date.now(), by: 't' }; }, `teacher: ${h ? 'remove' : 'restore'} ${k}`, {});
-  HID = d.hid || {}; CARDS = d.cards || CARDS;
+async function setHidden(k, h, x) {
+  const v = { h, t: Date.now(), by: 't' }; if (x) v.x = true;
+  const d = await update('progress.json', p => { p.hid = p.hid || {}; p.hid[k] = v; }, `teacher: ${x ? 'delete' : h ? 'remove' : 'restore'} ${k}`, {});
+  HID = d.hid || {}; ED = d.ed || ED; CARDS = d.cards || CARDS;
 }
 const isHid = k => !!(HID[k] && HID[k].h);
+const isDelK = k => !!(HID[k] && HID[k].h && HID[k].x);
+/* edits (progress.json → ed), shared with the student's app: latest change wins */
+async function setEdit(k, v) {
+  v.t = Date.now(); v.by = 't';
+  const d = await update('progress.json', p => { p.ed = p.ed || {}; p.ed[k] = v; }, `teacher: edit ${k}`, {});
+  ED = d.ed || {}; HID = d.hid || HID; CARDS = d.cards || CARDS;
+}
+const edOf = k => { const e = ED[k]; return e && !e.reset ? e : null; };
+const voiceStale = (k, pl) => { const v = VI[k]; if (!v) return false; if (v.pl) return v.pl !== pl; const e = edOf(k); return !!(e && e.pc && (v.at || 0) < e.t); };
 
 /* ---------------- shared bits */
 function toast(msg) { const e = document.createElement('div'); e.textContent = msg; e.style.cssText = 'position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#14244a;color:#fff;padding:10px 18px;border-radius:99px;z-index:99;font-weight:600;max-width:90vw;text-align:center'; document.body.appendChild(e); setTimeout(() => e.remove(), 2600); }
@@ -208,7 +218,7 @@ function drawEmojis() {
   const e = $('#emos'); if (e) e.innerHTML = list.map(x => `<button class="${F.em === x ? 'on' : ''}" data-a="emo" data-v="${esc(x)}">${x}</button>`).join('');
 }
 function listHTML() {
-  const live = WL.map((w, k) => ({ w, k })).filter(o => !o.w.del).reverse();
+  const live = WL.map((w, k) => ({ w: Object.assign({}, w, edOf('t' + k) ? { pl: edOf('t' + k).pl || w.pl, es: edOf('t' + k).es != null ? edOf('t' + k).es : w.es } : {}), k })).filter(o => !o.w.del && !isDelK('t' + o.k)).reverse();
   if (!live.length) return `<div class="empty">${t('none')}</div>`;
   return live.map(({ w, k }) => {
     const c = CARDS[CB + k], st = !c ? `<span class="tag d">✨ ${t('stNew')}</span>` : c.b >= 6 ? `<span class="tag m">${t('stM')}</span>` : `<span class="tag">${t('stBox', { n: c.b })}</span>`;
@@ -231,12 +241,23 @@ function resHTML(dup) {
 
 /* ================================================================ tab 2: words — voice, photo, remove */
 const WF = { kind: 'mine', filter: 'all', q: '' };
-let CUR = null, PREV = null, VSTATE = 'idle', VMSG = '', delQ = null, PPREV = null;
+let CUR = null, PREV = null, VSTATE = 'idle', VMSG = '', delQ = null, PPREV = null, EDT = null;
 const AUD = {}, PHO = {};   // key -> data URL of downloaded recordings / photos
+function overlay(x) {   // apply an edit on top of the original text
+  x.opl = x.pl; x.oes = x.gl;
+  const e = edOf(x.key); if (!e) return x;
+  x.ed = 1;
+  if (e.pl && e.pl !== x.pl) { x.pl = e.pl; x.ipa = window.PolishIPA ? PolishIPA(e.pl) : x.ipa; }
+  if (e.es != null) x.gl = e.es;
+  if ('ne' in e) x.ne = e.ne; if ('r' in e) x.r = e.r; if (e.em) x.em = e.em;
+  return x;
+}
 function items(kind) {
-  if (kind === 'mine') return WL.map((w, k) => w.del ? null : { key: 't' + k, pl: w.pl, gl: glOf(w), ipa: w.ipa || (window.PolishIPA ? PolishIPA(w.pl) : ''), em: w.em || '📝', word: 1 }).filter(Boolean);
-  if (kind === 'dlg') { const o = []; UN.forEach(u => (u.ctx || []).forEach(l => o.push({ key: l.a, pl: l.pl, gl: glOf(l), who: lang === 'pl' ? (SPK_PL[l.w] || l.w) : l.w, unit: uName(u) }))); return o; }
-  return BUILT.filter(w => !!(UN[w.u] && UN[w.u].sit) === (kind === 'sit')).map(w => ({ key: w.a, pl: w.pl, gl: glOf(w), ipa: w.ipa, p: w.p, ic: UN[w.u] && UN[w.u].ic, unit: uName(UN[w.u]), word: 1 }));
+  let o;
+  if (kind === 'mine') o = WL.map((w, k) => w.del ? null : { key: 't' + k, pl: w.pl, gl: glOf(w), ne: w.ne || '', r: w.r || '', ipa: w.ipa || (window.PolishIPA ? PolishIPA(w.pl) : ''), em: w.em || '📝', word: 1 }).filter(Boolean);
+  else if (kind === 'dlg') { o = []; UN.forEach(u => (u.ctx || []).forEach(l => o.push({ key: l.a, pl: l.pl, gl: glOf(l), who: lang === 'pl' ? (SPK_PL[l.w] || l.w) : l.w, unit: uName(u) }))); }
+  else o = BUILT.filter(w => !!(UN[w.u] && UN[w.u].sit) === (kind === 'sit')).map(w => ({ key: w.a, pl: w.pl, gl: glOf(w), ne: w.ne || '', r: w.r || '', ipa: w.ipa, p: w.p, ic: UN[w.u] && UN[w.u].ic, unit: uName(UN[w.u]), word: 1 }));
+  return o.filter(x => !isDelK(x.key)).map(overlay);
 }
 function wList() {
   const q = norm(WF.q), f = WF.filter, keep = x => CUR && x.key === CUR.key;
@@ -268,7 +289,19 @@ function wordsHTML() {
       <div class="small">${c.unit ? esc(c.unit) + ' · ' : ''}${t('nVoice', { n: nV, t: all.length })}</div>
       <div class="whead">${c.word ? picOf(c, 'md') : ''}<div style="min-width:0">${c.who ? `<div class="small" style="font-weight:700">${esc(t('speaker', { w: c.who }))}</div>` : ''}
         <div class="pl" style="font-size:clamp(22px,4vw,32px)">${esc(c.pl)}</div>${c.ipa ? `<div class="ipa">/${esc(c.ipa)}/</div>` : ''}<div class="gl">${esc(c.gl)}</div></div></div>
+      ${c.ed ? `<div class="small mt">✏️ ${t('edited')} · ${esc(t('orig'))}: <i>${esc(c.opl)}</i></div>` : ''}
+      <h3 class="sec">${t('editT')}</h3>
+      ${EDT ? `<label for="t_pl">${t('pl')}</label><input class="field" id="t_pl" lang="pl" value="${esc(EDT.pl)}" autocomplete="off" spellcheck="true">
+        <div class="keys mt">${'ą ć ę ł ń ó ś ź ż'.split(' ').map(ch => `<button data-a="key" data-f="t_pl" data-c="${ch}">${ch}</button>`).join('')}</div>
+        <label for="t_es">${t('es')}</label><input class="field" id="t_es" value="${esc(EDT.es)}" autocomplete="off">
+        ${c.word ? `<label for="t_ne">${t('noteEs')}</label><textarea class="field" id="t_ne">${esc(EDT.ne)}</textarea>
+        <label>${t('reg')}</label><div class="seg">${[['', t('regN')], ['F', t('regF')], ['I', t('regI')]].map(([v, l]) => `<button class="${EDT.r === v ? 'on' : ''}" data-a="edreg" data-v="${v}">${l}</button>`).join('')}</div>` : ''}
+        <div id="t_res">${EDT.res || ''}</div>
+        <div class="btns two mt"><button class="btn s sm" data-a="edcheck" id="edcheck">🔎 ${t('check')}</button><button class="btn sm" data-a="edsave" id="edsave">✓ ${t('eSave')}</button></div>
+        <div class="btns two mt">${c.ed ? `<button class="btn g sm" data-a="edreset">↩️ ${t('eRestore')}</button>` : '<span></span>'}<button class="btn g sm" data-a="edcancel">${t('cancel')}</button></div>`
+      : `<p class="small" style="margin:0 0 8px">${t('editSub')}</p><button class="btn s sm" data-a="edopen">✏️ ${t('editBtn')}</button>`}
       <h3 class="sec">${t('voiceT')}${hasV ? ' ✓' : ''}</h3>
+      ${voiceStale(c.key, c.pl) ? `<div class="fb warn small">${t('stale')}</div>` : ''}
       ${mic ? `<div class="lvl"><i id="lvl"></i></div>
       <div class="rbtns mt">
         <button class="btn ${rn ? 'bad' : ''} recb" data-a="vrec" ${VSTATE === 'proc' ? 'disabled' : ''}>${rn ? '⏹ ' + t('stop') : '🎙️ ' + t('rec')}</button>
@@ -283,7 +316,9 @@ function wordsHTML() {
         : `<div class="btns two"><label class="btn s sm filebtn">${hasP ? t('change') : t('pick')}<input type="file" accept="image/*" id="wphoto" hidden></label>${hasP ? `<button class="btn g sm" data-a="pdel">${delQ === 'p' ? t('delPhotoQ') : '🗑 ' + t('delPhoto')}</button>` : '<span></span>'}</div>`}
       <h3 class="sec">${t('hideT')}</h3>
       ${hid ? `<div class="fb warn small">${HID[c.key].by === 's' ? t('hidByS') : t('hidByT')}</div><button class="btn s sm mt" data-a="unhide">↩️ ${t('unhide')}</button>`
-        : `<p class="small" style="margin:0 0 8px">${t('hideSub')}</p><button class="btn g sm" data-a="hide">🚫 ${t('hideBtn')}</button>`}` : ''}
+        : `<p class="small" style="margin:0 0 8px">${t('hideSub')}</p><button class="btn g sm" data-a="hide">🚫 ${t('hideBtn')}</button>`}
+      <h3 class="sec">${t('delT')}</h3><p class="small" style="margin:0 0 8px">${t('delSub')}</p>
+      <button class="btn g sm" data-a="delx">${delQ === 'x' ? '⚠️ ' + t('delQx') : '🗑 ' + t('delBtn')}</button>` : ''}
       <button class="btn s mt2" data-a="wnext">${t('skip')}</button>
       ${mic ? `<div class="small mt kbh">${t('kbd')}</div>` : ''}</div>`;
   }
@@ -295,12 +330,12 @@ function wordsHTML() {
       <div class="vlist mt">${rows || `<div class="empty">${t('vNone')}</div>`}</div></div></div></div>`;
 }
 async function loadPhoto(k) { try { const b = await getRaw('img/' + k + '.jpg'); PHO[k] = 'data:image/jpeg;base64,' + b; wrender(); } catch (e) {} }
-function wrender() { if (TAB === 'words') { const y = window.scrollY; render(); window.scrollTo(0, y); } }
+function wrender() { if (TAB === 'words') { const y = window.scrollY, l = $('.vlist'), ly = l ? l.scrollTop : 0; render(); window.scrollTo(0, y); const l2 = $('.vlist'); if (l2 && ly) l2.scrollTop = ly; } }
 function wnext() {
   const before = items(WF.kind).filter(x => true), i = before.findIndex(x => CUR && x.key === CUR.key);
   const old = CUR; CUR = null; const list = wList();
   CUR = list.find(x => before.findIndex(y => y.key === x.key) > i && (!old || x.key !== old.key)) || list.find(x => !old || x.key !== old.key) || null;
-  PREV = null; PPREV = null; VMSG = ''; delQ = null; VSTATE = 'idle';
+  PREV = null; PPREV = null; VMSG = ''; delQ = null; VSTATE = 'idle'; EDT = null;
 }
 
 const ACT = {
@@ -309,7 +344,7 @@ const ACT = {
   out() { C = null; try { localStorage.removeItem(KEY); } catch (e) {} render(); },
   tab(d) { readForm(); TAB = d.v; render(); window.scrollTo(0, 0); },
   /* add tab */
-  key(d) { const e = $('#f_pl'); const p = e.selectionStart == null ? e.value.length : e.selectionStart; e.value = e.value.slice(0, p) + d.c + e.value.slice(e.selectionEnd == null ? p : e.selectionEnd); e.focus(); try { e.setSelectionRange(p + 1, p + 1); } catch (x) {} },
+  key(d) { const e = $('#' + (d.f || 'f_pl')); const p = e.selectionStart == null ? e.value.length : e.selectionStart; e.value = e.value.slice(0, p) + d.c + e.value.slice(e.selectionEnd == null ? p : e.selectionEnd); e.focus(); try { e.setSelectionRange(p + 1, p + 1); } catch (x) {} },
   reg(d) { readForm(); F.r = d.v; document.querySelectorAll('.seg.r button').forEach(b => b.classList.toggle('on', b.dataset.v === d.v)); },
   emo(d) { $('#f_em').value = d.v; readForm(); drawEmojis(); },
   fphotodel() { readForm(); FPHOTO = null; render(); },
@@ -349,7 +384,7 @@ const ACT = {
   recnew() { TAB = 'words'; WF.kind = 'mine'; WF.filter = 'all'; CUR = items('mine').find(x => x.key === 't' + lastAdded) || null; lastAdded = null; PREV = null; render(); window.scrollTo(0, 0); },
   /* words tab */
   wkind(d) { WF.kind = d.v; if (d.v === 'dlg' && (WF.filter === 'nophoto' || WF.filter === 'hidden')) WF.filter = 'all'; CUR = null; PREV = null; PPREV = null; VMSG = ''; render(); },
-  wsel(d) { if (VSTATE === 'rec') return; CUR = items(WF.kind).find(x => x.key === d.k) || null; PREV = null; PPREV = null; VMSG = ''; delQ = null; wrender(); if (window.innerWidth < 900) window.scrollTo({ top: 0, behavior: 'smooth' }); },
+  wsel(d) { if (VSTATE === 'rec') return; CUR = items(WF.kind).find(x => x.key === d.k) || null; PREV = null; PPREV = null; VMSG = ''; delQ = null; EDT = null; wrender(); if (window.innerWidth < 900) window.scrollTo({ top: 0, behavior: 'smooth' }); },
   wnext() { if (VSTATE === 'rec') return; wnext(); wrender(); },
   async vrec() {
     if (!CUR) return;
@@ -374,7 +409,7 @@ const ACT = {
   },
   async vsave() {
     if (!PREV || !CUR) return; const k = CUR.key, P0 = PREV, b = $('#vsave'); if (b) { b.disabled = true; b.textContent = t('adding'); }
-    try { await saveMedia('voice', k, P0.b64, CUR.pl); AUD[k] = 'data:audio/mpeg;base64,' + P0.b64; toast(t('vSaved')); wnext(); wrender(); }
+    try { await saveMedia('voice', k, P0.b64, CUR.pl, CUR.pl); AUD[k] = 'data:audio/mpeg;base64,' + P0.b64; toast(t('vSaved')); wnext(); wrender(); }
     catch (e) { toast(errT(e)); if (b) { b.disabled = false; b.textContent = '✓ ' + t('saveNext'); } }
   },
   async vdel() {
@@ -393,11 +428,46 @@ const ACT = {
     const k = CUR.key; delQ = null;
     try { await delMedia('img', k); delete PHO[k]; toast(t('photoDel')); wrender(); } catch (e) { toast(errT(e)); }
   },
+  edopen() { if (!CUR) return; EDT = { pl: CUR.pl, es: CUR.gl, ne: CUR.ne || '', r: CUR.r || '' }; wrender(); const e = $('#t_pl'); if (e) e.focus(); },
+  edcancel() { EDT = null; wrender(); },
+  edreg(d) { edRead(); EDT.r = d.v; wrender(); },
+  async edcheck() {
+    edRead(); const b = $('#edcheck'); if (b) { b.disabled = true; b.textContent = t('checking'); }
+    const m = await languageTool(EDT.pl).catch(() => null); EDT.lt = m;
+    EDT.res = m === null ? `<div class="issue">${t('ltDown')}</div>` : !m.length ? `<div class="issue ok"><b>✓ ${t('ltOk')}</b></div>` :
+      m.map((x, j) => `<div class="issue"><b>${esc(x.message)}</b>${(x.replacements || []).slice(0, 5).map((r, q) => `<button class="sug" data-a="edfix" data-j="${j}" data-q="${q}">${esc(r.value)}</button>`).join('')}</div>`).join('');
+    wrender();
+  },
+  edfix(d) { edRead(); const m = EDT.lt && EDT.lt[Number(d.j)]; if (!m) return; EDT.pl = EDT.pl.slice(0, m.offset) + m.replacements[Number(d.q)].value + EDT.pl.slice(m.offset + m.length); ACT.edcheck(); },
+  async edsave() {
+    if (!CUR || !EDT) return; edRead(); const pl = EDT.pl.trim().replace(/\s+/g, ' '); if (!pl) return toast(t('needPl'));
+    const b = $('#edsave'); if (b) { b.disabled = true; b.textContent = t('adding'); }
+    const v = { pl, es: EDT.es.trim(), pc: pl !== CUR.opl }; if (CUR.word) { v.ne = EDT.ne.trim(); v.r = EDT.r; }
+    const old = edOf(CUR.key); if (old && old.em) v.em = old.em;
+    try { await setEdit(CUR.key, v); const k = CUR.key; EDT = null; CUR = items(WF.kind).find(x => x.key === k) || null; toast(t('eSaved')); wrender(); }
+    catch (e) { toast(errT(e)); if (b) { b.disabled = false; b.textContent = '✓ ' + t('eSave'); } }
+  },
+  async edreset() {
+    if (!CUR) return;
+    try { await setEdit(CUR.key, { reset: true }); const k = CUR.key; EDT = null; CUR = items(WF.kind).find(x => x.key === k) || null; toast(t('eRestored')); wrender(); } catch (e) { toast(errT(e)); }
+  },
+  async delx() {
+    if (!CUR) return; if (delQ !== 'x') { delQ = 'x'; return wrender(); }
+    const k = CUR.key; delQ = null;
+    try {
+      await setHidden(k, true, true);
+      if (/^t\d+$/.test(k)) { const n = Number(k.slice(1)); const r = await update('words.json', x => { if (x.words[n]) x.words[n].del = true; }, `teacher: delete ${k}`, { v: 1, words: [] }); WL = r.words; }
+      if (VI[k]) await delMedia('voice', k).catch(() => {});
+      if (II[k]) await delMedia('img', k).catch(() => {});
+      toast(t('removed')); wnext(); wrender();
+    } catch (e) { toast(errT(e)); }
+  },
   async hide() { if (!CUR) return; try { await setHidden(CUR.key, true); toast(t('hidOk')); wrender(); } catch (e) { toast(errT(e)); } },
   async unhide() { if (!CUR) return; try { await setHidden(CUR.key, false); toast(t('unhidOk')); wrender(); } catch (e) { toast(errT(e)); } }
 };
 
 /* ---------------- page */
+function edRead() { if (!EDT) return; [['pl', 't_pl'], ['es', 't_es'], ['ne', 't_ne']].forEach(([k, id]) => { const e = $('#' + id); if (e) EDT[k] = e.value; }); }
 function tabsHTML() { return `<div class="seg tabs" style="margin-bottom:14px;max-width:460px"><button class="${TAB === 'add' ? 'on' : ''}" data-a="tab" data-v="add">${t('tAdd')}</button><button class="${TAB === 'words' ? 'on' : ''}" data-a="tab" data-v="words">${t('tWords')}</button></div>`; }
 function render() {
   document.documentElement.lang = lang; $('#ttl').textContent = t('ttl');
@@ -443,6 +513,15 @@ async function boot() {
   try { await loadAll(); } catch (e) { toast(errT(e)); }
   readForm(); render();
 }
+/* keep her view fresh (Aaron may edit or remove words meanwhile), without disturbing a recording or a form */
+async function refresh() {
+  if (!C || VSTATE !== 'idle' || PREV || PPREV || EDT || document.visibilityState === 'hidden') return;
+  const a = document.activeElement; if (a && /INPUT|TEXTAREA|SELECT/.test(a.tagName)) return;
+  try { await loadAll(); if (TAB === 'words') wrender(); else { const l = $('#list'); if (l) l.innerHTML = listHTML(); } } catch (e) {}
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') refresh(); });
+setInterval(refresh, 90000);
+window.__refresh = refresh;
 if (window.speechSynthesis) speechSynthesis.getVoices();
 boot();
 })();

@@ -18,7 +18,7 @@ async function start(levelCb, autoStop) {
     ac = new (window.AudioContext || window.webkitAudioContext)();
     const src = ac.createMediaStreamSource(stream); an = ac.createAnalyser(); an.fftSize = 512; src.connect(an);
     const buf = new Uint8Array(an.fftSize);
-    const tick = () => { an.getByteTimeDomainData(buf); let m = 0; for (let i = 0; i < buf.length; i++) m = Math.max(m, Math.abs(buf[i] - 128)); if (onLevel) onLevel(m / 128); raf = requestAnimationFrame(tick); };
+    const tick = () => { if (!an) return; an.getByteTimeDomainData(buf); let m = 0; for (let i = 0; i < buf.length; i++) m = Math.max(m, Math.abs(buf[i] - 128)); if (onLevel) onLevel(m / 128); raf = requestAnimationFrame(tick); };
     tick();
   } catch (e) {}
   stopTimer = setTimeout(() => { if (autoStop) autoStop(); }, MAX_MS);

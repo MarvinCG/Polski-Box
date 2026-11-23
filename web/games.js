@@ -55,6 +55,8 @@ function others(w, n, f, key) {
 }
 
 let G = null, timer = null;
+/* a timer belongs to the game that started it: it does nothing if that game was closed or replaced */
+const later = (fn, ms) => { const g0 = G; setTimeout(() => { if (G && G === g0) fn(); }, ms); };
 const now = () => Date.now();
 function stopTimer() { if (timer) { clearInterval(timer); timer = null; } }
 
@@ -101,7 +103,7 @@ function nextListen() {
   const i = G.ids[G.r], w = W()[i];
   const os = sh([w].concat(others(w, 5, hasPic, gl)));
   G.cur = { w, opts: os, right: os.indexOf(w), wrong: [], rep: 0, done: false }; G.seen.add(i);
-  setTimeout(() => { if (G && G.cur && G.cur.w === w) P().play(w); }, 350);
+  later(() => { if (G.cur && G.cur.w === w) P().play(w); }, 350);
 }
 const PLAIN = { 'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l', 'ń': 'n', 'ó': 'o', 'ś': 's', 'ź': 'z', 'ż': 'z' };
 const MARK = { a: 'ą', c: 'ć', e: 'ę', l: 'ł', n: 'ń', o: 'ó', s: 'ś', z: 'ż' };
@@ -206,15 +208,15 @@ const ACT = {
     G.open.push(k); if (o.s === 'pl') P().play(W()[o.i]);
     if (G.open.length === 2) {
       G.moves++; const [a, b] = G.open.map(x => G.tiles[x]);
-      if (a.i === b.i) { a.ok = b.ok = true; G.open = []; G.done++; G.seen.add(a.i); if (o.s !== 'pl') P().play(W()[o.i]); if (G.done === G.n) { const secs = (now() - G.t0) / 1000; G.score = Math.max(60, 600 - 18 * (G.moves - G.n) - 2 * secs); setTimeout(finish, 700); } }
-      else { G.lock = true; G.miss.add(a.i); G.miss.add(b.i); setTimeout(() => { if (!G) return; G.open = []; G.lock = false; P().renderSession(); }, 950); }
+      if (a.i === b.i) { a.ok = b.ok = true; G.open = []; G.done++; G.seen.add(a.i); if (o.s !== 'pl') P().play(W()[o.i]); if (G.done === G.n) { const secs = (now() - G.t0) / 1000; G.score = Math.max(60, 600 - 18 * (G.moves - G.n) - 2 * secs); later(finish, 700); } }
+      else { G.lock = true; G.miss.add(a.i); G.miss.add(b.i); later(() => { G.open = []; G.lock = false; P().renderSession(); }, 950); }
     }
     P().renderSession();
   },
   pick(d) {
     const c = G.cur; if (!c || c.done || now() > G.end) return; const k = Number(d.k); c.done = true; c.pick = k;
-    if (k === c.right) { G.score += 10 * G.combo; G.combo = Math.min(5, G.combo + 1); G.ok++; P().renderSession(); setTimeout(() => { if (G && G.phase === 'play') { nextBlitz(); P().renderSession(); } }, 280); }
-    else { G.combo = 1; G.bad++; G.end -= 3000; G.miss.add(c.w.i); P().play(c.w); P().renderSession(); setTimeout(() => { if (G && G.phase === 'play') { nextBlitz(); P().renderSession(); } }, 1100); }
+    if (k === c.right) { G.score += 10 * G.combo; G.combo = Math.min(5, G.combo + 1); G.ok++; P().renderSession(); later(() => { if (G.phase === 'play') { nextBlitz(); P().renderSession(); } }, 280); }
+    else { G.combo = 1; G.bad++; G.end -= 3000; G.miss.add(c.w.i); P().play(c.w); P().renderSession(); later(() => { if (G.phase === 'play') { nextBlitz(); P().renderSession(); } }, 1100); }
   },
   tap(d) {
     const c = G.cur, k = Number(d.k); if (c.done) return;

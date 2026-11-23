@@ -66,6 +66,10 @@ Tiene dos pestañas:
   - **quitarla de la app** o volver a mostrarla.
   Hay filtros: *sin tu voz*, *sin foto* y *quitadas*.
 
+**Modificar y eliminar.** Cualquier palabra, frase o línea de diálogo se puede modificar desde la pestaña Palabras de la página de la profesora (✏️ Modificar), y cualquier palabra desde la app (abre la palabra → ✏️ Modificar): el polaco, la traducción, la nota y el registro, con revisión de ortografía. Siempre se puede **volver al original**. Si cambia el polaco, suena la voz generada hasta que la profesora vuelva a grabarla. Cada grabación guarda el texto que se leyó, así no suena una grabación que ya no coincide.
+
+**Eliminar definitivamente** (🗑, con doble confirmación) borra la palabra para los dos y no se puede recuperar. Junto con ella se borran su voz y su foto. *Quitar* (🚫) solo la esconde y se puede recuperar.
+
 Tú también puedes quitar palabras desde la app: abre una palabra → **Quitar de mi estudio**, o toca *No la necesito* cuando te aparece una nueva. Las quitadas no salen en sesiones ni juegos y se recuperan en **Palabras → Quitadas**. Lo que quita uno lo ve el otro al sincronizar.
 
 ## Voz de la profesora
@@ -128,6 +132,7 @@ tools/
   sit.txt       las 12 situaciones (frases, registro, notas, diálogos)
   piper_audio.py  audio HD con Piper (lo usa el workflow)
   build_apk.sh  arma el APK sin Android Studio (paquetes de Ubuntu: aapt, apksigner, zipalign, dalvik-exchange, libandroid-23-java)
+  test_edit.mjs  scroll, modificar y eliminar · test_monkey.mjs miles de toques al azar buscando errores
   test_v2.mjs   prueba de punta a punta con Playwright (GitHub y LanguageTool simulados); test_voice.mjs: voz, fotos y palabras quitadas
 android/        (opcional, ya no se distribuye) envoltorio WebView del APK
 ```
